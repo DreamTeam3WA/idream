@@ -1,14 +1,23 @@
 <div class="produit">
 	<div class="wrapper-caroussel">
 		<ul class="caroussel">
-			<li><img src="<?=$lien?>" alt=""></li>
-			<li><img src="./views/images/slider/slider2.jpg" alt=""></li>
-			<li><img src="./views/images/slider/slider3.jpg" alt=""></li>
+			<?php require('./apps/produit_single_img.php');?>
 		</ul>
 	</div>
-	<?=$nom?>
-	<?=$reference?>
-	<?=$nom?>
-	<?=$nom?>
-	<?=$nom?>
+	<div class="produit_descr">
+	<h2><?=$nom_produit?></h2>
+	<span>Référence produit : <?=$reference?></span><span>Date mise en ligne produit : <?=$date?></span> 
+	<p><?=$description?></p>
+	<label for="dur_produit">Durée du produit :</label> 
+	<select name="" id="dur_produit">
+		<option value=""><?=$duree?></option>
+		<option value="">30</option>
+		<option value="">60</option>
+	</select>
+	<p>Prix du produit : <?=$prix?>€ </p>
+	</div>
+	<?=$note?> 
+	<?=$commentaires?> 
+	<?=$date?>  
+	<?=$prenom?>
 </div>

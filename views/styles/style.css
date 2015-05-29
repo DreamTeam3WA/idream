@@ -1,0 +1,17 @@
+.produit {
+	background: grey;
+	overflow: hidden;
+}
+
+.wrapper-caroussel {
+	width: 40%;
+	float: left;
+}
+.wrapper-caroussel img {
+	width: 100%;
+}
+
+.produit_descr {
+	width: 60%;
+	float: left;
+}
