@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	
-	$db = new PDO("mysql:dbname=dreamcommerce;host=127.0.0.1", 'root', 'troiswa');
+	$db = new PDO("mysql:dbname=dreamcommerce;host=10.32.195.220", 'idream', 'troiswa');
 	$db->exec("SET CHARACTER SET utf8");
 
 	$page = 'home';

@@ -1,2 +1,3 @@
-<!-- require('views/errotique.phtml');
-	} -->
+<?php
+require('views/errotique.phtml');
+?>
