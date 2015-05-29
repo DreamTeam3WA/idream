@@ -1,3 +1,3 @@
 <?php
-require('views/errotique.phtml');
+require('views/erotique.phtml');
 ?>
