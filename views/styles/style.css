@@ -1,8 +1,48 @@
-.produit {
-	background: grey;
-	overflow: hidden;
+body {
+	background: url(../../images/fond.jpg);
 }
 
+/*HEADER*/
+.header {
+	background: rgba(181,181,181,0.9);
+} 
+
+.header h1 {
+	text-align: center;
+	font-size: 70px;
+}
+.header_lien ul li{
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.header_lien ul li a {
+	text-decoration: none;
+	font-size: 20px;
+	color: #333333;
+}
+
+.header_lien ul li a:hover {
+	color: #FFFFFF;
+}
+.header_lien ul {
+		text-align: left;
+		padding: 0;
+}
+/*PRODUIT SINGLE */
+.produit {
+	background: rgba(181,181,181,0.2);
+	overflow: hidden;
+	margin-top: 50px;
+}
+
+.bx-wrapper .bx-viewport {
+	border: none;
+}
+
+.caroussel {
+	padding: 0;
+}
 .wrapper-caroussel {
 	width: 40%;
 	float: left;
@@ -15,3 +55,8 @@
 	width: 60%;
 	float: left;
 }
+
+/*FOOTER*/
+.footer {
+	background: rgba(181,181,181,0.9);
+} 
