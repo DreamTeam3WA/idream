@@ -4,6 +4,10 @@
 	$db = new PDO("mysql:dbname=dreamcommerce;host=10.32.195.220", 'idream', 'troiswa');
 	$db->exec("SET CHARACTER SET utf8");
 
+	if (isset($_GET['id_user'])){
+		$id_user = $_GET['id_user'];
+	}
+
 	$page = 'home';
 	if (isset($_GET['page']) && !empty($_GET['page'])){
 		$page = $_GET['page'];
