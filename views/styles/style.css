@@ -1,10 +1,16 @@
+html {
+	height: 100%;
+}
 body {
 	background: url(../../images/fond.jpg);
+	position: relative;
+	height: 100%;
 }
 
 /*HEADER*/
 .header {
 	background: rgba(181,181,181,0.9);
+	position: relative;
 } 
 
 .header h1 {
@@ -57,6 +63,48 @@ body {
 }
 
 /*FOOTER*/
+.wrap {
+	min-height: 75%;
+}
 .footer {
 	background: rgba(181,181,181,0.9);
-} 
+	position: absolute;
+	border:0;
+	right: 0;
+	left: 0;
+	height: 25%;
+}
+
+.footer_image {
+	width: 100px;
+	opacity: 0.8;
+}
+.footer_lien ul li{
+	display: block;
+	margin-right: 20px;
+}
+
+.footer_lien ul li a {
+	text-decoration: none;
+	font-size: 17px;
+	color: #333333;
+}
+
+.footer_lien ul li a:hover {
+	color: #FFFFFF;
+}
+.footer_lien ul {
+		text-align: left;
+		padding: 0;
+}
+.flaticon a {
+	text-decoration: none;
+}
+.flaticon i, .flaticon i::before {
+	color: black;
+	font-size: 80px;
+}
+
+.flaticon a:hover i::before {
+	color: red;
+}
