@@ -103,8 +103,9 @@ body {
 .flaticon i, .flaticon i::before {
 	color: black;
 	font-size: 80px;
+	transition: 1s linear;
 }
 
 .flaticon a:hover i::before {
-	color: red;
+	color: #EF4036;
 }
