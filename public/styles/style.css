@@ -36,6 +36,101 @@ body {
 		text-align: left;
 		padding: 0;
 }
+
+/*LOGIN--PROFIL*/
+
+.login {
+	text-align: right;
+	margin-bottom: 10px;
+}
+
+.login button {
+	background: #BABAB8;
+	border: 1px solid #EBE9DB;
+	color: white;
+	font-weight: bold;
+	padding: 5px 5px;
+	margin: 0;
+}
+
+.panier_div {
+	text-align: right;
+}
+.panier, .creer_compte {
+	background: #DE0E4D;
+	border: 1px solid #DE0E4D;
+	color: white;
+	font-weight: bold;
+	padding: 5px 5px;
+	margin: 0;
+}
+.creer_compte {
+	text-transform: uppercase;
+	border: none;
+	width: 11%;
+}
+.user_add input {
+	padding: 5px 5px;
+	background: #D5D3C8;
+	border: none;
+	width: 144px;
+}
+.entete_user_add {
+	background: #F0EEDF;
+	padding: 10px;
+	font-size: 20px;	
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	vertical-align: top;
+}
+.entete_user_add p {
+	margin: 0;
+}
+.signin {
+	margin-right: -100px !important;
+}
+
+.login {
+	position: relative;
+}
+.inscription {
+	text-align: center;
+	display: none;
+	margin: 10px 0;
+}
+.connection {
+	text-align: center;
+	display: none;
+	margin: 10px 0;
+}
+
+.fermer_add_user {
+	border-radius: 50%;
+	background: #B9B9B8;
+	padding: 1px 6px;
+	font-size: 15px;
+	display: inline-block;
+	cursor: pointer;
+	font-weight: bold;
+	color: #F0EEDF;
+	vertical-align: top;
+}
+
+.user_add .label_input{
+	display: inline-block;
+	margin: 20px 0;
+}
+
+.user_add label {
+	display: block;
+	text-align: left;
+	font-weight: normal;
+	font-size: 12px;
+	margin: 0;
+}
+
+
 /*PRODUIT SINGLE */
 .produit {
 	background: rgba(181,181,181,0.2);
@@ -105,75 +200,6 @@ body {
 	padding-right: 20px; 
 }
 
-.login {
-	text-align: right;
-}
-
-.login button {
-	background: #BABAB8;
-	border: 1px solid #EBE9DB;
-	color: white;
-	font-weight: bold;
-	padding: 5px 5px;
-	margin: 0;
-}
-
-.panier_div {
-	text-align: right;
-}
-.panier, .creer_compte {
-	background: #DE0E4D;
-	border: 1px solid #DE0E4D;
-	color: white;
-	font-weight: bold;
-	padding: 5px 5px;
-	margin: 0;
-}
-
-.entete_user_add {
-	background: #F0EEDF;
-	padding: 4px;
-	text-transform: uppercase;
-
-}
-
-.signin {
-	margin-right: -100px !important;
-}
-
-.login {
-	position: relative;
-}
-.inscription {
-	text-align: center;
-	display: none;
-	margin: 10px 0;
-}
-
-.fermer_add_user {
-	border-radius: 50%;
-	background: white;
-	padding: 1px 7px;
-	font-size: 15px;
-	display: inline-block;
-	cursor: pointer;
-	font-weight: bold;
-	color: #B9B9B8;
-}
-
-.user_add .label_input{
-	display: inline-block;
-	margin: 20px 0;
-}
-
-.user_add label {
-	display: block;
-	text-align: left;
-	font-weight: normal;
-	font-size: 12px;
-	margin: 0;
-}
-
 /*FOOTER*/
 .wrap {
 	min-height: 73%;
@@ -219,6 +245,7 @@ body {
 }
 
 .flaticon a:hover i::before {
+<<<<<<< HEAD:views/styles/style.css
 	color: #EF4036;
 =======
 header h1
@@ -238,4 +265,7 @@ header li
 {
 	margin : 0 auto;
 >>>>>>> steve
+=======
+	color: #DE0E4D;
+>>>>>>> 062ee0b11cabe715725e19245b3be80c9cac5ed0:public/styles/style.css
 }
