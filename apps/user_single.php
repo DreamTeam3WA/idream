@@ -1,7 +1,7 @@
 <?php
 // if (!empty($id_user) && (droits() == 1 || droits() == 2 || $_SESSION['id_user'] == $id_user)) {
 // 	if(_SESSION['id_user'] == $id_user){
-var_dump($id_user);
+// var_dump($id_user);
 	$tab = $db->query("SELECT * FROM user
 	JOIN commande ON commande.id_user = user.id_user
 	JOIN adresse ON adresse.id_user = user.id_user
