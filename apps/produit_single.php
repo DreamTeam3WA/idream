@@ -14,13 +14,13 @@ if (isset($id_produit)) {
 		$nom_produit = htmlentities($tab[0]['nom_produit']);
 		$reference = htmlentities($tab[0]['reference']);
 		$date = $tab[0]['date'];
-		$description = $tab[0]['description'];
+		$description = htmlentities($tab[0]['description']);
 		$duree = $tab[0]['duree'];
 		$prix = $tab[0]['prix'];
 		$note = $tab[0]['note'];
-		$commentaires = $tab[0]['commentaires'];
+		$commentaires = htmlentities($tab[0]['commentaires']);
 		$date = $tab[0]['date'];
-		$prenom = $tab[0]['prenom'];
+		$prenom = htmlentities($tab[0]['prenom']);
 	}
 
 	else {
