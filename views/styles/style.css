@@ -10,3 +10,8 @@ header li
 {
 	display:inline-block;
 }
+
+.premonitoire-imagetitre
+{
+	margin : 0 auto;
+}
