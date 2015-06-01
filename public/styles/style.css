@@ -41,6 +41,7 @@ body {
 .login {
 	text-align: right;
 	margin-bottom: 10px;
+	position: relative;
 }
 
 .login button {
@@ -65,14 +66,10 @@ body {
 }
 .creer_compte {
 	text-transform: uppercase;
+	letter-spacing: 0.02em;
 	border: none;
-	width: 11%;
-}
-.user_add input {
-	padding: 5px 5px;
-	background: #D5D3C8;
-	border: none;
-	width: 144px;
+	width: 90px;
+	padding: 5px;
 }
 .entete_user_add {
 	background: #F0EEDF;
@@ -89,22 +86,21 @@ body {
 .signin {
 	margin-right: -100px !important;
 }
-
-.login {
-	position: relative;
+.wrapper_form_nav {
+	background: #CAC8BD;
+	text-align: center;
+	margin: 10px 0;
 }
 .inscription {
 	text-align: center;
 	display: none;
 	margin: 10px 0;
-	background: #CAC8BD;
 }
-.wrapper_form_connect {
+.connection {
 	text-align: center;
 	display: none;
 	margin: 10px 0;
 }
-
 .fermer_add_user {
 	border-radius: 50%;
 	background: #B9B9B8;
@@ -117,17 +113,23 @@ body {
 	vertical-align: top;
 }
 
-.user_add .label_input{
+.user_add .label_input, .user_connect .label_input {
 	display: inline-block;
 	margin: 20px 0;
 }
 
-.user_add label {
+.user_add label, .user_connect label {
 	display: block;
 	text-align: left;
 	font-weight: normal;
 	font-size: 12px;
 	margin: 0;
+}
+.user_add input, .user_connect  input{
+	padding: 5px 5px;
+	background: #D5D3C8;
+	border: none;
+	width: 144px;
 }
 
 
