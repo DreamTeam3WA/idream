@@ -3,4 +3,3 @@
 require('./views/home.phtml');
 
 ?>
-?>
