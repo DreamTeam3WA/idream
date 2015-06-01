@@ -2,5 +2,5 @@
 
 require('./views/home.phtml');
 
-
 ?>
+
