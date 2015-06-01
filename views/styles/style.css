@@ -35,6 +35,92 @@ body {
 		text-align: left;
 		padding: 0;
 }
+
+/*LOGIN--PROFIL*/
+
+.login {
+	text-align: right;
+}
+
+.login button {
+	background: #BABAB8;
+	border: 1px solid #EBE9DB;
+	color: white;
+	font-weight: bold;
+	padding: 5px 5px;
+	margin: 0;
+}
+
+.panier_div {
+	text-align: right;
+}
+.panier, .creer_compte {
+	background: #DE0E4D;
+	border: 1px solid #DE0E4D;
+	color: white;
+	font-weight: bold;
+	padding: 5px 5px;
+	margin: 0;
+}
+.creer_compte {
+	text-transform: uppercase;
+	border: none;
+	width: 20%;
+}
+.user_add input {
+	padding: 5px 5px;
+	background: #D5D3C8;
+	border: none;
+}
+.entete_user_add {
+	background: #F0EEDF;
+	padding: 10px;
+	font-size: 20px;	
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+}
+.entete_user_add p {
+	margin: 0;
+}
+.signin {
+	margin-right: -100px !important;
+}
+
+.login {
+	position: relative;
+}
+.inscription {
+	text-align: center;
+	display: none;
+	margin: 10px 0;
+}
+
+.fermer_add_user {
+	border-radius: 50%;
+	background: white;
+	padding: 1px 7px;
+	font-size: 15px;
+	display: inline-block;
+	cursor: pointer;
+	font-weight: bold;
+	color: #B9B9B8;
+}
+
+.user_add .label_input{
+	display: inline-block;
+	margin: 20px 0;
+}
+
+.user_add label {
+	display: block;
+	text-align: left;
+	font-weight: normal;
+	font-size: 12px;
+	margin: 0;
+}
+
+
 /*PRODUIT SINGLE */
 .produit {
 	background: rgba(181,181,181,0.2);
@@ -102,75 +188,6 @@ body {
 	font-size: 50px;
 	color: #DE0E4D;
 	padding-right: 20px; 
-}
-
-.login {
-	text-align: right;
-}
-
-.login button {
-	background: #BABAB8;
-	border: 1px solid #EBE9DB;
-	color: white;
-	font-weight: bold;
-	padding: 5px 5px;
-	margin: 0;
-}
-
-.panier_div {
-	text-align: right;
-}
-.panier, .creer_compte {
-	background: #DE0E4D;
-	border: 1px solid #DE0E4D;
-	color: white;
-	font-weight: bold;
-	padding: 5px 5px;
-	margin: 0;
-}
-
-.entete_user_add {
-	background: #F0EEDF;
-	padding: 4px;
-	text-transform: uppercase;
-
-}
-
-.signin {
-	margin-right: -100px !important;
-}
-
-.login {
-	position: relative;
-}
-.inscription {
-	text-align: center;
-	display: none;
-	margin: 10px 0;
-}
-
-.fermer_add_user {
-	border-radius: 50%;
-	background: white;
-	padding: 1px 7px;
-	font-size: 15px;
-	display: inline-block;
-	cursor: pointer;
-	font-weight: bold;
-	color: #B9B9B8;
-}
-
-.user_add .label_input{
-	display: inline-block;
-	margin: 20px 0;
-}
-
-.user_add label {
-	display: block;
-	text-align: left;
-	font-weight: normal;
-	font-size: 12px;
-	margin: 0;
 }
 
 /*FOOTER*/
