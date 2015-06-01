@@ -1,0 +1,17 @@
+header h1
+{
+	border-bottom : #978484 solid 3px;
+	background-color: #BFAFAF;
+	padding: 10px;
+	text-align: center;
+}
+
+header li 
+{
+	display:inline-block;
+}
+
+.premonitoire-imagetitre
+{
+	margin : 0 auto;
+}
