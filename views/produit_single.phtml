@@ -1,4 +1,4 @@
-<div class="produit">
+<div class="produit" id="produit_single">
 	<div class="row">
 		<div class="wrapper-caroussel col-md-5">
 			<ul class="caroussel">
@@ -39,9 +39,9 @@
 	<div class="commentaire">
 		<h3>Commentaires : <button class="add_commentaire">
 			Laissez un commentaire</button></h3> 
-		<form action="index.php?page=produit_single_commentaire_add" method="POST">
+		<form action="index.php?page=produit_single_commentaire_add" method="POST" id="ps_commentaire">
 		<div class="mce_hide">
-			<textarea name="commentaire" id="" cols="30" rows="10" class="mce"></textarea>
+			<textarea name="commentaire" id="ps_comm" cols="30" rows="10" class="mce"></textarea>
 		
 			<label for="note">Note :</label>
 			<select name="note" id="note">
@@ -51,8 +51,8 @@
 				<option value="2">2</option>
 				<option value="1">1</option>
 			</select>
-			<input type="hidden" name="id_produit" value="<?=$id_produit?>">
-			<input type="hidden" value="commentaire_add" name="action">
+			<input type="hidden" name="id_produit" id="ps_id_produit"value="<?=$id_produit?>">
+			<input type="hidden" value="commentaire_add" name="action" id="commentaire_add">
 			<button class="produit_commentaire">Envoyer commentaire</button>
 
 		</form>
