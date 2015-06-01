@@ -28,19 +28,18 @@
 				<option value="">10</option>
 			</select>
 			<h3 class="produit_prix"><?=$prix?> € </h3>
-			<h3 class="produit_note">Note du produit : <?=$note?></h3>
+			<h3 class="produit_note">Note du produit : A ajouter</h3>
 			<button class="add_panier col-md-12">Ajouter au panier</button>
 		</div>
 	</div>
 	<div class="produit_descriptif">
 		<h3>Descriptif :</h3>
 		<p><?=$description?></p>
-		<h3>Commentaires : <button class="add_commentaire">Laissez un commentaire</button></h3> 
-		<?=$commentaires?> <?=$date?>  
-		<?=$prenom?>
-	</div> 
-	<div class="mce_hide">
-		<textarea name="" id="" cols="30" rows="10" class="mce"></textarea>
-		<a class="produit_commentaire" href="">Envoyer commentaire</a>
 	</div>
-</div>
+	<div class="commentaire">
+		<h3>Commentaires : <button class="add_commentaire">
+			Laissez un commentaire</button></h3> 
+		<div class="mce_hide">
+			<textarea name="" id="" cols="30" rows="10" class="mce"></textarea>
+			<a class="produit_commentaire" href="">Envoyer commentaire</a>
+		</div>
