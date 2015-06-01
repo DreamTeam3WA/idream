@@ -37,9 +37,9 @@ else
 		$id_category = $_GET['id_category'];
 	}
 
-	if (isset($_GET['id_produit'])){
-		$id_produit = $_GET['id_produit'];
-	}
+	// if (isset($_GET['id_produit'])){
+	// 	$id_produit = $_GET['id_produit'];
+	// }
 	if (isset($_GET['id_user'])){
 		$id_user = $_GET['id_user'];
 	}
