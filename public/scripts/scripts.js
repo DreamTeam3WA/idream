@@ -5,10 +5,11 @@ $('document').ready(function()
 	})
 	$('.signup, .fermer_add_user').click(function(){
 		$('.inscription').toggle(500);
+		$('.connection').css('display',"none");
 	})
-	$('.signin, .fermer_add_user').click(function(){
-		alert("aaa");
+	$('.signin, .fermer_connect').click(function(){
 		$('.connection').toggle(500);
+		$('.inscription').css('display',"none");
 	})
 
 	$('#ps_commentaire').submit(function(info)
