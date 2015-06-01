@@ -1,5 +1,6 @@
 <?php
-if (isset($id_produit)) {
+if (isset($_GET['id_produit'])){
+	$id_produit = $_GET['id_produit'];
 	// $id_produit=$db->quote($id_produit);
 	$tab = $db->query("SELECT produit.*, avis.*, user.prenom
 	FROM produit
@@ -20,7 +21,7 @@ if (isset($id_produit)) {
 		$i=0;
 		while(isset($tab[$i])){
 			$note = $tab[$i]['note'];
-			$commentaires = htmlentities($tab[$i]['commentaires']);
+			$commentaires = balise($tab[$i]['commentaires']);
 			$date = $tab[$i]['date'];
 			$prenom = htmlentities($tab[$i]['prenom']);
 			require('./views/produit_commentaire.phtml');
