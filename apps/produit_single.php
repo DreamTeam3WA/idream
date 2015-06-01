@@ -1,11 +1,17 @@
 <?php
 if (isset($id_produit)) {
 	// $id_produit=$db->quote($id_produit);
-	$tab = $db->query("SELECT produit.*, avis.*, user.prenom
+	echo ("SELECT produit.*, avis.*, user.prenom
 	FROM produit
 	JOIN avis ON produit.id_produit = avis.id_produit
 	JOIN user ON avis.id_user = user.id_user
-	WHERE produit.id_produit= ".$id_produit )->fetchAll(PDO::FETCH_ASSOC);
+	WHERE produit.id_produit= ".$id_produit);
+	$tab = $db->query("SELECT produit.*, avis.*, user.prenom
+	FROM produit
+	LEFT JOIN avis ON produit.id_produit = avis.id_produit
+	LEFT JOIN user ON avis.id_user = user.id_user
+	WHERE produit.id_produit=".$id_produit )->fetchAll(PDO::FETCH_ASSOC);
+	var_dump($tab);
 	if (isset($tab) && !empty($tab)) {
 
 		$id_produit = $tab[0]['id_produit'];

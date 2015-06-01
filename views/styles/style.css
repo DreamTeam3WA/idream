@@ -86,13 +86,7 @@ body {
 .entete_user_add p {
 	margin: 0;
 }
-.signin {
-	margin-right: -100px !important;
-}
 
-.login {
-	position: relative;
-}
 .inscription {
 	text-align: center;
 	display: none;
