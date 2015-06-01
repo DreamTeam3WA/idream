@@ -83,7 +83,7 @@ if (isset($_POST) && isset($_POST['action']) && $_POST['action'] == "register"){
 			$droits = 3;
 
 			$db-> exec("INSERT INTO user SET nom=".$nom.", prenom=".$prenom.", telephone=".$telephone.", password=".$password.", email=".$email.", date_naissance=".$date_naissance.", droits=".$droits);
-			require('views/inscription-ok.phtml');
+			require('views/login.phtml');
 		}
 		else {
 			$erreur="Les mots de passe ne sont pas identiques";
