@@ -88,11 +88,13 @@ body {
 .entete_user_add p {
 	margin: 0;
 }
+
 .wrapper_form_nav {
 	background: #CAC8BD;
 	text-align: center;
 	margin: 10px 0;
 }
+
 .inscription {
 	text-align: center;
 	display: none;
