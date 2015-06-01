@@ -2,8 +2,7 @@
 	session_start();
 	$_SESSION['id']=1; // a supprimer
 	
-	$db = new PDO("mysql:dbname=dreamcommerce;host=10.32.195.200", 'idream', 'troiswa');
-	$db->exec("SET CHARACTER SET utf8");
+	require('config.php');
 
 	require('./apps/function.php');
 	if(isset($_GET['logout']) && $_GET['logout']==1){
