@@ -3,7 +3,7 @@
 		<h1>IDream<img class="imagelogo" src="./images/logo3wa.png" alt=""></h1>
 		<nav class="nav_top clearfix">
 			<div class="row">
-				<div class="col-md-8 col-sm-8 header_lien">
+				<div class="col-md-7 col-sm-7 header_lien">
 					<ul>
 						<li><a href="index.php?page=category_list&id_category=1">Heureux</a></li>
 						<li><a href="index.php?page=category_list&id_category=2">Cauchemar</a></li>
@@ -14,10 +14,13 @@
 						<li><a href="index.php?page=category_list&id_category=7">Merdique</a></li>
 					</ul>
 				</div>
-				<div class="col-md-4 col-sm-4 login">
+				<div class="col-md-3 col-sm-3 login">
 					<?php require('apps/header_log.php');?>
+				</div>
+				<div class="col-md-2 col-sm-2 panier_div">
 					<?php require('apps/panier.php');?>
 				</div>
+				<?php require('./apps/user_add.php'); ?>
 			</div>
 		</nav>
 	</div>
