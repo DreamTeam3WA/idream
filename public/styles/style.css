@@ -44,7 +44,7 @@ body {
 	position: relative;
 }
 
-.login button {
+.signup, .signin {
 	background: #BABAB8;
 	border: 1px solid #EBE9DB;
 	color: white;
@@ -52,11 +52,16 @@ body {
 	padding: 5px 5px;
 	margin: 0;
 }
-
-.panier_div {
-	text-align: right;
+.panier {
+	background: #DE0E4D;
+	border: 1px solid #DE0E4D;
+	color: white;
+	font-weight: bold;
+	padding: 5px 5px;
+	margin: 0;
 }
-.panier, .creer_compte {
+
+.creer_compte {
 	background: #DE0E4D;
 	border: 1px solid #DE0E4D;
 	color: white;
@@ -83,9 +88,6 @@ body {
 .entete_user_add p {
 	margin: 0;
 }
-.signin {
-	margin-right: -100px !important;
-}
 .wrapper_form_nav {
 	background: #CAC8BD;
 	text-align: center;
@@ -100,8 +102,10 @@ body {
 	text-align: center;
 	display: none;
 	margin: 10px 0;
+	display: none;
 }
-.fermer_add_user {
+
+.fermer_add_user, .fermer_connect {
 	border-radius: 50%;
 	background: #B9B9B8;
 	padding: 1px 6px;
