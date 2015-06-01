@@ -49,22 +49,31 @@ body {
 .caroussel {
 	padding: 0;
 }
-.wrapper-caroussel {
-	width: 40%;
-	float: left;
-}
 .wrapper-caroussel img {
 	width: 100%;
 }
 
-.produit_descr {
-	width: 60%;
-	float: left;
+.produit button{
+	font-size: 20px;
+	display: block;
+	padding: 10px 10px;
+	text-transform: uppercase;
 }
+
+.produit_commentaire {
+	font-size: 20px;
+	text-decoration: none;
+	padding: 10px;
+	background: white;
+	border-radius: 5px;
+	margin: 20px;
+	display: inline-block;
+}
+
 
 /*FOOTER*/
 .wrap {
-	min-height: 75%;
+	min-height: 73%;
 }
 .footer {
 	background: rgba(181,181,181,0.9);
@@ -72,7 +81,7 @@ body {
 	border:0;
 	right: 0;
 	left: 0;
-	height: 25%;
+	height: 27%;
 }
 
 .footer_image {
@@ -102,7 +111,7 @@ body {
 }
 .flaticon i, .flaticon i::before {
 	color: black;
-	font-size: 80px;
+	font-size: 40px;
 	transition: 1s linear;
 }
 
