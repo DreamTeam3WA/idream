@@ -97,8 +97,9 @@ body {
 	text-align: center;
 	display: none;
 	margin: 10px 0;
+	background: #CAC8BD;
 }
-.connection {
+.wrapper_form_connect {
 	text-align: center;
 	display: none;
 	margin: 10px 0;
