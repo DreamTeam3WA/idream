@@ -14,7 +14,7 @@ if (!empty($id_category)) {
 		$description = htmlentities($tab[$i]['description']);
 		$prix = htmlentities($tab[$i]['prix']);
 
-		require ("views/categorie.phtml");
+		require ("views/categorie_list.phtml");
 		$i++;
 		}
 	}
