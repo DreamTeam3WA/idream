@@ -4,8 +4,8 @@ if (isset($id_produit)) {
 	$tab = $db->query("SELECT produit.*, avis.*, user.prenom
 	FROM produit
 	JOIN avis ON produit.id_produit = avis.id_produit
-	JOIN user ON avis.id_user = user.id_user
-	WHERE produit.id_produit= ".$id_produit )->fetchAll(PDO::FETCH_ASSOC);
+	JOIN user ON avis.id_user = user.id_user	
+	WHERE produit.id_produit= ".$id_produit." ORDER BY id_avis")->fetchAll(PDO::FETCH_ASSOC);
 	if (isset($tab) && !empty($tab)) {
 
 		$id_produit = $tab[0]['id_produit'];
