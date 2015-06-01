@@ -40,6 +40,12 @@ body {
 	background: rgba(181,181,181,0.2);
 	overflow: hidden;
 	margin-top: 50px;
+	margin-bottom: 50px;
+	padding-bottom: 20px;
+}
+
+.produit h2 {
+	font-size: 50px;
 }
 
 .bx-wrapper .bx-viewport {
@@ -49,22 +55,79 @@ body {
 .caroussel {
 	padding: 0;
 }
-.wrapper-caroussel {
-	width: 40%;
-	float: left;
-}
 .wrapper-caroussel img {
 	width: 100%;
 }
 
-.produit_descr {
-	width: 60%;
-	float: left;
+.add_panier{
+	font-size: 20px;
+	display: block;
+	padding: 10px 10px;
+	text-transform: uppercase;
+	background: #DE0E4D;
+	color: white;
+	border: none;
 }
 
+.produit_note {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.produit_commentaire {
+	font-size: 20px;
+	text-decoration: none;
+	padding: 10px;
+	background: white;
+	border-radius: 5px;
+	margin: 20px;
+	display: inline-block;
+}
+
+.produit_descriptif {
+	padding: 0 20px;
+}
+
+.add_commentaire {
+	font-size: 15px;
+	padding: 5px;
+}
+
+.mce_hide {
+	display: none;
+}
+
+.produit_prix {
+	text-align: right;
+	font-size: 50px;
+	color: #DE0E4D;
+	padding-right: 20px; 
+}
+
+.login {
+	text-align: right;
+}
+
+.login button {
+	background: #BABAB8;
+	border: 1px solid #EBE9DB;
+	color: white;
+	font-weight: bold;
+	padding: 5px 5px;
+	margin: 0;
+}
+
+.login .panier {
+	background: #DE0E4D;
+	border: 1px solid #DE0E4D;
+}
+
+.inscription {
+	display: none;
+}
 /*FOOTER*/
 .wrap {
-	min-height: 75%;
+	min-height: 73%;
 }
 .footer {
 	background: rgba(181,181,181,0.9);
@@ -72,7 +135,7 @@ body {
 	border:0;
 	right: 0;
 	left: 0;
-	height: 25%;
+	height: 27%;
 }
 
 .footer_image {
@@ -102,7 +165,7 @@ body {
 }
 .flaticon i, .flaticon i::before {
 	color: black;
-	font-size: 80px;
+	font-size: 40px;
 	transition: 1s linear;
 }
 
