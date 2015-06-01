@@ -74,7 +74,7 @@ body {
 	letter-spacing: 0.02em;
 	border: none;
 	width: 90px;
-	padding: 5px;
+	padding: 5px 55px;
 }
 .entete_user_add {
 	background: #F0EEDF;
@@ -87,6 +87,15 @@ body {
 }
 .entete_user_add p {
 	margin: 0;
+}
+
+
+.mdp_oubli {
+	font-size: 12px;
+	font-style: italic;
+	display: block;
+	line-height: 0.2em;
+	height: 15px;
 }
 
 .wrapper_form_nav {
@@ -125,10 +134,9 @@ body {
 	color: #F0EEDF;
 	vertical-align: top;
 }
-
 .user_add .label_input, .user_connect .label_input {
 	display: inline-block;
-	margin: 20px 0;
+	margin: 20px 0 10px 0;
 }
 
 .user_add label, .user_connect label {
