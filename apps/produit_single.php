@@ -1,5 +1,6 @@
 <?php
-if (isset($id_produit)) {
+if (isset($_GET['id_produit'])){
+	$id_produit = $_GET['id_produit'];
 	// $id_produit=$db->quote($id_produit);
 	$tab = $db->query("SELECT produit.*, avis.*, user.prenom
 	FROM produit
@@ -8,7 +9,6 @@ if (isset($id_produit)) {
 	WHERE produit.id_produit=".$id_produit )->fetchAll(PDO::FETCH_ASSOC);
 	if (isset($tab) && !empty($tab)) {
 
-		$id_produit = $tab[0]['id_produit'];
 		$nom_produit = htmlentities($tab[0]['nom_produit']);
 		$reference = htmlentities($tab[0]['reference']);
 		$date = $tab[0]['date'];
@@ -21,7 +21,7 @@ if (isset($id_produit)) {
 		$i=0;
 		while(isset($tab[$i])){
 			$note = $tab[$i]['note'];
-			$commentaires = htmlentities($tab[$i]['commentaires']);
+			$commentaires = balise($tab[$i]['commentaires']);
 			$date = $tab[$i]['date'];
 			$prenom = htmlentities($tab[$i]['prenom']);
 			require('./views/produit_commentaire.phtml');
