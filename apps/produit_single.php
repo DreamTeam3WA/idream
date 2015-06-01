@@ -8,7 +8,6 @@ if (isset($id_produit)) {
 	WHERE produit.id_produit=".$id_produit )->fetchAll(PDO::FETCH_ASSOC);
 	if (isset($tab) && !empty($tab)) {
 
-		$id_produit = $tab[0]['id_produit'];
 		$nom_produit = htmlentities($tab[0]['nom_produit']);
 		$reference = htmlentities($tab[0]['reference']);
 		$date = $tab[0]['date'];
