@@ -1,42 +1,46 @@
 <div class="produit">
 	<div class="row">
-	<div class="wrapper-caroussel col-md-5">
-		<ul class="caroussel">
-			<?php require('./apps/produit_single_img.php');?>
-		</ul>
+		<div class="wrapper-caroussel col-md-5">
+			<ul class="caroussel">
+				<?php require('./apps/produit_single_img.php');?>
+			</ul>
+		</div>
+		<div class="produit_descr col-md-7">
+			<h2><?=$nom_produit?></h2>
+			<p>Référence produit : <?=$reference?></p><p>Date mise en ligne produit : <?=$date?></p>
+			<label for="dur_produit">Durée du produit :</label> 
+			<select name="" id="dur_produit">
+				<option value=""><?=$duree?></option>
+				<option value="">30</option>
+				<option value="">60</option>
+			</select>
+			<label for="quant_produit">Quantité souhaitée :</label> 
+			<select name="" id="quant_produit">
+				<option value="">1</option>
+				<option value="">2</option>
+				<option value="">3</option>
+				<option value="">4</option>
+				<option value="">5</option>
+				<option value="">6</option>
+				<option value="">7</option>
+				<option value="">8</option>
+				<option value="">9</option>
+				<option value="">10</option>
+			</select>
+			<h3 class="produit_prix"><?=$prix?> € </h3>
+			<h3 class="produit_note">Note du produit : <?=$note?></h3>
+			<button class="add_panier col-md-12">Ajouter au panier</button>
+		</div>
 	</div>
-	<div class="produit_descr col-md-7">
-	<h2><?=$nom_produit?></h2>
-	<span>Référence produit : <?=$reference?></span><span>Date mise en ligne produit : <?=$date?></span> 
-	<label for="dur_produit">Durée du produit :</label> 
-	<select name="" id="dur_produit">
-		<option value=""><?=$duree?></option>
-		<option value="">30</option>
-		<option value="">60</option>
-	</select>
-	<label for="quant_produit">Quantité souhaitée :</label> 
-	<select name="" id="quant_produit">
-		<option value="">1</option>
-		<option value="">2</option>
-		<option value="">3</option>
-		<option value="">4</option>
-		<option value="">5</option>
-		<option value="">6</option>
-		<option value="">7</option>
-		<option value="">8</option>
-		<option value="">9</option>
-		<option value="">10</option>
-	</select>
-	<p>Prix du produit : <?=$prix?>€ </p>
-	<?=$note?>
-	<button class="col-md-12">Ajouter au panier</button>
-	</div>
+	<div class="produit_descriptif">
+		<h3>Descriptif :</h3>
+		<p><?=$description?></p>
+		<h3>Commentaires : <button class="add_commentaire">Laissez un commentaire</button></h3> 
+		<?=$commentaires?> <?=$date?>  
+		<?=$prenom?>
 	</div> 
-	<p><?=$description?></p>
-	<?=$commentaires?> 
-	<textarea name="" id="" cols="30" rows="10" class="mce"></textarea>
-	<!-- <div class="clearfix"></div> -->
-	<a class="produit_commentaire" href="">Envoyer commentaire</a>
-	<?=$date?>  
-	<?=$prenom?>
+	<div class="mce_hide">
+		<textarea name="" id="" cols="30" rows="10" class="mce"></textarea>
+		<a class="produit_commentaire" href="">Envoyer commentaire</a>
+	</div>
 </div>

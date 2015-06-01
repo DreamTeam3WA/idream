@@ -1,0 +1,20 @@
+<div class="inscription">
+	<form action="" method="POST" class="inscr">
+		<div class="fermer">X</div>
+		<p>Creez votre espace personnel</p>
+		<label for="username">Nom d'utilisateur :</label>
+			<input id="username" type="text" name="login" required>
+		<label for="email">Adresse email :</label>
+			<input id="email" type="email" name="email" required>
+		<label for="date">Date de naissance :</label>
+			<input id="date" name="date_naissance" placeholder="aaaa-mm-jj" maxlength="10" required>
+		<label for="mdp">Mot de passe :</label>
+			<input id="mdp" type="password" name="password" required>
+		<label for="mdpconf">Confirmer le mot de passe :</label>
+
+
+		<input type="hidden" name="action" value="register">
+			<input id="mdpconf" type="password" name="password2" required>
+		<button>Creer un compte</button>
+	</form>
+</div>
