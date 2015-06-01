@@ -107,6 +107,13 @@ body {
 	display: none;
 }
 
+.panier_maj {
+	text-align: center;
+	display: none;
+	margin: 10px 0;
+	display: none;
+}
+
 .fermer_add_user, .fermer_connect {
 	border-radius: 50%;
 	background: #B9B9B8;
