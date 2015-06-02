@@ -82,6 +82,30 @@ $('document').ready(function()
 		return false;
 	});
 
+	$('#uc').submit(function(info)
+		{
+		info.preventDefault();
+		email = $(this).find('#uc_email').val();
+		password = $(this).find('#uc_password').val();
+		action =$(this).find('#uc_connect').val();
+
+		$.post($(this).attr('action'),
+			{"action": action,
+			 "email": email,
+			 "pass": password
+			}, function(data)
+			 {
+			 	if (data != ""){
+			 		$('#uc_message').html(data);}
+			 	else{
+			 		window.location.reload();
+			 	}
+			 	
+			 }); 
+		return false;
+	});
+
+
 
 
 

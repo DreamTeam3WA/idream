@@ -1,5 +1,5 @@
 <?php
-if($_SESSION && isset($_SESSION['email'])){
+if($_SESSION && isset($_SESSION['droits'])){
 	$user = $_SESSION['email'];
 	if (droits() == 1)
 	{
