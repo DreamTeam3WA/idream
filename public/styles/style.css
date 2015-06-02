@@ -52,7 +52,7 @@ body {
 	display: inline-block;
 }
 
-.signup, .signin, .log-off, .compte, .add_article {
+.signup, .signin, .log-off, .compte {
 	background: #BABAB8;
 	border: 1px solid #EBE9DB;
 	color: white;
@@ -60,6 +60,18 @@ body {
 	padding: 5px 5px;
 	margin: 0;
 	display: inline-block;
+}
+
+.add_article, .administration {
+	margin-bottom: 15px;
+}
+.add_article a, .administration a{
+	background: #BABAB8;
+	border: 1px solid #EBE9DB;
+	color: white;
+	font-weight: bold;
+	padding: 5px 5px;
+	text-align: center;
 }
 .panier {
 	background: #DE0E4D;
