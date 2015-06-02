@@ -16,6 +16,14 @@ function creationPanier(){
    return true;
 }
 
+// VERROUILLAGE DU PANIER OUR ACTE D'ACHAT
+function isVerrouille(){
+   if (isset($_SESSION['panier']) && $_SESSION['panier']['verrou'])
+   return true;
+   else
+   return false;
+}
+
 // AJOUT D'UN ARTICLE
 function ajouterArticle($id_produit,$duree,$quantity,$prix,$date){
 
@@ -77,6 +85,53 @@ function supprimerArticle($id_produit){
    else
    echo "Un problème est survenu veuillez contacter Alex.";
 }
+
+// MODIFIER UN ARTICLE
+function modifierQTeArticle($id_produit,$quantity){
+   //Si le panier éxiste
+   if (creationPanier() && !isVerrouille())
+   {
+      //Si la quantité est positive on modifie sinon on supprime l'article
+      if ($quantity > 0)
+      {
+         //Recharche du produit dans le panier
+         $positionProduit = array_search($id_produit,  $_SESSION['panier']['id_produit']);
+
+         if ($positionProduit !== false)
+         {
+            $_SESSION['panier']['quantity'][$positionProduit] = $quantity ;
+         }
+      }
+      else
+      supprimerArticle($id_roduit);
+   }
+   else
+   echo "Un problème est survenu veuillez contacter Alex.";
+}
+
+// CALCUL DU MONTANT DU PANIER
+// function MontantGlobal(){
+//    $total=0;
+//    for($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++)
+//    {
+//       $total += $_SESSION['panier']['quantity'][$i] * $_SESSION['panier']['prix'][$i];
+//    }
+//    return $total;
+// }
+
+// NOMBRE D'ARTICLES DANS PANIER
+function compterArticles(){
+   if (isset($_SESSION['panier']))
+   return count($_SESSION['panier']['libelleProduit']);
+   else
+   return 0;
+}
+
+// SUPPRESSION DU PANIER
+function supprimePanier(){
+   unset($_SESSION['panier']);
+}
+
 
 require('./views/panier.phtml');
 
