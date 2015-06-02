@@ -153,7 +153,34 @@ body {
 	width: 144px;
 }
 
+/*CATEGORY LISTE*/
+.category_liste {
+	background: rgba(181,181,181,0.2);
+	overflow: hidden;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding-bottom: 20px;
+}
 
+.category_liste img {
+	padding: 0;
+}
+
+.category_liste h2 {
+	font-size: 30px;
+	color: #333333;
+}
+
+.category_liste h3 {
+	font-size: 20px;
+}
+
+.category_liste .liste_prix {
+	text-align: right;
+	font-size: 50px;
+	color: #DE0E4D;
+	padding-right: 20px; 
+}
 /*PRODUIT SINGLE */
 .produit {
 	background: rgba(181,181,181,0.2);
