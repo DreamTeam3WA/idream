@@ -1,16 +1,16 @@
 <?php
-if($_SESSION && isset($_SESSION['login'])){
-	$user = $_SESSION['login'];
+if($_SESSION && isset($_SESSION['droits'])){
+	$user = $_SESSION['email'];
 	if (droits() == 1)
 	{
-		require('views/header-super-admin.phtml');
+		require('views/header_super_admin.phtml');
 	}
 	if (droits() == 1 || droits() == 2)
 	{
-		require('views/header-admin.phtml');
+		require('views/header_admin.phtml');
 	}
 	if (droits() == 1 || droits() == 2 || droits() ==3){
-		require('views/header-user.phtml');
+		require('views/header_user.phtml');
 	}
 }
 

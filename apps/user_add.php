@@ -80,10 +80,10 @@ if (isset($_POST) && isset($_POST['action']) && $_POST['action'] == "register"){
 			$email = $db->quote($_POST['email']);
 			$date_naissance = $db->quote($_POST['date_naissance']);	
 			$password = $db->quote(password_hash($_POST['password'], PASSWORD_BCRYPT,["cost"=>10]));
-			$droits = 3;
+			
 
-			$db-> exec("INSERT INTO user SET nom=".$nom.", prenom=".$prenom.", telephone=".$telephone.", password=".$password.", email=".$email.", date_naissance=".$date_naissance.", droits=".$droits);
-			require('views/user_connect.phtml');
+			$db-> exec("INSERT INTO user SET nom=".$nom.", prenom=".$prenom.", telephone=".$telephone.", password=".$password.", email=".$email.", date_naissance=".$date_naissance.", droits=3");
+			
 		}
 		else {
 			$erreur="Les mots de passe ne sont pas identiques";
@@ -95,6 +95,8 @@ if (isset($_POST) && isset($_POST['action']) && $_POST['action'] == "register"){
 		require('views/erreur.phtml');
 	}
 }
-require('./views/user_add.phtml'); 
+else{
+	require('./views/user_add.phtml'); 
+}
 
 ?>
