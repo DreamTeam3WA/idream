@@ -68,18 +68,18 @@ body {
 
 .creer_compte {
 	background: #DE0E4D;
-	border: 1px solid #DE0E4D;
+/*	border: 1px solid #DE0E4D;*/
 	color: white;
 	font-weight: bold;
-	padding: 5px 5px;
 	margin: 0;
-}
-.creer_compte {
 	text-transform: uppercase;
 	letter-spacing: 0.02em;
 	border: none;
 	width: 90px;
 	padding: 5px 55px;
+}
+#ua_ok{
+	display: none;
 }
 .entete_user_add {
 	background: #F0EEDF;
