@@ -16,6 +16,7 @@ body {
 .header h1 {
 	text-align: center;
 	font-size: 70px;
+	color: #333333;
 }
 .header_lien ul li{
 	display: inline-block;
@@ -117,13 +118,22 @@ body {
 }
 
 .panier_maj {
-	text-align: center;
+	text-align: right;
 	display: none;
 	margin: 10px 0;
 	display: none;
 }
 
-.fermer_add_user, .fermer_connect {
+.payer_panier {
+	background: #DE0E4D;
+	border: 1px solid #DE0E4D;
+	color: white;
+	font-weight: bold;
+	padding: 5px 5px;
+	margin: 0;
+}
+
+.fermer_add_user, .fermer_connect, .fermer_panier {
 	border-radius: 50%;
 	background: #B9B9B8;
 	padding: 1px 6px;

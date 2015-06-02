@@ -1,6 +1,6 @@
 <?php
-if($_SESSION && isset($_SESSION['login'])){
-	$user = $_SESSION['login'];
+if($_SESSION && isset($_SESSION['email'])){
+	$user = $_SESSION['email'];
 	if (droits() == 1)
 	{
 		require('views/header-super-admin.phtml');
