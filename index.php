@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$_SESSION['id']=1; // a supprimer
+	// $_SESSION['id']=1; // a supprimer
 	
 	$db = new PDO("mysql:dbname=dreamcommerce;host=10.32.195.200", 'idream', 'troiswa');
 	$db->exec("SET CHARACTER SET utf8");
@@ -15,7 +15,7 @@
 		die();	
 	}
 
-	$liste = array("category_list", "user_single","produit_single_commentaire_add", "produit_single");
+	$liste = array("category_list", "user_single","produit_single_commentaire_add", "produit_single","login");
 
 if (isset($_GET['ajax']))
 {

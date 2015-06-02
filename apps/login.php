@@ -8,11 +8,13 @@ if (isset($_POST['email']) && $_POST['email'] != NULL && isset($_POST['pass']) &
 				$_SESSION['id_user'] = $tab['id_user'];
 				$_SESSION['email'] = $tab['email'];
 				$_SESSION['droits'] = $tab['droits'];
-				require('./apps/home.php');
-				die();
+				$_SESSION['nom'] = $tab['nom'];
+				require('./apps/header_log.php');
 			}
+			else {
 			$erreur="Erreur login ou mot de passe. ";
 			require('views/erreur.phtml');
+			}
 		}
 }
 else{
