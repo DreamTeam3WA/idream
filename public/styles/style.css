@@ -48,14 +48,18 @@ body {
 	margin-bottom: 10px;
 	position: relative;
 }
+#header_log{
+	display: inline-block;
+}
 
-.signup, .signin {
+.signup, .signin, .log-off, .compte, .add_article {
 	background: #BABAB8;
 	border: 1px solid #EBE9DB;
 	color: white;
 	font-weight: bold;
 	padding: 5px 5px;
 	margin: 0;
+	display: inline-block;
 }
 .panier {
 	background: #DE0E4D;
