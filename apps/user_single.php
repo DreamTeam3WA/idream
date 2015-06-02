@@ -1,12 +1,12 @@
 <?php
-// if (!empty($id_user) && (droits() == 1 || droits() == 2 || $_SESSION['id_user'] == $id_user)) {
-// 	if(_SESSION['id_user'] == $id_user){
-// var_dump($id_user);
+ 	if (isset($_GET['id_user']) && (droits() == 1 || droits() == 2 || $_SESSION['id_user'] == $_GET['id_user'])){
+ 	$id_user = $_GET['id_user'];
+ 	var_dump($id_user);
 	$tab = $db->query("SELECT * FROM user
-	JOIN commande ON commande.id_user = user.id_user
-	JOIN adresse ON adresse.id_user = user.id_user
+	LEFT JOIN commande ON commande.id_user = user.id_user
+	LEFT JOIN adresse ON adresse.id_user = user.id_user
 	WHERE user.id_user =".$id_user)->fetchAll(PDO::FETCH_ASSOC);
-	
+	var_dump($tab);
 	$i=0;
 	if (isset($tab[0])){
 		
@@ -32,9 +32,9 @@
 		}
 		require('views/user_single_end.phtml');
 	}
-// }
-// else {
-// 	$erreur = "Vous n'avez pas les droits pour afficher cette page !";
-// 	require('./views/erreur.phtml');
-// }
+}
+else {
+	$erreur = "Vous n'avez pas les droits pour afficher cette page !";
+	require('./views/erreur.phtml');
+}
 ?>
