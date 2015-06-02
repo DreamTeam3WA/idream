@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html {
 	height: 100%;
 }
@@ -253,5 +254,17 @@ body {
 }
 
 .flaticon a:hover i::before {
+	color: #EF4036;
+	text-align: center;
+}
+
+header li 
+{
+	display:inline-block;
+}
+
+.premonitoire-imagetitre
+{
+	margin : 0 auto;
 	color: #DE0E4D;
 }
