@@ -4,32 +4,31 @@
 	    <meta charset="utf-8">
 
 	    <title>DreamCommerce - apprendre le travail collaboratif par Git</title>
-	    <link rel="stylesheet" href="views/styles/reset.css">
+	    <link rel="stylesheet" href="public/styles/reset.css">
 	    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="views/styles/jquery.bxslider.css">
-	    <link rel="stylesheet" href="views/styles/bootstrap.min.css">
-	    <link rel="stylesheet" href="views/styles/style.css">
-	    <!-- <link rel="stylesheet" type="text/css" href="views/styles/flaticon.css">  -->
-	    <script type="text/javascript" src="apps/scripts/bootstrap.min.js"></script>
-	    <script type="text/javascript" src="apps/scripts/scripts.js"></script>
+		<link rel="stylesheet" type="text/css" href="public/styles/jquery.bxslider.css">
+		<link rel="stylesheet" href="public/fonts/flaticon.css">
+	    <link rel="stylesheet" href="public/styles/bootstrap.min.css">
+	    <link rel="stylesheet" href="public/styles/style.css">
+	    <!-- <link rel="stylesheet" type="text/css" href="public/styles/flaticon.css">  -->
+	    <script type="text/javascript" src="public/scripts/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="public/scripts/scripts.js"></script>
 	</head>
 	<body>
+	<div class="wrap">
 		<header>
-			<div class="container main">
 				<?php require('apps/header.php'); ?>
-			</div>
 		</header>
-		<div class="container main">
+		<div class="container main" id="container-main">
 			<section>
 				<?php require('apps/content.php'); ?>
 			</section>
 		</div>
+	</div>
 		<footer>
-			<div class="container main">
 				<?php require('apps/footer.php'); ?>
-			</div>
 		</footer>
-		<script type="text/javascript" src="./views/tinymce/tinymce.min.js"></script>
+		<script type="text/javascript" src="./public/tinymce/tinymce.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){ /*Que l'on peut résumer par : $(function(){ */
 				tinymce.init({
@@ -38,7 +37,7 @@
 				});
 		</script>
 			<!-- jQuery library (served from Google) -->
-		<script type="text/javascript" src="apps/scripts/jquery.bxslider.min.js"></script>
+		<script type="text/javascript" src="public/scripts/jquery.bxslider.min.js"></script>
 		<script>
 			$(document).ready(function(){ /*Que l'on peut résumer par : $(function(){ */
 				$('.caroussel').bxSlider({

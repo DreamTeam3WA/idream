@@ -1,0 +1,59 @@
+<div class="produit" id="produit_single">
+	<div class="row">
+		<div class="wrapper-caroussel col-md-5">
+			<ul class="caroussel">
+				<?php require('./apps/produit_single_img.php');?>
+			</ul>
+		</div>
+		<div class="produit_descr col-md-7">
+			<h2><?=$nom_produit?></h2>
+			<p>Référence produit : <?=$reference?></p><p>Date mise en ligne produit : <?=$date?></p>
+			<label for="dur_produit">Durée du produit :</label> 
+			<select name="dur_produit" id="dur_produit">
+				<option value="<?=$duree?>"><?=$duree?> min</option>
+				<option value="30">30 min</option>
+				<option value="60">60 min</option>
+			</select>
+			<label for="quant_produit">Quantité souhaitée :</label> 
+			<select name="" id="quant_produit">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			</select>
+			<h3 class="produit_prix"><?=$prix?> € </h3>
+			<h3 class="produit_note">Note du produit : A ajouter</h3>
+			<button class="add_panier col-md-12">Ajouter au panier</button>
+		</div>
+	</div>
+	<div class="produit_descriptif">
+		<h3>Descriptif :</h3>
+		<p><?=$description?></p>
+	</div>
+	<div class="commentaire">
+		<h3>Commentaires : <button class="add_commentaire">
+			Laissez un commentaire</button></h3> 
+		<form action="index.php?page=produit_single_commentaire_add" method="POST" id="ps_commentaire">
+		<div class="mce_hide">
+			<textarea name="commentaire" id="ps_comm" cols="30" rows="10" class="mce"></textarea>
+		
+			<label for="note">Note :</label>
+			<select name="note" id="note">
+				<option value="5">5</option>
+				<option value="4">4</option>
+				<option value="3">3</option>
+				<option value="2">2</option>
+				<option value="1">1</option>
+			</select>
+			<input type="hidden" name="id_produit" id="ps_id_produit"value="<?=$id_produit?>">
+			<input type="hidden" value="commentaire_add" name="action" id="commentaire_add">
+			<button class="produit_commentaire">Envoyer commentaire</button>
+
+		</form>
+		</div>

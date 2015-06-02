@@ -1,0 +1,280 @@
+<<<<<<< HEAD
+html {
+	height: 100%;
+}
+body {
+	background: url(../../images/fond.jpg);
+	position: relative;
+	height: 100%;
+}
+
+/*HEADER*/
+.header {
+	background: rgba(181,181,181,0.9);
+	position: relative;
+} 
+
+.header h1 {
+	text-align: center;
+	font-size: 70px;
+}
+.header_lien ul li{
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.header_lien ul li a {
+	text-decoration: none;
+	font-size: 17px;
+	color: #333333;
+}
+
+.header_lien ul li a:hover {
+	color: #FFFFFF;
+}
+.header_lien ul {
+		text-align: left;
+		padding: 0;
+}
+
+/*LOGIN--PROFIL*/
+
+.login {
+	text-align: right;
+	margin-bottom: 10px;
+	position: relative;
+}
+
+.signup, .signin {
+	background: #BABAB8;
+	border: 1px solid #EBE9DB;
+	color: white;
+	font-weight: bold;
+	padding: 5px 5px;
+	margin: 0;
+}
+.panier {
+	background: #DE0E4D;
+	border: 1px solid #DE0E4D;
+	color: white;
+	font-weight: bold;
+	padding: 5px 5px;
+	margin: 0;
+}
+
+.creer_compte {
+	background: #DE0E4D;
+	border: 1px solid #DE0E4D;
+	color: white;
+	font-weight: bold;
+	padding: 5px 5px;
+	margin: 0;
+}
+.creer_compte {
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+	border: none;
+	width: 90px;
+	padding: 5px;
+}
+.entete_user_add {
+	background: #F0EEDF;
+	padding: 10px;
+	font-size: 20px;	
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	vertical-align: top;
+}
+.entete_user_add p {
+	margin: 0;
+}
+
+.wrapper_form_nav {
+	background: #CAC8BD;
+	text-align: center;
+	margin: 10px 0;
+}
+
+.inscription {
+	text-align: center;
+	display: none;
+	margin: 10px 0;
+}
+.connection {
+	text-align: center;
+	display: none;
+	margin: 10px 0;
+	display: none;
+}
+
+.fermer_add_user, .fermer_connect {
+	border-radius: 50%;
+	background: #B9B9B8;
+	padding: 1px 6px;
+	font-size: 15px;
+	display: inline-block;
+	cursor: pointer;
+	font-weight: bold;
+	color: #F0EEDF;
+	vertical-align: top;
+}
+
+.user_add .label_input, .user_connect .label_input {
+	display: inline-block;
+	margin: 20px 0;
+}
+
+.user_add label, .user_connect label {
+	display: block;
+	text-align: left;
+	font-weight: normal;
+	font-size: 12px;
+	margin: 0;
+}
+.user_add input, .user_connect  input{
+	padding: 5px 5px;
+	background: #D5D3C8;
+	border: none;
+	width: 144px;
+}
+
+
+/*PRODUIT SINGLE */
+.produit {
+	background: rgba(181,181,181,0.2);
+	overflow: hidden;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding-bottom: 20px;
+}
+
+.produit h2 {
+	font-size: 50px;
+}
+
+.bx-wrapper .bx-viewport {
+	border: none;
+}
+
+.caroussel {
+	padding: 0;
+}
+.wrapper-caroussel img {
+	width: 100%;
+}
+
+.add_panier{
+	font-size: 20px;
+	display: block;
+	padding: 10px 10px;
+	text-transform: uppercase;
+	background: #DE0E4D;
+	color: white;
+	border: none;
+}
+
+.produit_note {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.produit_commentaire {
+	font-size: 20px;
+	text-decoration: none;
+	padding: 10px;
+	background: white;
+	border-radius: 5px;
+	margin: 20px;
+	display: inline-block;
+}
+
+.produit_descriptif {
+	padding: 0 20px;
+}
+
+.add_commentaire {
+	font-size: 15px;
+	padding: 5px;
+}
+
+.mce_hide {
+	display: none;
+}
+
+.produit_prix {
+	text-align: right;
+	font-size: 50px;
+	color: #DE0E4D;
+	padding-right: 20px; 
+}
+
+/*FOOTER*/
+.wrap {
+	min-height: 73%;
+}
+.footer {
+	background: rgba(181,181,181,0.9);
+	position: absolute;
+	border:0;
+	right: 0;
+	left: 0;
+	height: 27%;
+}
+
+.footer_image {
+	width: 100px;
+	opacity: 0.8;
+}
+.footer_lien ul li{
+	display: block;
+	margin-right: 20px;
+}
+
+.footer_lien ul li a {
+	text-decoration: none;
+	font-size: 17px;
+	color: #333333;
+}
+
+.footer_lien ul li a:hover {
+	color: #FFFFFF;
+}
+.footer_lien ul {
+		text-align: left;
+		padding: 0;
+}
+.flaticon a {
+	text-decoration: none;
+}
+.flaticon i, .flaticon i::before {
+	color: black;
+	font-size: 40px;
+	transition: 1s linear;
+}
+
+.flaticon a:hover i::before {
+<<<<<<< HEAD:views/styles/style.css
+	color: #EF4036;
+=======
+header h1
+{
+	border-bottom : #978484 solid 3px;
+	background-color: #BFAFAF;
+	padding: 10px;
+	text-align: center;
+}
+
+header li 
+{
+	display:inline-block;
+}
+
+.premonitoire-imagetitre
+{
+	margin : 0 auto;
+>>>>>>> steve
+=======
+	color: #DE0E4D;
+>>>>>>> 062ee0b11cabe715725e19245b3be80c9cac5ed0:public/styles/style.css
+}
