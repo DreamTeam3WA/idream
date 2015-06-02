@@ -254,14 +254,7 @@ body {
 }
 
 .flaticon a:hover i::before {
-<<<<<<< HEAD:views/styles/style.css
 	color: #EF4036;
-=======
-header h1
-{
-	border-bottom : #978484 solid 3px;
-	background-color: #BFAFAF;
-	padding: 10px;
 	text-align: center;
 }
 
@@ -273,8 +266,5 @@ header li
 .premonitoire-imagetitre
 {
 	margin : 0 auto;
->>>>>>> steve
-=======
 	color: #DE0E4D;
->>>>>>> 062ee0b11cabe715725e19245b3be80c9cac5ed0:public/styles/style.css
 }
