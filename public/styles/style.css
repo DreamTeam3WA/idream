@@ -18,6 +18,10 @@ body {
 	font-size: 70px;
 	color: #333333;
 }
+
+.header a {
+	text-decoration: none;
+}
 .header_lien ul li{
 	display: inline-block;
 	margin-right: 20px;
