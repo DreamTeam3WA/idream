@@ -221,6 +221,11 @@ body {
 .category_liste h3 span {
 	font-size: 15px;
 }
+
+/*ADMIN */
+.admin {
+	background: rgba(181,181,181,0.2);
+}
 /*PRODUIT SINGLE */
 .produit {
 	background: rgba(181,181,181,0.2);
