@@ -6,10 +6,17 @@ $('document').ready(function()
 	$('.signup, .fermer_add_user').click(function(){
 		$('.inscription').toggle(500);
 		$('.connection').css('display',"none");
+		$('.panier_maj').css('display',"none");
 	})
 	$('.signin, .fermer_connect').click(function(){
 		$('.connection').toggle(500);
+		$('.panier_maj').css('display',"none");
 		$('.inscription').css('display',"none");
+	})
+	$('.panier, .fermer_panier').click(function(){
+		$('.panier_maj').toggle(500);
+		$('.inscription').css('display',"none");
+		$('.connection').css('display',"none");
 	})
 
 	$('#ps_commentaire').submit(function(info)
