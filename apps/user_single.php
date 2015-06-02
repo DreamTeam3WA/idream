@@ -1,12 +1,11 @@
 <?php
  	if (isset($_GET['id_user']) && (droits() == 1 || droits() == 2 || $_SESSION['id_user'] == $_GET['id_user'])){
  	$id_user = $_GET['id_user'];
- 	var_dump($id_user);
+
 	$tab = $db->query("SELECT * FROM user
 	LEFT JOIN commande ON commande.id_user = user.id_user
 	LEFT JOIN adresse ON adresse.id_user = user.id_user
 	WHERE user.id_user =".$id_user)->fetchAll(PDO::FETCH_ASSOC);
-	var_dump($tab);
 	$i=0;
 	if (isset($tab[0])){
 		
