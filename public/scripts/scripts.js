@@ -104,7 +104,13 @@ $('document').ready(function()
 			 }); 
 		return false;
 	});
-
+	i=1;
+	$('#image_add').click(function(){
+		newlabelimage= $('<label for="lien'+i+'">Lien image :</label>');
+		newinputimage= $('<input id="lien'+i+'" name="lien'+i+'" type="text" placeholder="La source/lien">');
+		$('.div_image_add').append(newlabelimage, newinputimage);
+		i++;
+	})
 
 
 
