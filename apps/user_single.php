@@ -28,30 +28,24 @@
 			$i++;
 			require('views/user_adresse.phtml');
 		}
-	
-		require('views/user_single_end.phtml');
 	}
 
-	$tab = $db->query("SELECT * FROM user
-	LEFT JOIN commande ON commande.id_user = user.id_user
-	WHERE user.id_user =".$id_user." AND commande.paid=1")->fetchAll(PDO::FETCH_ASSOC);
-
-	if (isset($tab[0])){
-		$id_commande = htmlentities($tab[$i]['id_commande']);
-		//ajouter nouvelle query pour récuperer toutes les valeurs pour 1 id_commande !! Attention joindre JOIN produit !!!
-		$tab2 = $db->query("SELECT * FROM commande
-		JOIN produit ON produit.id_produit = commande.id_commande
-		WHERE id_commande =".$id_commande)->fetchAll(PDO::FETCH_ASSOC);
-		$j=0;
-		while(isset($tab2[$j])){
-				$quantity = htmlentities($tab2[$i]['quantity']);
-				$prix_ttc = htmlentities($tab2[$i]['prix_ttc']);
-				$nom_produit = htmlentities($tab2[$i]['nom_produit']);
-				
-				$j++;
-				require('views/user_commande.phtml');
+	// $tab = $db->query("SELECT * FROM user
+	// LEFT JOIN commande ON commande.id_user = user.id_user
+	// WHERE user.id_user =".$id_user." AND commande.paid=1")->fetchAll(PDO::FETCH_ASSOC);
+	$tab = $db->query("SELECT * , SUM(prix_ttc) AS prix_total FROM commande
+		JOIN user ON commande.id_user = user.id_user
+		WHERE user.id_user =".$id_user." AND commande.paid=1
+		GROUP BY id_commande")->fetchAll(PDO::FETCH_ASSOC);
+	$i=0;
+	while (isset($tab[$i])){
+		$id_commande = $tab[$i]['id_commande'];
+		$id_facture = $tab[$i]['id_facture'];
+		$prix_total = $tab[$i]['prix_total'];
+		$date_commande = $tab[$i]['date_commande'];
+		$i++;
+		require('views/user_commande_liste.phtml');
 		}
-	}
 	require('views/user_single_end.phtml');
 }
 else {
