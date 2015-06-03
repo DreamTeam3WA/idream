@@ -35,7 +35,6 @@ $('document').ready(function()
 			{
 				$.get('index.php?ajax=produit_single&id_produit='+id_produit,function(data)
 				{
-					
 					$('#container-main section').html(data);
 					$('.caroussel').bxSlider({
 					mode: "fade"
@@ -43,8 +42,66 @@ $('document').ready(function()
 				});
 				});
 			}); 
+		return false;
+	});
 
+	$('#user_add').submit(function(info)
+		{
+		info.preventDefault();
+		nom = $(this).find('#ua_name').val();
+		prenom = $(this).find('#ua_username').val();
+		action = $(this).find('#ua_action').val();
+		email = $(this).find('#ua_email').val();
+		telephone = $(this).find('#ua_telephone').val();
+		date = $(this).find('#ua_date').val();
+		password = $(this).find('#ua_password').val();
+		password2 = $(this).find('#ua_password2').val();
 		
+		$.post($(this).attr('action'),
+			{"action": action,
+			 "nom": nom,
+			 "prenom": prenom,
+			 "email" : email,
+			 "telephone" : telephone,
+			 "date_naissance" : date,
+			 "password" : password,
+			 "password2" : password2
+			}, function(data)
+			 {
+			 	if (data != ""){
+			 		$('#ua_message').html(data);}
+			 	else{
+			 		document.getElementById('user_add').reset();
+			 		$('.connection').toggle(500);
+					$('.inscription').css('display',"none");
+					$('#ua_ok').css('display',"block");
+
+			 	}
+			 	
+			 }); 
+		return false;
+	});
+
+	$('#uc').submit(function(info)
+		{
+		info.preventDefault();
+		email = $(this).find('#uc_email').val();
+		password = $(this).find('#uc_password').val();
+		action =$(this).find('#uc_connect').val();
+
+		$.post($(this).attr('action'),
+			{"action": action,
+			 "email": email,
+			 "pass": password
+			}, function(data)
+			 {
+			 	if (data != ""){
+			 		$('#uc_message').html(data);}
+			 	else{
+			 		window.location.reload();
+			 	}
+			 	
+			 }); 
 		return false;
 	});
 

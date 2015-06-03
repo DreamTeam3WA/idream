@@ -18,6 +18,10 @@ body {
 	font-size: 70px;
 	color: #333333;
 }
+
+.header a {
+	text-decoration: none;
+}
 .header_lien ul li{
 	display: inline-block;
 	margin-right: 20px;
@@ -44,14 +48,30 @@ body {
 	margin-bottom: 10px;
 	position: relative;
 }
+#header_log{
+	display: inline-block;
+}
 
-.signup, .signin {
+.signup, .signin, .log-off, .compte {
 	background: #BABAB8;
 	border: 1px solid #EBE9DB;
 	color: white;
 	font-weight: bold;
 	padding: 5px 5px;
 	margin: 0;
+	display: inline-block;
+}
+
+.add_article, .administration {
+	margin-bottom: 15px;
+}
+.add_article a, .administration a{
+	background: #BABAB8;
+	border: 1px solid #EBE9DB;
+	color: white;
+	font-weight: bold;
+	padding: 5px 5px;
+	text-align: center;
 }
 .panier {
 	background: #DE0E4D;
@@ -64,18 +84,18 @@ body {
 
 .creer_compte {
 	background: #DE0E4D;
-	border: 1px solid #DE0E4D;
+/*	border: 1px solid #DE0E4D;*/
 	color: white;
 	font-weight: bold;
-	padding: 5px 5px;
 	margin: 0;
-}
-.creer_compte {
 	text-transform: uppercase;
 	letter-spacing: 0.02em;
 	border: none;
 	width: 90px;
 	padding: 5px 55px;
+}
+#ua_ok{
+	display: none;
 }
 .entete_user_add {
 	background: #F0EEDF;
@@ -167,22 +187,28 @@ body {
 .category_liste {
 	background: rgba(181,181,181,0.2);
 	overflow: hidden;
-	margin-top: 50px;
-	margin-bottom: 50px;
-	padding-bottom: 20px;
+	padding: 15px;
+	height: 350px;
+	margin: 50px 10px 25px 10px;
+	position: relative;
 }
 
 .category_liste img {
 	padding: 0;
 }
 
-.category_liste h2 {
-	font-size: 30px;
+.category_liste a {
+	margin-top: 10px;
+	font-size: 20px;
 	color: #333333;
+	text-align: center;
 }
 
 .category_liste h3 {
 	font-size: 20px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
 }
 
 .category_liste .liste_prix {
@@ -190,6 +216,15 @@ body {
 	font-size: 50px;
 	color: #DE0E4D;
 	padding-right: 20px; 
+}
+
+.category_liste h3 span {
+	font-size: 15px;
+}
+
+/*ADMIN */
+.admin {
+	background: rgba(181,181,181,0.2);
 }
 /*PRODUIT SINGLE */
 .produit {

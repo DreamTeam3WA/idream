@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$_SESSION['id']=1; // a supprimer
+	// $_SESSION['id']=1; // a supprimer
 	
 	require('config.php');
 
@@ -14,7 +14,7 @@
 		die();	
 	}
 
-	$liste = array("category_list", "user_single","produit_single_commentaire_add", "produit_single");
+	$liste = array("category_list", "user_single","produit_single_commentaire_add", "produit_single","login","administration","produit_add", "produit_modif", "produit_suppr");
 
 if (isset($_GET['ajax']))
 {

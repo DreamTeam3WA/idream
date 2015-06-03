@@ -1,11 +1,7 @@
-<div class="category_liste">
-		<img class="col-md-5"src="<?php echo $lien; ?>">
-		<div class="produit_descr col-md-7">
-			<a href="index.php?page=produit_single&id_produit=<?=$id_produit?>"><h2><?php echo $nom; ?></h2></a>
-			<h3>Descriptif :</h3>
-			<p><?php echo $description; ?></p>
-			<a href="index.php?page=produit_single&id_produit=<?=$id_produit?>">Voir le produit</a>
-			<h3 class="liste_prix"><?php echo $prix; ?> €</h3>
+<div class="category_liste col-md-3">
+		<img class="col-md-12"src="<?=$lien; ?>">
+		<div>		
+			<h2><a href="index.php?page=produit_single&id_produit=<?=$id_produit?>"><?=$nom;?></a></h2>
+			<h3 class="liste_prix"><span>A partir de </span><?=$prix; ?> €</h3>
 		</div>
-	
 </div>

@@ -1,5 +1,5 @@
 <?php 
-if (isset($_POST['email']) && $_POST['email'] != NULL && isset($_POST['pass']) && $_POST['pass'] != NULL) {
+if (isset($_POST['email']) && $_POST['email'] != NULL && isset($_POST['pass']) && $_POST['pass'] != NULL && isset($_POST['action']) && $_POST['action'] == 'connect') {
 		$email = $db->quote($_POST['email']);
 		$pass = $_POST['pass'];
 		$tab = $db->query("SELECT * FROM user WHERE user.email = ".$email)->fetch(PDO::FETCH_ASSOC);
@@ -8,12 +8,18 @@ if (isset($_POST['email']) && $_POST['email'] != NULL && isset($_POST['pass']) &
 				$_SESSION['id_user'] = $tab['id_user'];
 				$_SESSION['email'] = $tab['email'];
 				$_SESSION['droits'] = $tab['droits'];
-				require('./apps/home.php');
-				die();
+				$_SESSION['nom'] = $tab['nom'];
+				// require('./apps/header_log.php');
 			}
-			$erreur="Erreur login ou mot de passe. ";
+			else {
+			$erreur="Mot de passe incorrect. ";
 			require('views/erreur.phtml');
+			}
 		}
+		else {
+			$erreur="Adresse email inexistante. ";
+			require('views/erreur.phtml');
+			}
 }
 else{
 	$erreur="Erreur informations de connection. ";
