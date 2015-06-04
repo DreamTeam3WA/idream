@@ -16,7 +16,7 @@ class User
 
 	public function getId()
 	{
-		return $this->id;
+		return $this->id_user;
 	}
 	public function getNom()
 	{
@@ -40,7 +40,7 @@ class User
 	}
 	public function isAdmin()
 	{
-		if($this->droits === 2){
+		if($this->droits === '2'){
 			return true;
 		}else{
 			return false;
@@ -48,7 +48,7 @@ class User
 	}
 	public function isSuperAdmin()
 	{
-		if($this->droits === 1){
+		if($this->droits === '1'){
 			return true;
 		}else{
 			return false;
@@ -56,7 +56,7 @@ class User
 	}
 	public function isUser()
 	{
-		if($this->droits === 3){
+		if($this->droits === '3'){
 			return true;
 		}else{
 			return false;
