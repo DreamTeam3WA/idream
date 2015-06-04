@@ -37,7 +37,7 @@
 									echo "<td>".htmlentities($_SESSION['panier']['duree'][$i])."</td>";
 									echo "<td><input type=\"text\" size=\"4\" name=\"quantity[]\" value=\"".htmlentities($_SESSION['panier']['quantity'][$i])."\"/></td>";
 									
-									echo "<td><a href=\"".htmlentities("/index.php?action=suppression&id_produit=".rawurlencode($_SESSION['panier']['id_produit'][$i]))."\">X</a></td>";
+									echo "<td><a href=\"".htmlentities("index.php?page=panier&action=suppression&id_produit=".rawurlencode($_SESSION['panier']['id_produit'][$i]))."\">X</a></td>";
 									echo "</tr>";
 								}
 
