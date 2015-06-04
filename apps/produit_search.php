@@ -3,11 +3,12 @@ if (droits() == 1 || droits() == 2){
 		if(isset($_POST['category']) && !empty($_POST['category']) && isset($_POST['nom']) && !empty($_POST['nom'])){
 				$category = $db->quote($_POST['category']);
 				$nom = $db->quote("%".$_POST['nom']."%");
-				$tab= $db-> query("SELECT nom_produit, id_produit FROM produit WHERE id_category = ".$category." AND nom_produit LIKE ".$nom."COLLATE utf8_unicode_ci  ")->fetchAll(PDO::FETCH_ASSOC);	
+				$tab= $db-> query("SELECT nom_produit, id_produit, id_category FROM produit WHERE id_category = ".$category." AND nom_produit LIKE ".$nom."COLLATE utf8_unicode_ci  ")->fetchAll(PDO::FETCH_ASSOC);	
 					$i=0;
 					if (isset($tab[$i])) {
 						while (isset($tab[$i])) {
 							$id_produit = $tab[$i]['id_produit'];
+							$id_category = $tab[$i]['id_category'];
 							$resultsearch=$tab[$i]['nom_produit'];
 							require('views/produit_search.phtml');
 							$i++;

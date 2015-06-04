@@ -1,26 +1,37 @@
 <?php
-$id_produit=$_GET['id_produit'];
-if (isset($_GET['id_produit'])) {
-	$id_produit = $_GET['id_produit'];
-	$tab = $db->query("SELECT * FROM produit WHERE id_produit=".$id_produit)->fetch(PDO::FETCH_ASSOC);
-	if (isset($tab['nom_produit']) && !empty($tab['nom_produit']) &&
-		 isset($tab['date']) && !empty($tab['date']) && 
-		 isset($tab['prix']) && !empty($tab['prix']) &&
-		 isset($tab['description']) && !empty($tab['description']) && isset($tab['id_category']) && !empty($tab['id_category']) && isset($tab['reference']) && !empty($tab['reference'])){
-		$nom_produit = htmlentities($tab['nom_produit']);
-		$date = $tab['date'];
-		$prix = $tab['prix'];
-		$lien0 = htmlentities($tab['lien']);
-		$description = htmlentities($tab['description']);
-		$id_category = $tab['id_category'];
-		$reference = $tab['reference'];
-		require('./views/produit_modif.phtml');
+if (droits() == 1 || droits() == 2){
+	if (isset($_POST['action']) && $_POST['action']=="produit_modif_submit"){ 
+		if(isset($_POST['nom']) && !empty($_POST['nom']) && isset($_POST['reference']) && !empty($_POST['reference']) && isset($_POST['category']) && !empty($_POST['category']) && isset($_POST['prix']) && !empty($_POST['prix']) && isset($_POST['description']) && !empty($_POST['description']) && isset($_POST['id_produit']) && !empty($_POST['id_produit'])){
+					$id_produit =$db->quote($_POST['id_produit']);
+					$nom_produit = $db->quote($_POST['nom']);
+					$category = $db->quote($_POST['category']);
+					$reference = $db->quote($_POST['reference']);
+					$prix = $db->quote($_POST['prix']);
+					$description = $db->quote($_POST['description']);
+					$db-> exec("UPDATE produit SET nom_produit=".$nom_produit.", reference=".$reference.", prix=".$prix.", description=".$description.", id_category=".$category.", duree=15. WHERE id_produit=".$id_produit);
+				$i=0;
+				$lien = $db->quote($_POST["lien".$i]);
+				$id_img = $_POST['id_img'.$i];
+				var_dump($lien);
+				var_dump($id_img);
+				$db->exec("DELETE FROM img WHERE id_produit=".$id_produit);
+				while(isset($_POST["lien".$i]) && !empty($_POST["lien".$i]))
+				{	
+					$db-> exec("INSERT INTO img SET lien=".$lien.", id_produit=".$id_produit. "WHERE id_img=".$id_img);
+					$i++;
+				}
+				$erreur="Le produit ".$nom_produit." a été modifié !";
+				require('./views/erreur.phtml');
+		}
+		else {
+			$erreur="Le formulaire est incomplet !";
+			require('./views/erreur.phtml');
+			}
 	}
-	else {
-		$commentaire = "Erreur lecture base de données";
-		require('./views/erreur.phtml');
-		die();
-	}
+	require('./views/produit_modif_affich.phtml');
 }
-
+else {
+	$erreur="Vous n'avez pas les droits. ";
+		require('./views/erreur.phtml');
+	}
 ?>

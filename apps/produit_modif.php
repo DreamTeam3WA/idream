@@ -9,6 +9,7 @@ if (isset($_GET['id_produit'])) {
 		$nom_produit = htmlentities($tab['nom_produit']);
 		$date = $tab['date'];
 		$prix = $tab['prix'];
+		$id_produit = $tab['id_produit'];
 		$description = htmlentities($tab['description']);
 		$id_category = $tab['id_category'];
 		$reference = $tab['reference'];
@@ -20,7 +21,7 @@ if (isset($_GET['id_produit'])) {
 					
 		// 			$i++;
 		// 		}
-		require('./views/produit_modif.phtml');
+		require('./apps/produit_modif_affich.php');
 	}
 	else {
 		$commentaire = "Erreur lecture base de données";
@@ -36,7 +37,8 @@ else {
 	$description = "Le produit n'est pas renseigné";
 	$id_category = "Le produit n'est pas renseigné";
 	$reference = "Le produit n'est pas renseigné";
-	
 	require('./views/produit_modif.phtml');
+	$id_produit=0;
+	require('./apps/produit_modif_affich.php');
 }
 ?>
