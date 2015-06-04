@@ -20,7 +20,7 @@
 	WHERE id_user =".$_SESSION['id_user'])->fetchObject('User');
 	}
 
-	$liste = array("category_list", "user_single","produit_single_commentaire_add", "produit_single","login","administration","produit_add", "produit_modif", "produit_suppr");
+	$liste = array("category_list", "user_single","produit_single_commentaire_add", "produit_single","login","administration","produit_add", "produit_modif", "produit_suppr", "produit_modif_affich");
 
 if (isset($_GET['ajax']))
 {
