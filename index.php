@@ -6,16 +6,21 @@
 	$db->exec("SET CHARACTER SET utf8");
 
 	require('./apps/function.php');
+	require('./models/User.class.php');
+
+
 	if(isset($_GET['logout']) && $_GET['logout']==1){
 		$_SESSION = array();
 		session_destroy();
-
-
 		header('Location: index.php?page=home');
 		die();	
 	}
+	if(isset($_SESSION['id_user'])){
+		$USER = $db->query("SELECT * FROM user
+	WHERE id_user =".$_SESSION['id_user'])->fetchObject('User');
+	}
 
-	$liste = array("category_list", "user_single","produit_single_commentaire_add", "produit_single","login","administration","produit_add", "produit_modif", "produit_suppr");
+	$liste = array("category_list", "user_single","produit_single_commentaire_add", "produit_single","login","administration","produit_add", "produit_modif", "produit_suppr", "produit_modif_affich");
 
 if (isset($_GET['ajax']))
 {
