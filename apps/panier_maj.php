@@ -28,6 +28,9 @@
 // }
 
 
+$erreur = false;
+
 require('./views/panier_maj.phtml');
+
 
 ?>
