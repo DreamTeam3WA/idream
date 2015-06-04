@@ -104,7 +104,30 @@ $('document').ready(function()
 			 }); 
 		return false;
 	});
+	i=1;
+	$('#image_add').click(function(){
+		newlabelimage= $('<label for="lien'+i+'">Lien image :</label>');
+		newinputimage= $('<input id="lien'+i+'" name="lien'+i+'" type="text" placegolder="./images/">');
+		$('.div_image_add').append(newlabelimage, newinputimage);
+		i++;
+	});
 
+	$('#autosearch').keyup(function(){
+		search=$('#autosearch').val();
+		category= $('#produit_select').find('#category').val();
+		action = $('#produit_select').find('#produit_search').val();
+		$.post($(this).parents('form').attr('action'),
+			{"action":action,
+			  "category":category,
+			  "nom":search
+			}, function(data)
+			{
+				$('#result_search').empty();
+				if (data != ""){
+					$('#result_search').append(data);
+				}
+			})
+	});
 
 
 
