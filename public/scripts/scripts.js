@@ -1,3 +1,56 @@
+// DECLARATION DES FONCTIONS
+
+
+function modif_adresse(){
+	//---------------------------------------
+	//AJAX MODIFICATION ADRESSES
+	//---------------------------------------
+
+	$('.modif_adresse_link').click(function(info)
+		{
+		info.preventDefault();
+		var id_adresse = $(this).data('id');
+		var id_user = $(this).data('user');
+		$.get('index.php?ajax=user_adresse_modif&id_user='+id_user+'&id_adresse='+id_adresse, function(data){
+			 $('#modif_adresse'+id_adresse).html(data);
+
+			$('#form_adresse_modif'+id_adresse).submit(function(info)
+			{
+				info.preventDefault();
+				nom_adresse = $(this).find('.am_nom_adresse').val();
+				prenom_adresse = $(this).find('.am_prenom_adresse').val();
+				action = $(this).find('.am_action').val();
+				ligne1 = $(this).find('.am_ligne1').val();
+				ligne2 = $(this).find('.am_ligne2').val();
+				code = $(this).find('.am_code').val();
+				ville = $(this).find('.am_ville').val();
+				pays = $(this).find('.am_pays').val();
+				
+					
+				$.post($(this).attr('action'),
+					{"action": action,
+					 "nom_adresse": nom_adresse,
+					 "prenom_adresse": prenom_adresse,
+					 "ligne1" : ligne1,
+					 "ligne2" : ligne2,
+					 "code" : code,
+					 "ville" : ville,
+					 "pays" : pays,
+					}, function(data)
+					 {					 	
+					 	$('#modif_adresse').html(data);
+						modif_adresse();		 	
+					 	}); 
+			return false;
+			});
+		});	  
+		return false;
+	});
+}
+
+
+// EXECUTION DU SCRIPT QUAND LE DOCUMENT HTML/PHP EST PRET
+
 $('document').ready(function()
 {
 	$('.add_commentaire').click(function(){
@@ -105,16 +158,53 @@ $('document').ready(function()
 		return false;
 	});
 
+	//---------------------------------------
+	//AJAX MODIFICATION USER
+	//---------------------------------------
+	
+	$('#modif_user_link').click(function(info)
+		{
+		info.preventDefault();
+		var id_user = $(this).data('id');
+		$.get('index.php?ajax=user_modif&id_user='+id_user , function(data){
+			 $('#modif_user').html(data);
 
+			$('#form_user_modif').submit(function(info)
+			{
+				info.preventDefault();
+				nom = $(this).find('#um_nom').val();
+				prenom = $(this).find('#um_prenom').val();
+				action = $(this).find('#um_action').val();
+				email = $(this).find('#um_email').val();
+				telephone = $(this).find('#um_telephone').val();
+					
+				$.post($(this).attr('action'),
+					{"action": action,
+					 "nom": nom,
+					 "prenom": prenom,
+					 "email" : email,
+					 "telephone" : telephone
+					}, function(data)
+					 {
+					 	
+					 		$('#modif_user').html(data);
+					 	
+					 	
 
+					 	
+					 	
+				}); 
+			return false;
+			});
+		});	  
+		return false;
+	});
 
+	//---------------------------------------
+	//AJAX MODIFICATION ADRESSES
+	//---------------------------------------
 
-
-
-
-
-
-
+	modif_adresse();	
 
 
 
