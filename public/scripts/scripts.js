@@ -72,6 +72,11 @@ $('document').ready(function()
 		$('.connection').css('display',"none");
 	})
 
+
+	// AJAX - COMMENTAIRE ADD - ENVOI DU FORMULAIRE D'AJOUT DE COMMENTAIRE PAR PRODUIT
+
+
+
 	$('#ps_commentaire').submit(function(info)
 	{
 		info.preventDefault();
@@ -97,6 +102,10 @@ $('document').ready(function()
 			}); 
 		return false;
 	});
+
+	// AJAX - USER ADD - ENVOI DU FORMULAIRE D'INSCRIPTION
+
+
 
 	$('#user_add').submit(function(info)
 		{
@@ -135,6 +144,9 @@ $('document').ready(function()
 		return false;
 	});
 
+	// AJAX - USER CONNECT - ENVOI DU FORMULAIRE DE CONNECTION
+
+
 	$('#uc').submit(function(info)
 		{
 		info.preventDefault();
@@ -156,6 +168,47 @@ $('document').ready(function()
 			 	
 			 }); 
 		return false;
+	});
+
+
+	// IMAGES - AJOUT DE LIENS DANS LES PRODUITS
+
+	i=1;
+	$('#image_add').click(function(){
+		newlabelimage= $('<label for="lien'+i+'">Lien image :</label>');
+		newinputimage= $('<input id="lien'+i+'" name="lien'+i+'" type="text" placegolder="./images/">');
+		$('.div_image_add').append(newlabelimage, newinputimage);
+		i++;
+	});
+
+
+	// PRODUIT - CHAMP DE RECHERCHE POUR MODIF PRODUITS
+
+
+	$('#autosearch').keyup(function(){
+		search=$('#autosearch').val();
+		category= $('#produit_select').find('#category').val();
+		action = $('#produit_select').find('#produit_search').val();
+		$.post($(this).parents('form').attr('action'),
+			{"action":action,
+			  "category":category,
+			  "nom":search
+			}, function(data)
+			{
+				$('#result_search').empty();
+				if (data != ""){
+					$('#result_search').append(data);
+					$('.resultat_search p').click(function(){
+							var id = $(this).data('id');
+							$.get("index.php?ajax=produit_modif&id_produit="+id, function(data)
+							{
+								if (data != ""){
+								$('.actualisation_produit').html(data);
+							}
+							})
+					})
+				}
+			})
 	});
 
 	//---------------------------------------
@@ -186,13 +239,7 @@ $('document').ready(function()
 					 "telephone" : telephone
 					}, function(data)
 					 {
-					 	
 					 		$('#modif_user').html(data);
-					 	
-					 	
-
-					 	
-					 	
 				}); 
 			return false;
 			});
@@ -201,10 +248,13 @@ $('document').ready(function()
 	});
 
 	//---------------------------------------
-	//AJAX MODIFICATION ADRESSES
+	//AJAX MODIFICATION ADRESSES RAPPEL DE LA FONCTION DECLAREE EN DEBUT DE SCRIPT
 	//---------------------------------------
 
 	modif_adresse();	
+
+	
+
 
 
 
