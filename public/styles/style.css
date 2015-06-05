@@ -1,6 +1,9 @@
 html {
 	height: 100%;
 }
+a {
+	outline: none;
+}
 body {
 	background: url(../../images/fond.jpg);
 	position: relative;
@@ -43,14 +46,18 @@ body {
 
 .search_site {
 	margin-top: 0!important;
+	/*width: 1170px;*/
 }
 
+.search_site .label-input {
+	/*text-align: center;*/
+	/*margin: 0 10%;*/
+}
 .input_search_site {
-	border-style: dashed;
+	border: none;
+	border-bottom: 1px dashed rgba(128, 128, 128, 0.5);
 	padding: 5px 5px;
 	background: #D3D2C6;
-	border: none;
-	width: 100%;
 }
 /*ADMIN */
 .admin {
