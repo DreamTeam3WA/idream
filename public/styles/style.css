@@ -46,10 +46,10 @@ body {
 }
 
 .input_search_site {
-	border-style: dashed;
+	border: none;
+	border-bottom: 1px dashed rgba(128, 128, 128, 0.5);
 	padding: 5px 5px;
 	background: #D3D2C6;
-	border: none;
 	width: 100%;
 }
 /*ADMIN */
