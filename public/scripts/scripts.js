@@ -47,47 +47,79 @@ function modif_adresse(){
 		return false;
 	});
 }
-function modif_item_panier(){
-	$('.modif_panier').click(function(info)
-		{
-		info.preventDefault();
-		var id_item_panier = $(this).data('id');
-		$.get('index.php?ajax=panier&edit', function(data){
-			 $('#modif_adresse'+id_adresse).html(data);
 
-			$('#form_adresse_modif'+id_adresse).submit(function(info)
-			{
-				info.preventDefault();
-				nom_adresse = $(this).find('.am_nom_adresse').val();
-				prenom_adresse = $(this).find('.am_prenom_adresse').val();
-				action = $(this).find('.am_action').val();
-				ligne1 = $(this).find('.am_ligne1').val();
-				ligne2 = $(this).find('.am_ligne2').val();
-				code = $(this).find('.am_code').val();
-				ville = $(this).find('.am_ville').val();
-				pays = $(this).find('.am_pays').val();
+function add_item_panier(){
+	$('#add_item_panier').submit(function(info)
+		{
+			info.preventDefault();
+			quantity = $(this).find('#quant_produit').val();
+			duree = $(this).find('#dur_produit').val();
+			action = $(this).find('#panier_add').val();
+			id_produit = $(this).find('#pa_id_produit').val();
+
+				
+			$.post($(this).attr('action'),
+				{"action": action,
+				 "duree": duree,
+				 "id_produit": id_produit,
+				 "quantity" : quantity
+				 
+				}, function(data)
+				 {		
+				 			 	
+				$('.panier_wrapper').html(data);
+				
+				$('.panier_wrapper').toggle(500);
+				$('.inscription').css('display',"none");
+				$('.connection').css('display',"none");
+
+	 	
+				 	}); 
+		return false;
+		});
+
+}
+// function modif_item_panier(){
+// 	$('.modif_panier').click(function(info)
+// 		{
+// 		info.preventDefault();
+// 		var id_item_panier = $(this).data('id');
+// 		$.get('index.php?ajax=panier&edit', function(data){
+// 			 $('#modif_adresse'+id_adresse).html(data);
+
+// 			$('#form_adresse_modif'+id_adresse).submit(function(info)
+// 			{
+// 				info.preventDefault();
+// 				nom_adresse = $(this).find('.am_nom_adresse').val();
+// 				prenom_adresse = $(this).find('.am_prenom_adresse').val();
+// 				action = $(this).find('.am_action').val();
+// 				ligne1 = $(this).find('.am_ligne1').val();
+// 				ligne2 = $(this).find('.am_ligne2').val();
+// 				code = $(this).find('.am_code').val();
+// 				ville = $(this).find('.am_ville').val();
+// 				pays = $(this).find('.am_pays').val();
 				
 					
-				$.post($(this).attr('action'),
-					{"action": action,
-					 "nom_adresse": nom_adresse,
-					 "prenom_adresse": prenom_adresse,
-					 "ligne1" : ligne1,
-					 "ligne2" : ligne2,
-					 "code" : code,
-					 "ville" : ville,
-					 "pays" : pays,
-					}, function(data)
-					 {					 	
-					 	$('#modif_adresse').html(data);
-						modif_adresse();		 	
-					 	}); 
-			return false;
-			});
-		});	  
-		return false;
-	});
-}
+// 				$.post($(this).attr('action'),
+// 					{"action": action,
+// 					 "nom_adresse": nom_adresse,
+// 					 "prenom_adresse": prenom_adresse,
+// 					 "ligne1" : ligne1,
+// 					 "ligne2" : ligne2,
+// 					 "code" : code,
+// 					 "ville" : ville,
+// 					 "pays" : pays,
+// 					}, function(data)
+// 					 {					 	
+// 					 	$('#modif_adresse').html(data);
+// 						modif_adresse();		 	
+// 					 	}); 
+// 			return false;
+// 			});
+// 		});	  
+// 		return false;
+// 	});
+// }
 
 // EXECUTION DU SCRIPT QUAND LE DOCUMENT HTML/PHP EST PRET
 
@@ -133,7 +165,6 @@ $('document').ready(function()
 			{
 				$.get('index.php?ajax=produit_single&id_produit='+id_produit,function(data)
 				{
-					alert(data);
 					$('#container-main section').html(data);
 					$('.caroussel').bxSlider({
 					mode: "fade"
@@ -217,7 +248,7 @@ $('document').ready(function()
 	i=1;
 	$('#image_add').click(function(){
 		newlabelimage= $('<label for="lien'+i+'">Lien image :</label>');
-		newinputimage= $('<input id="lien'+i+'" name="lien'+i+'" type="text" placeholder="./images/">');
+		newinputimage= $('<input id="lien'+i+'" name="lien'+i+'" type="text" placegolder="./images/">');
 		$('.div_image_add').append(newlabelimage, newinputimage);
 		i++;
 	});
@@ -241,20 +272,10 @@ $('document').ready(function()
 					$('#result_search').append(data);
 					$('.resultat_search p').click(function(){
 							var id = $(this).data('id');
-							var id_category = $(this).data('category');
 							$.get("index.php?ajax=produit_modif&id_produit="+id, function(data)
 							{
 								if (data != ""){
-
 								$('.actualisation_produit').html(data);
-								$('#category_modif option[value="'+id_category+'"]').prop('selected', true);
-								j=0;
-								$('#image_modif').click(function(){
-								newlabelimage= $('<label for="id_img'+j+'">Lien image :</label>');
-								newinputimage= $('<input id="id_img'+j+'" name="id_img'+j+'" type="text" placeholder="./images/">');
-								$('.div_image_modif').append(newlabelimage, newinputimage);
-								j++;
-							});
 							}
 							})
 					})
@@ -303,38 +324,9 @@ $('document').ready(function()
 	//---------------------------------------
 
 	modif_adresse();	
- 	
+ 	add_item_panier()
 	
 
-	//PRODUIT - CHAMP DE RECHERCHE POUR SUPPR PRODUITS/
-
-	$('#autosearch2').keyup(function(){
-		search=$('#autosearch2').val();
-		category= $('#produit_select').find('#category').val();
-		action = $('#produit_select').find('#produit_search').val();
-		$.post($(this).parents('form').attr('action'),
-			{"action":action,
-			  "category":category,
-			  "nom":search
-			}, function(data)
-			{
-				$('#result_search').empty();
-				if (data != ""){
-					$('#result_search').append(data);
-					$('.resultat_search p').click(function(){
-							var id = $(this).data('id');
-							var id_category = $(this).data('category');
-							$.get("index.php?ajax=produit_suppr&id_produit="+id, function(data)
-							{
-								if (data != ""){
-								$('.suppr').html(data);
-								$('.suppr').css('display','block');
-								}
-							})
-					})
-				}
-			})
-	});
 
 
 
