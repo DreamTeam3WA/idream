@@ -1,0 +1,22 @@
+<div class="row">
+	<form action="index.php?ajax=panier&edit" class="modif_panier" data-id="<?=$i?>">
+		<div class="col-sm-1"><?=$reference?></div>
+		<div class="col-sm-3"><?=$nom_produit?></div>
+		<div class="col-sm-2">
+			<select name="duree" id="mp_duree<?=$i?>">
+				<option value="15" <?=$duree15?>>15 min</option>
+				<option value="30" <?=$duree30?>>30 min</option>
+				<option value="45" <?=$duree45?>>45 min</option>
+				<option value="60" <?=$duree60?>>60 min</option>
+			</select>
+		</div>
+		<div class="col-sm-2"><input type="number" name="quantity" id="mp_quantity<?=$i?>" value="<?=$quantity?>"></div>
+		<div class="col-sm-2"><?=$prix?> €</div>
+		<div class="col-sm-2"><?=$prix_total?> €</div>
+		<input type="hidden" name="panier_item_id" value="<?=$i?>">
+		<a href="index.php?ajax=panier&delete&id_produit=<?=$id_produit?>&duree=<?=$duree?>" class="panier_supp_link">X</a>
+	</form>
+</div>
+
+
+		

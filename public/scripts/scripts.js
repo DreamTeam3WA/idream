@@ -47,7 +47,47 @@ function modif_adresse(){
 		return false;
 	});
 }
+function modif_item_panier(){
+	$('.modif_panier').click(function(info)
+		{
+		info.preventDefault();
+		var id_item_panier = $(this).data('id');
+		$.get('index.php?ajax=panier&edit', function(data){
+			 $('#modif_adresse'+id_adresse).html(data);
 
+			$('#form_adresse_modif'+id_adresse).submit(function(info)
+			{
+				info.preventDefault();
+				nom_adresse = $(this).find('.am_nom_adresse').val();
+				prenom_adresse = $(this).find('.am_prenom_adresse').val();
+				action = $(this).find('.am_action').val();
+				ligne1 = $(this).find('.am_ligne1').val();
+				ligne2 = $(this).find('.am_ligne2').val();
+				code = $(this).find('.am_code').val();
+				ville = $(this).find('.am_ville').val();
+				pays = $(this).find('.am_pays').val();
+				
+					
+				$.post($(this).attr('action'),
+					{"action": action,
+					 "nom_adresse": nom_adresse,
+					 "prenom_adresse": prenom_adresse,
+					 "ligne1" : ligne1,
+					 "ligne2" : ligne2,
+					 "code" : code,
+					 "ville" : ville,
+					 "pays" : pays,
+					}, function(data)
+					 {					 	
+					 	$('#modif_adresse').html(data);
+						modif_adresse();		 	
+					 	}); 
+			return false;
+			});
+		});	  
+		return false;
+	});
+}
 
 // EXECUTION DU SCRIPT QUAND LE DOCUMENT HTML/PHP EST PRET
 
@@ -67,7 +107,7 @@ $('document').ready(function()
 		$('.inscription').css('display',"none");
 	})
 	$('.panier, .fermer_panier').click(function(){
-		$('.panier_maj').toggle(500);
+		$('.panier_wrapper').toggle(500);
 		$('.inscription').css('display',"none");
 		$('.connection').css('display',"none");
 	})
@@ -93,7 +133,6 @@ $('document').ready(function()
 			{
 				$.get('index.php?ajax=produit_single&id_produit='+id_produit,function(data)
 				{
-					alert(data);
 					$('#container-main section').html(data);
 					$('.caroussel').bxSlider({
 					mode: "fade"
