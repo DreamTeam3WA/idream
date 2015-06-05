@@ -7,7 +7,9 @@ if (isset($_GET['add'], $_POST['id_produit'], $_POST['duree'], $_POST['quantity'
    while (isset($_SESSION['panier'][$i]))
    {
       if ($_SESSION['panier'][$i]['id_produit'] == $_POST['id_produit'] && $_SESSION['panier'][$i]['duree'] == $_POST['duree'] )
+      {
          $_SESSION['panier'][$i]['quantite'] += $_POST['quantity'];
+      }
       else
          $_SESSION['panier'][] = array("id_produit"=>$_POST['id_produit'], "duree"=>$_POST['duree'], "quantity"=>$_POST['quantity']);
       $i++;
@@ -30,7 +32,7 @@ if (isset($_GET['edit'], $_POST['id_produit'], $_POST['duree'], $_POST['quantity
    $i = 0;
    while (isset($_SESSION['panier'][$i]))
    {
-      if ($_SESSION['panier'][$i]['id_produit'] == $_POST['id_produit'] && $_SESSION['panier'][$i]['duree'] == $_POST['duree'] )
+      if ($_SESSION['panier'][$i]['id_produit'] == $_POST['id_produit'] && $_SESSION['panier'][$i]['duree'] == $_POST['duree'])
          $_SESSION['panier'][$i]['quantite'] = $_POST['quantity'];
       $i++;
    }
