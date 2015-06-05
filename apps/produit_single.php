@@ -42,9 +42,7 @@ else {
 }
 
 // $tableau = array();
-$_SESSION['tableau']= array();
 
-var_dump($_SESSION['tableau'])
 
 
 // if (isset($_POST['action']) && $_POST['action']=="panier_add")

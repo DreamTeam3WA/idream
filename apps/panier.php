@@ -25,6 +25,7 @@ if (isset($_GET['delete'], $_POST['id_produit'], $_POST['duree']))
    }
    $_SESSION['panier'] = $tmp;
 }
+
 if (isset($_GET['edit'], $_POST['id_produit'], $_POST['duree'], $_POST['quantity']))
 {
    $i = 0;
