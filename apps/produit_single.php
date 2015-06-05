@@ -19,7 +19,16 @@ if (isset($_GET['id_produit']) && !empty($_GET['id_produit'])){
 		$commentaires = balise($tab[0]['commentaires']);
 		$date_avis = $tab[0]['date_avis'];
 		$prenom = htmlentities($tab[0]['prenom']);
-
+		$note_moyenne = "Pas de note pour le moment";
+		$k=0;
+		while (isset($tab[$k]['note']) && !empty($tab[$k]['note'])) {
+			$note=$tab[$k]['note'];
+			$compteur = 1 + $k;
+			$somme += $note;
+			$k++;
+			$note_moyenne=round($somme/$compteur,2);
+		}
+		
 		require('./views/produit_single.phtml');
 		if (isset($_SESSION['id_user']) && !empty($_SESSION['id_user'])) {
 			require('./views/produit_add_commentaire.phtml');
