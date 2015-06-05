@@ -1,9 +1,15 @@
 <?php
 
+<<<<<<< HEAD
 if (isset($_GET['id_category']) && !empty($_GET['id_category'])){
 
 	$id_category = $_GET['id_category'];
 	
+=======
+
+if (isset($_GET['id_category']) && !empty($_GET['id_category'])) {
+	$id_category = $_GET['id_category'];
+>>>>>>> master
 	$tab=$db->query("SELECT produit.id_produit, produit.nom_produit, produit.description, produit.prix, img.lien
  	FROM produit
  	JOIN img ON produit.id_produit = img.id_produit

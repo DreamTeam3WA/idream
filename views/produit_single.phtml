@@ -5,7 +5,7 @@
 				<?php require('./apps/produit_single_img.php');?>
 			</ul>
 		</div>
-		<form action="index.php?page=panier_maj" method="post">
+		<form action="index.php?ajax=panier&add" method="post" id="add_item_panier">
 			<div class="produit_descr col-md-7">
 				<h2><?=$nom_produit?></h2>
 				<p>Référence produit : <?=$reference?></p><p>Date mise en ligne produit : <?=$date?></p>
@@ -13,6 +13,7 @@
 				<select name="duree" id="dur_produit">
 					<option value="<?=$duree?>"><?=$duree?> min</option>
 					<option value="30">30 min</option>
+					<option value="45">45 min</option>
 					<option value="60">60 min</option>
 				</select>
 				<label for="quant_produit">Quantité souhaitée :</label> 
@@ -30,7 +31,7 @@
 				</select>
 				<h3 class="produit_prix"><?=$prix?> € </h3>
 				<h3 class="produit_note">Note du produit : A ajouter</h3>
-				<input type="hidden" name="id_produit" value="<?=$id_produit?>">
+				<input type="hidden" name="id_produit" id="pa_id_produit" value="<?=$id_produit?>">
 				<input type="hidden" value="panier_add" name="action" id="panier_add">
 				<input type="submit" value="AJOUTER AU PANIER" class="add_panier col-md-12">
 			<!-- 	<a href="index.php?page=panier_maj"><button >Ajouter au panier</button></a> -->
@@ -44,9 +45,10 @@
 		<p><?=$description?></p>
 	</div>
 	<div class="commentaire">
-		<h3>Commentaires : <button class="add_commentaire">
-			Laissez un commentaire</button></h3> 
-		<form action="index.php?page=produit_single_commentaire_add" method="POST" id="ps_commentaire">
+			<button class="add_commentaire">Laissez un commentaire</button>
+		<!-- <h3>Commentaires : 
+		</h3> -->
+		<form id="ps_commentaire" action="index.php?page=produit_single_commentaire_add" method="POST" >
 		<div class="mce_hide">
 			<textarea name="commentaire" id="ps_comm" cols="30" rows="10" class="mce"></textarea>
 		
@@ -60,7 +62,7 @@
 			</select>
 			<input type="hidden" name="id_produit" id="ps_id_produit"value="<?=$id_produit?>">
 			<input type="hidden" value="commentaire_add" name="action" id="commentaire_add">
-			<button class="produit_commentaire">Envoyer commentaire</button>
+			<button type="submit" class="produit_commentaire">Envoyer commentaire</button>
 
 		</form>
 		</div>

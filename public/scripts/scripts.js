@@ -1,3 +1,128 @@
+// DECLARATION DES FONCTIONS
+
+
+function modif_adresse(){
+	//---------------------------------------
+	//AJAX MODIFICATION ADRESSES
+	//---------------------------------------
+
+	$('.modif_adresse_link').click(function(info)
+		{
+		info.preventDefault();
+		var id_adresse = $(this).data('id');
+		var id_user = $(this).data('user');
+		$.get('index.php?ajax=user_adresse_modif&id_user='+id_user+'&id_adresse='+id_adresse, function(data){
+			 $('#modif_adresse'+id_adresse).html(data);
+
+			$('#form_adresse_modif'+id_adresse).submit(function(info)
+			{
+				info.preventDefault();
+				nom_adresse = $(this).find('.am_nom_adresse').val();
+				prenom_adresse = $(this).find('.am_prenom_adresse').val();
+				action = $(this).find('.am_action').val();
+				ligne1 = $(this).find('.am_ligne1').val();
+				ligne2 = $(this).find('.am_ligne2').val();
+				code = $(this).find('.am_code').val();
+				ville = $(this).find('.am_ville').val();
+				pays = $(this).find('.am_pays').val();
+				
+					
+				$.post($(this).attr('action'),
+					{"action": action,
+					 "nom_adresse": nom_adresse,
+					 "prenom_adresse": prenom_adresse,
+					 "ligne1" : ligne1,
+					 "ligne2" : ligne2,
+					 "code" : code,
+					 "ville" : ville,
+					 "pays" : pays,
+					}, function(data)
+					 {					 	
+					 	$('#modif_adresse').html(data);
+						modif_adresse();		 	
+					 	}); 
+			return false;
+			});
+		});	  
+		return false;
+	});
+}
+
+function add_item_panier(){
+	$('#add_item_panier').submit(function(info)
+		{
+			info.preventDefault();
+			quantity = $(this).find('#quant_produit').val();
+			duree = $(this).find('#dur_produit').val();
+			action = $(this).find('#panier_add').val();
+			id_produit = $(this).find('#pa_id_produit').val();
+
+				
+			$.post($(this).attr('action'),
+				{"action": action,
+				 "duree": duree,
+				 "id_produit": id_produit,
+				 "quantity" : quantity
+				 
+				}, function(data)
+				 {		
+				 			 	
+				$('.panier_wrapper').html(data);
+				
+				$('.panier_wrapper').toggle(500);
+				$('.inscription').css('display',"none");
+				$('.connection').css('display',"none");
+
+	 	
+				 	}); 
+		return false;
+		});
+
+}
+// function modif_item_panier(){
+// 	$('.modif_panier').click(function(info)
+// 		{
+// 		info.preventDefault();
+// 		var id_item_panier = $(this).data('id');
+// 		$.get('index.php?ajax=panier&edit', function(data){
+// 			 $('#modif_adresse'+id_adresse).html(data);
+
+// 			$('#form_adresse_modif'+id_adresse).submit(function(info)
+// 			{
+// 				info.preventDefault();
+// 				nom_adresse = $(this).find('.am_nom_adresse').val();
+// 				prenom_adresse = $(this).find('.am_prenom_adresse').val();
+// 				action = $(this).find('.am_action').val();
+// 				ligne1 = $(this).find('.am_ligne1').val();
+// 				ligne2 = $(this).find('.am_ligne2').val();
+// 				code = $(this).find('.am_code').val();
+// 				ville = $(this).find('.am_ville').val();
+// 				pays = $(this).find('.am_pays').val();
+				
+					
+// 				$.post($(this).attr('action'),
+// 					{"action": action,
+// 					 "nom_adresse": nom_adresse,
+// 					 "prenom_adresse": prenom_adresse,
+// 					 "ligne1" : ligne1,
+// 					 "ligne2" : ligne2,
+// 					 "code" : code,
+// 					 "ville" : ville,
+// 					 "pays" : pays,
+// 					}, function(data)
+// 					 {					 	
+// 					 	$('#modif_adresse').html(data);
+// 						modif_adresse();		 	
+// 					 	}); 
+// 			return false;
+// 			});
+// 		});	  
+// 		return false;
+// 	});
+// }
+
+// EXECUTION DU SCRIPT QUAND LE DOCUMENT HTML/PHP EST PRET
+
 $('document').ready(function()
 {
 	$('.add_commentaire').click(function(){
@@ -14,10 +139,15 @@ $('document').ready(function()
 		$('.inscription').css('display',"none");
 	})
 	$('.panier, .fermer_panier').click(function(){
-		$('.panier_maj').toggle(500);
+		$('.panier_wrapper').toggle(500);
 		$('.inscription').css('display',"none");
 		$('.connection').css('display',"none");
 	})
+
+
+	// AJAX - COMMENTAIRE ADD - ENVOI DU FORMULAIRE D'AJOUT DE COMMENTAIRE PAR PRODUIT
+
+
 
 	$('#ps_commentaire').submit(function(info)
 	{
@@ -44,6 +174,10 @@ $('document').ready(function()
 			}); 
 		return false;
 	});
+
+	// AJAX - USER ADD - ENVOI DU FORMULAIRE D'INSCRIPTION
+
+
 
 	$('#user_add').submit(function(info)
 		{
@@ -82,6 +216,9 @@ $('document').ready(function()
 		return false;
 	});
 
+	// AJAX - USER CONNECT - ENVOI DU FORMULAIRE DE CONNECTION
+
+
 	$('#uc').submit(function(info)
 		{
 		info.preventDefault();
@@ -104,6 +241,10 @@ $('document').ready(function()
 			 }); 
 		return false;
 	});
+
+
+	// IMAGES - AJOUT DE LIENS DANS LES PRODUITS
+
 	i=1;
 	$('#image_add').click(function(){
 		newlabelimage= $('<label for="lien'+i+'">Lien image :</label>');
@@ -111,6 +252,10 @@ $('document').ready(function()
 		$('.div_image_add').append(newlabelimage, newinputimage);
 		i++;
 	});
+
+
+	// PRODUIT - CHAMP DE RECHERCHE POUR MODIF PRODUITS
+
 
 	$('#autosearch').keyup(function(){
 		search=$('#autosearch').val();
@@ -138,7 +283,101 @@ $('document').ready(function()
 			})
 	});
 
+	//---------------------------------------
+	//AJAX MODIFICATION USER
+	//---------------------------------------
+	
+	$('#modif_user_link').click(function(info)
+		{
+		info.preventDefault();
+		var id_user = $(this).data('id');
+		$.get('index.php?ajax=user_modif&id_user='+id_user , function(data){
+			 $('#modif_user').html(data);
 
+			$('#form_user_modif').submit(function(info)
+			{
+				info.preventDefault();
+				nom = $(this).find('#um_nom').val();
+				prenom = $(this).find('#um_prenom').val();
+				action = $(this).find('#um_action').val();
+				email = $(this).find('#um_email').val();
+				telephone = $(this).find('#um_telephone').val();
+					
+				$.post($(this).attr('action'),
+					{"action": action,
+					 "nom": nom,
+					 "prenom": prenom,
+					 "email" : email,
+					 "telephone" : telephone
+					}, function(data)
+					 {
+					 		$('#modif_user').html(data);
+				}); 
+			return false;
+			});
+		});	  
+		return false;
+	});
 
+	//---------------------------------------
+	//AJAX MODIFICATION ADRESSES RAPPEL DE LA FONCTION DECLAREE EN DEBUT DE SCRIPT
+	//---------------------------------------
+
+	modif_adresse();	
+ 	add_item_panier()
+	
+
+	//PRODUIT - CHAMP DE RECHERCHE POUR SUPPR PRODUITS/
+
+	$('#autosearch2').keyup(function(){
+		search=$('#autosearch2').val();
+		category= $('#produit_select').find('#category').val();
+		action = $('#produit_select').find('#produit_search').val();
+		$.post($(this).parents('form').attr('action'),
+			{"action":action,
+			  "category":category,
+			  "nom":search
+			}, function(data)
+			{
+				$('#result_search').empty();
+				if (data != ""){
+					$('#result_search').append(data);
+					$('.resultat_search p').click(function(){
+							var id = $(this).data('id');
+							var id_category = $(this).data('category');
+							$.get("index.php?ajax=produit_suppr&id_produit="+id, function(data)
+							{
+								if (data != ""){
+								$('.suppr').html(data);
+								$('.suppr').css('display','block');
+								}
+							})
+					})
+				}
+			})
+	});
+	$('#autosearch3').keyup(function(){
+		search=$('#autosearch3').val();
+		action = $('#produit_select').find('#produit_search').val();
+		$.post($(this).parents('form').attr('action'),
+			{"action":action,
+			  "nom":search
+			}, function(data)
+			{
+				$('#result_search_site').empty();
+				if (data != ""){
+					$('#result_search_site').append(data);
+					// $('.resultat_search_site p').click(function(){
+					// 		var id = $(this).data('id');
+					// 		document.location.href="index.php?page=produit_single&id_produit="+id;
+					// })
+				}
+			})
+	});
+	$('#produit_select').submit(function(info)
+		{
+		info.preventDefault();
+		return false;
+	});
 
 })

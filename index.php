@@ -19,7 +19,9 @@
 	WHERE id_user =".$_SESSION['id_user'])->fetchObject('User');
 	}
 
-	$liste = array("category_list", "user_single","produit_single_commentaire_add", "produit_single","login","administration","produit_add", "produit_modif", "produit_suppr", "produit_modif_affich");
+	$liste = array("category_list", "user","produit_single_commentaire_add", "produit_single","login","administration","produit_add", "produit_modif", "produit_suppr", "produit_modif_affich", "produit_suppr_affich");
+
+
 
 if (isset($_GET['ajax']))
 {
@@ -35,16 +37,14 @@ else
 	}
 	
 	
-	// if (isset($_GET['id_category'])){
-	//	$id_category = $_GET['id_category'];
 	// }
 
 	// if (isset($_GET['id_produit'])){
 	// 	$id_produit = $_GET['id_produit'];
 	// }
-	if (isset($_GET['id_user'])){
-		$id_user = $_GET['id_user'];
-	}
+	// if (isset($_GET['id_user'])){
+	// 	$id_user = $_GET['id_user'];
+	// }
 
 	require('./views/skel.phtml');}
 ?>

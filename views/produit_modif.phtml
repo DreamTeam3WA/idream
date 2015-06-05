@@ -1,68 +1,25 @@
-	<div class="row">
-		<div class="actualisation_produit">
+<div class="row">
+	<form action="index.php?ajax=produit_search" method="POST" class="produit_add" id="produit_select">
 		<div class="entete_user_add">
 			<p>Selectionner le produit à modifier</p>
 		</div>
-		<form action="index.php?ajax=produit_search" method="POST" class="produit_add" id="produit_select">
-			<div class="label-input col-md-6">
-				<label for="category">Catégorie</label>
-				<select name="category" id="category">
-					<option value="1">Heureux</option>
-					<option value="2">Cauchemar</option>
-					<option value="3">Érotique</option>
-					<option value="4">Prémonitoire</option>
-					<option value="5">Brisé</option>
-					<option value="6">Éveillé</option>
-					<option value="7">Merdique</option>
-				</select>
-			</div>
-			<div class="label-input col-md-6">
-				<label for="autosearch">Chercher le produit</label>
-				<input type="text" name="nom" id="autosearch">
-			</div>
-			<input type="hidden" id="produit_search">
-			<div class="col-md-12" id="result_search"></div>
-		</form>
-		<form method="POST" action="index.php?ajax=produit_modif_affich" class="produit_add" id="pa">
-		<div class="entete_user_add">
-			<p>Modifier le produit</p>
+		<div class="label-input col-md-6">
+			<label for="category">Catégorie</label>
+			<select name="category" id="category">
+				<option value="1">Heureux</option>
+				<option value="2">Cauchemar</option>
+				<option value="3">Érotique</option>
+				<option value="4">Prémonitoire</option>
+				<option value="5">Brisé</option>
+				<option value="6">Éveillé</option>
+				<option value="7">Merdique</option>
+			</select>
 		</div>
-		<div class="label_input col-md-3">
-		<label for="category">Catégorie</label>
-		<select name="category" id="category" value="<?=$id_category?>">
-			<option value="1">Heureux</option>
-			<option value="2">Cauchemar</option>
-			<option value="3">Érotique</option>
-			<option value="4">Prémonitoire</option>
-			<option value="5">Brisé</option>
-			<option value="6">Éveillé</option>
-			<option value="7">Merdique</option>
-		</select>
+		<div class="label-input col-md-6">
+			<label for="autosearch">Chercher le produit</label>
+			<input type="text" name="nom" id="autosearch" autocomplete="off">
 		</div>
-		<div class="label_input col-md-3">
-			<label for="nom">Nom :</label>
-			<input id="nom" name="nom" type="text" placeholder="Entrez le nom" value="<?=$nom_produit?>">
-		</div>
-		<div class="label_input col-md-3 ">
-			<label for="reference">Référence :</label>
-			<input id="reference" value="<?=$reference?>"name="reference" type="text" placeholder="Entrez la référence du produit">
-		</div>
-		<div class="label_input col-md-3">
-			<label for="prix">Prix :</label>
-			<input id="prix" value="<?=$nom_produit?>"name="prix" type="text" placeholder="Entrez le prix">
-		</div>
-		<div class="label_input_ligne col-md-6">
-			<label for="description">Description :</label>
-			<textarea id="description" name="description"  placeholder="Entrez votre description"><?=$description?></textarea>
-		</div>
-		<div class="label_input col-md-6">
-		<!-- 	<label for="lien0">Lien image :</label>
-			<input id="lien0" value="<?=$lien0?>"name="lien0" type="text" placeholder="./images/">
-			<div class="div_image_add"></div> 	 -->
-			<button type="button" id="image_add">Ajouter une autre image</button>
-		</div>
-		<input type="hidden" value="produit_add" name="action">
-		<button class="panier col-md-12" type="submit">MODIFIER</button>
-</form>
-</div>
+		<input type="hidden" id="produit_search">
+		<div class="col-md-12" id="result_search"></div>
+	</form>	
 </div>
