@@ -1,138 +1,97 @@
-<?php 
+<?php
+// var_dump($_SESSION);
+if (!isset($_SESSION['panier']))
+   $_SESSION['panier'] = array();
 
 
-// CREATION DU PANIER
-function creationPanier(){
-   if (!isset($_SESSION['panier'])){
-      $_SESSION['panier']=array();
-      $_SESSION['panier']['id_user'] = array();
-      $_SESSION['panier']['id_produit'] = array();
-      $_SESSION['panier']['duree'] = array();
-      $_SESSION['panier']['quantity'] = array();
-      $_SESSION['panier']['prix'] = array();
-      $_SESSION['panier']['date'] = array();
-      $_SESSION['panier']['verrou'] = false;
-   }
-   return true;
-}
-
-// VERROUILLAGE DU PANIER OUR ACTE D'ACHAT
-function isVerrouille(){
-   if (isset($_SESSION['panier']) && $_SESSION['panier']['verrou'])
-   return true;
-   else
-   return false;
-}
-
-// AJOUT D'UN ARTICLE
-function ajouterArticle($id_produit,$duree,$quantity,$prix,$date){
-
-   //Si le panier existe
-   if (creationPanier() && !isVerrouille())
+if (isset($_GET['add'], $_POST['id_produit'], $_POST['duree'], $_POST['quantity']))
+{
+   
+   // var_dump($_POST);
+   $added = false;
+   $i = 0;
+   while (isset($_SESSION['panier'][$i]))
    {
-      //Si le produit existe déjà on ajoute seulement la quantité
-      $positionProduit = array_search($id_produit,  $_SESSION['panier']['id_produit']);
-
-      if ($positionProduit !== false)
-      {
-         $_SESSION['panier']['quantity'][$positionProduit] += $quantity ;
+      
+      if ($_SESSION['panier'][$i]['id_produit'] == $_POST['id_produit'] && $_SESSION['panier'][$i]['duree'] == $_POST['duree'] ){
+         $_SESSION['panier'][$i]['quantity'] += $_POST['quantity'];
+         $added = true;
       }
-      else
-      {
-         //Sinon on ajoute le produit
-         array_push( $_SESSION['panier']['id_produit'],$id_produit);
-         array_push( $_SESSION['panier']['duree'],$duree);
-         array_push( $_SESSION['panier']['quantity'],$quantity);
-         array_push( $_SESSION['panier']['prix'],$prix);
-         array_push( $_SESSION['panier']['date'],$date);
-      }
+      $i++;
    }
-   else
-   echo "Un problème est survenu veuillez contacter Alex.";
+   if (!$added){
+      $_SESSION['panier'][] = array("id_produit"=>$_POST['id_produit'], "duree"=>$_POST['duree'], "quantity"=>$_POST['quantity']);
+   }
+   require('apps/panier_liste.php');
 }
-
-// SUPPRESSION D'UN ARTICLE
-function supprimerArticle($id_produit){
-   //Si le panier existe
-   if (creationPanier() && !isVerrouille())
+else if (isset($_GET['delete'], $_GET['id_produit'], $_GET['duree']))
+{
+   $tmp = array();
+   $i = 0;
+   while (isset($_SESSION['panier'][$i]))
    {
-      //Nous allons passer par un panier temporaire
-      $tmp=array();
-      $tmp['id_produit'] = array();
-      $tmp['duree'] = array();
-      $tmp['quantity'] = array();
-      $tmp['prix'] = array();
-      $tmp['date'] = array();
-      $tmp['verrou'] = $_SESSION['panier']['verrou'];
-
-      for($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++)
-      {
-         if ($_SESSION['panier']['id_produit'][$i] !== $id_produit)
-         {
-            array_push( $tmp['id_produit'],$_SESSION['panier']['id_produit'][$i]);
-            array_push( $tmp['duree'],$_SESSION['panier']['duree'][$i]);
-            array_push( $tmp['quantity'],$_SESSION['panier']['quantity'][$i]);
-            array_push( $tmp['prix'],$_SESSION['panier']['prix'][$i]);
-            array_push( $tmp['date'],$_SESSION['panier']['date'][$i]);
-         }
-
-      }
-      //On remplace le panier en session par notre panier temporaire à jour
-      $_SESSION['panier'] =  $tmp;
-      //On efface notre panier temporaire
-      unset($tmp);
+      if ($_SESSION['panier'][$i]['id_produit'] != $_GET['id_produit'] && $_SESSION['panier'][$i]['duree'] != $_GET['duree'] )
+         $tmp[] = $_SESSION['panier'][$i];
+      $i++;
    }
-   else
-   echo "Un problème est survenu veuillez contacter Alex.";
+   $_SESSION['panier'] = $tmp;
+   require('apps/panier_liste.php');
+
 }
 
-// MODIFIER UN ARTICLE
-function modifierQTeArticle($id_produit,$quantity){
-   //Si le panier éxiste
-   if (creationPanier() && !isVerrouille())
+else if (isset($_GET['edit'], $_POST['id_produit'], $_POST['duree'], $_POST['quantity']))
+
+{
+   $i = 0;
+   while (isset($_SESSION['panier'][$i]))
    {
-      //Si la quantité est positive on modifie sinon on supprime l'article
-      if ($quantity > 0)
-      {
-         //Recharche du produit dans le panier
-         $positionProduit = array_search($id_produit,  $_SESSION['panier']['id_produit']);
-
-         if ($positionProduit !== false)
-         {
-            $_SESSION['panier']['quantity'][$positionProduit] = $quantity ;
-         }
-      }
-      else
-      supprimerArticle($id_roduit);
+      if ($_SESSION['panier'][$i]['id_produit'] == $_POST['id_produit'] && $_SESSION['panier'][$i]['duree'] == $_POST['duree'] )
+         $_SESSION['panier'][$i]['quantite'] = $_POST['quantity'];
+      $i++;
    }
-   else
-   echo "Un problème est survenu veuillez contacter Alex.";
-}
+   require('apps/panier_liste.php');
 
-// CALCUL DU MONTANT DU PANIER
-// function MontantGlobal(){
-//    $total=0;
-//    for($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++)
+}
+else{
+   $erreur = "Erreur du panier";
+   require('.views/erreur.phtml');
+}
+// // VERROUILLAGE DU PANIER POUR ACTE D'ACHAT
+// function isVerrouille()
+// {
+//    if (isset($_SESSION['panier']) && $_SESSION['panier']['verrou'])
 //    {
-//       $total += $_SESSION['panier']['quantity'][$i] * $_SESSION['panier']['prix'][$i];
+//       return true;
 //    }
-//    return $total;
+//    else
+//    {
+//       return false;
+//    }
 // }
 
-// NOMBRE D'ARTICLES DANS PANIER
-function compterArticles(){
-   if (isset($_SESSION['panier']))
-   return count($_SESSION['panier']['libelleProduit']);
-   else
-   return 0;
-}
+// // CALCUL DU MONTANT DU PANIER
+// // function MontantGlobal(){
+// //    $total=0;
+// //    for($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++)
+// //    {
+// //       $total += $_SESSION['panier']['quantity'][$i] * $_SESSION['panier']['prix'][$i];
+// //    }
+// //    return $total;
+// // }
 
-// SUPPRESSION DU PANIER
-function supprimePanier(){
-   unset($_SESSION['panier']);
-}
+// // NOMBRE D'ARTICLES DANS PANIER
+// function compterArticles()
+// {
+//    return count($_SESSION['panier']);
+// }
+
+// // SUPPRESSION DU PANIER
+// function supprimePanier()
+// {
+//    $_SESSION['panier'] = array();
+// }
 
 
-require('./views/panier.phtml');
+// require('./views/panier.phtml');
 
 ?>

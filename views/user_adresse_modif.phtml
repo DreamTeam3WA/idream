@@ -1,0 +1,26 @@
+<form action="index.php?ajax=user_adresse_modif&id_user=<?=$user->getId();?>&id_adresse=<?=$id_adresse?>" id="form_adresse_modif<?=$id_adresse?>" method="POST">
+
+	<p><span class="infos">Nom : </span>
+		<input type="text" class="am_nom_adresse" name="nom_adresse" value="<?=$nom_adresse?>"></p>
+	<p><span class="infos">Prénom : </span>
+		<input type="text" class="am_prenom_adresse" name="prenom_adresse" value="<?=$prenom_adresse?>"></p>
+	<p><span class="infos">Adresse : </span>
+		<input type="text" class="am_ligne1" name="ligne1" value="<?=$ligne1?>">
+	<input type="text" class="am_ligne2" name="ligne2" value="<?=$ligne2?>"></p>
+	
+	<p><span class="infos">Code : </span>
+		<input type="text" class="am_code" name="code" value="<?=$code?>"></p>
+	<p><span class="infos">Ville : </span>
+		<input type="text" class="am_ville" name="ville" value="<?=$ville?>"></p>
+	<p><span class="infos">Pays : </span>
+		<input type="text" class="am_pays" name="pays" value="<?=$pays?>"></p>
+		<input type="hidden" name="action" value="user_adresse_modif<?=$id_adresse?>" class="am_action">
+
+<button class="creer_compte">Modifier</button>
+				
+			
+</form>
+		
+
+
+		

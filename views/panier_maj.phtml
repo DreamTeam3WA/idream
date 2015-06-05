@@ -1,9 +1,7 @@
-<div class="row">
-	<div class="panier_maj col-md-4 pull-right">
-		<div class="wrapper_form_nav">
+<div class="panier_wrapper">
 			<form action="" method="POST" class="user_connect">
-				<div class="entete_user_add">
-					<p>Panier <span class="fermer_panier"> X </span></p>
+				<div class="">
+					<p>Votre panier<span class="fermer_panier"> X </span></p>
 				
 				<!-- </div>
 				<?=$nom_produit?>
@@ -13,58 +11,29 @@
 
 				<form method="post" action="#">
 					<table>
-						<tr>
-							<td colspan="4">Votre panier</td>
-						</tr>
+
+
+						
 						<tr>
 							<td>Produit</td>
 							<td>Durée</td>
 							<td>Quantité</td>
 							<td>Prix</td>
-							<!--<td>Action</td>-->
 						</tr>
+					
+							
 
-
-						<?php
-						if (creationPanier())
-						{
-							$nbArticles=count($_SESSION['panier']['id_produit']);
-							if ($nbArticles <= 0)
-							echo "<tr><td>Votre panier est vide </ td></tr>";
-							else
-							{
-								for ($i=0 ;$i < $nbArticles ; $i++)
-								{
-									echo "<tr>";
-									echo "<td>".htmlentities($_SESSION['panier']['id_produit'][$i])."</ td>";
-									echo "<td><input type=\"text\" size=\"4\" name=\"q[]\" value=\"".htmlentities($_SESSION['panier']['quantity'][$i])."\"/></td>";
-									echo "<td>".htmlentities($_SESSION['panier']['prix'][$i])."</td>";
-									echo "<td><a href=\"".htmlentities("panier.php?action=suppression&l=".rawurlencode($_SESSION['panier']['id_produit'][$i]))."\">XX</a></td>";
-									echo "</tr>";
-								}
-
-								echo "<tr><td colspan=\"2\"> </td>";
-								echo "<td colspan=\"2\">";
-								echo "Total : ".MontantGlobal();
-								echo "</td></tr>";
-
-								echo "<tr><td colspan=\"4\">";
-								echo "<input type=\"submit\" value=\"Rafraichir\"/>";
-								echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
-
-								echo "</td></tr>";
-							}
-						}
-						?>
+					
+								<!--echo "<tr>";
+									echo "<td>".$_SESSION['panier']['id_produit'][$i]."</ td>";
+									echo "<td>".$_SESSION['panier']['duree'][$i]."</td>";
+									echo "<td>".$_SESSION['panier']['quantity'][$i]."</td>"; -->
+									
 						
 					</table>
 				</form>
-
-
-
 				<p>Prix total :</p>
 				<button class="payer_panier">Payer</button>
 			</form>
-		</div>	
-	</div>	
+	
 </div>

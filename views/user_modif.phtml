@@ -1,0 +1,20 @@
+<form action="index.php?ajax=user_modif&id_user=<?=$user->getId();?>" id="form_user_modif" method="POST">
+	<p><span class="infos">Nom : </span>
+		<input type="text" id="um_nom" name="nom" value="<?=htmlentities($user->getNom());?>"></p>
+	<p><span class="infos">Prénom : </span>
+		<input type="text" id="um_prenom" name="prenom" value="<?=htmlentities($user->getPrenom());?>"></p>
+	<p><span class="infos">Date de naissance : </span>
+		<input type="text" disabled value="<?=$user->getBirthday();?>"></p>
+	<p><span class="infos">Téléphone : </span>
+		<input type="text" id="um_telephone" name="telephone" value="<?=htmlentities($user->getTelephone());?>"></p>
+	<p><span class="infos">Email : </span>
+		<input type="text" id="um_email" name="email" value="<?=htmlentities($user->getEmail());?>"></p>
+		<input type="hidden" name="action" id="um_action" value="user_modif">
+<button class="creer_compte">Modifier</button>
+				
+			
+</form>
+		
+
+
+		

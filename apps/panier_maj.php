@@ -27,7 +27,18 @@
 // 	require('./views/erreur.phtml');
 // }
 
+   // $i=0;
+// $nbr = count($_SESSION['panier']['id_produit']);
+// while($i < $nbr)
+// {
+//    echo("<tr><td>".$_SESSION['panier']['i']."</td>")
+
+//    $i++
+// }
+
+$erreur = false;
 
 require('./views/panier_maj.phtml');
+
 
 ?>
