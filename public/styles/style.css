@@ -338,16 +338,48 @@ body {
 .suppr {
 	display: none;
 }
-
-.commentaire_single {
-	background-image:linear-gradient(180deg, rgba(243,241,226,1), rgba(184,184,183,1));
-/*	background: rgba(222,220,209,0.9);*/
-	margin: none;
-	padding: none;
-	border: 1px solid black;
-	color: #DE0E4D;
+.commentaire {
+	background: #B9B9B7;
+	margin: 0 20px;
+	padding: 0 0 10px;
+	border-radius: 5px;
+	box-shadow: 3px 3px 0px rgba(128, 128, 128, 1);
 }
+.commentaire_single {
+	margin: none;
+	padding: 0 10px 40px;
+	border-bottom: 1px dashed rgba(128, 128, 128, 1);
+}
+.commentaire .add_commentaire {
+	color: white;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	background: rgba(128, 128, 128, 1);
+	border: none;
+	border-radius: 5px 5px 0 0;
+	width: 100%;
+	margin-bottom: 10px;
 
+}
+.commentaire .add_commentaire:hover {
+	background: rgba(128, 128, 128, 0.5);
+}
+.commentaire_single h2 {
+	font-size: 11px;
+	font-style: italic;
+	}
+.user_commentaire {
+	font-style: normal;
+	font-size: 14px;
+	background: #F1EFE0;
+	padding: 1px 3px;
+	border-radius: 2px;
+}
+.note {
+	font-weight: bold;
+	font-size: 13px;
+}
 .commentaire_single p {
 	margin: 0;
 }
