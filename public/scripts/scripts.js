@@ -127,19 +127,11 @@ $('document').ready(function()
 					$('#result_search').append(data);
 					$('.resultat_search p').click(function(){
 							var id = $(this).data('id');
-							alert(id);
-							$.get("index.php?ajax=produit_modif_affich&id_produit="+id, function(data)
+							$.get("index.php?ajax=produit_modif&id_produit="+id, function(data)
 							{
-
-								alert(data);
-
-								// $nom_produit;
-								// $date;
-								// $prix;
-								// $lien0;
-								// $description;
-								// $id_category;
-								// $reference;
+								if (data != ""){
+								$('.actualisation_produit').html(data);
+							}
 							})
 					})
 				}
