@@ -41,9 +41,6 @@ else {
 	require('./views/erreur.phtml');
 }
 
-// $tableau = array();
-// $_SESSION['tableau']= array();
-
 
 	
 
