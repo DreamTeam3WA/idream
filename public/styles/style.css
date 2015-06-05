@@ -41,6 +41,11 @@ body {
 		padding: 0;
 }
 
+/*ADMIN */
+.admin {
+	background: rgba(181,181,181,0.2);
+}
+
 /*LOGIN--PROFIL*/
 
 .login {
@@ -73,6 +78,21 @@ body {
 	padding: 5px 5px;
 	text-align: center;
 }
+.panier_wrapper{
+	position: fixed;
+	display: none;
+	top: 300px;
+	right: 5%;
+	left:5%;
+	bottom: 0;
+	z-index: 50;
+	overflow-y: scroll;
+	background: #fff;
+	padding: 10px;
+}
+
+
+
 .panier {
 	background: #DE0E4D;
 	border: 1px solid #DE0E4D;
@@ -260,11 +280,6 @@ body {
 
 .category_liste h3 span {
 	font-size: 15px;
-}
-
-/*ADMIN */
-.admin {
-	background: rgba(181,181,181,0.2);
 }
 /*PRODUIT SINGLE */
 .produit {
