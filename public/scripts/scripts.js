@@ -327,8 +327,57 @@ $('document').ready(function()
  	add_item_panier()
 	
 
+	//PRODUIT - CHAMP DE RECHERCHE POUR SUPPR PRODUITS/
 
-
-
+	$('#autosearch2').keyup(function(){
+		search=$('#autosearch2').val();
+		category= $('#produit_select').find('#category').val();
+		action = $('#produit_select').find('#produit_search').val();
+		$.post($(this).parents('form').attr('action'),
+			{"action":action,
+			  "category":category,
+			  "nom":search
+			}, function(data)
+			{
+				$('#result_search').empty();
+				if (data != ""){
+					$('#result_search').append(data);
+					$('.resultat_search p').click(function(){
+							var id = $(this).data('id');
+							var id_category = $(this).data('category');
+							$.get("index.php?ajax=produit_suppr&id_produit="+id, function(data)
+							{
+								if (data != ""){
+								$('.suppr').html(data);
+								$('.suppr').css('display','block');
+								}
+							})
+					})
+				}
+			})
+	});
+	$('#autosearch3').keyup(function(){
+		search=$('#autosearch3').val();
+		action = $('#produit_select').find('#produit_search').val();
+		$.post($(this).parents('form').attr('action'),
+			{"action":action,
+			  "nom":search
+			}, function(data)
+			{
+				$('#result_search_site').empty();
+				if (data != ""){
+					$('#result_search_site').append(data);
+					// $('.resultat_search_site p').click(function(){
+					// 		var id = $(this).data('id');
+					// 		document.location.href="index.php?page=produit_single&id_produit="+id;
+					// })
+				}
+			})
+	});
+	$('#produit_select').submit(function(info)
+		{
+		info.preventDefault();
+		return false;
+	});
 
 })
