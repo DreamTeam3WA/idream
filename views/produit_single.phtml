@@ -5,7 +5,7 @@
 				<?php require('./apps/produit_single_img.php');?>
 			</ul>
 		</div>
-		<form action="index.php?page=panier&add" method="post" id="add_item_panier">
+		<form action="index.php?ajax=panier&add" method="post" id="add_item_panier">
 			<div class="produit_descr col-md-7">
 				<h2><?=$nom_produit?></h2>
 				<p>Référence produit : <?=$reference?></p><p>Date mise en ligne produit : <?=$date?></p>
@@ -31,7 +31,7 @@
 				</select>
 				<h3 class="produit_prix"><?=$prix?> € </h3>
 				<h3 class="produit_note">Note du produit : A ajouter</h3>
-				<input type="hidden" name="id_produit" value="<?=$id_produit?>">
+				<input type="hidden" name="id_produit" id="pa_id_produit" value="<?=$id_produit?>">
 				<input type="hidden" value="panier_add" name="action" id="panier_add">
 				<input type="submit" value="AJOUTER AU PANIER" class="add_panier col-md-12">
 			<!-- 	<a href="index.php?page=panier_maj"><button >Ajouter au panier</button></a> -->

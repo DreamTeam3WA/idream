@@ -22,6 +22,7 @@ if (isset($_GET['add'], $_POST['id_produit'], $_POST['duree'], $_POST['quantity'
    if (!$added){
       $_SESSION['panier'][] = array("id_produit"=>$_POST['id_produit'], "duree"=>$_POST['duree'], "quantity"=>$_POST['quantity']);
    }
+   require('apps/panier_liste.php');
 }
 else if (isset($_GET['delete'], $_GET['id_produit'], $_GET['duree']))
 {
@@ -34,8 +35,12 @@ else if (isset($_GET['delete'], $_GET['id_produit'], $_GET['duree']))
       $i++;
    }
    $_SESSION['panier'] = $tmp;
+   require('apps/panier_liste.php');
+
 }
+
 else if (isset($_GET['edit'], $_POST['id_produit'], $_POST['duree'], $_POST['quantity']))
+
 {
    $i = 0;
    while (isset($_SESSION['panier'][$i]))
@@ -44,6 +49,8 @@ else if (isset($_GET['edit'], $_POST['id_produit'], $_POST['duree'], $_POST['qua
          $_SESSION['panier'][$i]['quantite'] = $_POST['quantity'];
       $i++;
    }
+   require('apps/panier_liste.php');
+
 }
 else{
    $erreur = "Erreur du panier";

@@ -11,42 +11,24 @@
 
 				<form method="post" action="#">
 					<table>
+
+
+						
 						<tr>
 							<td>Produit</td>
 							<td>Durée</td>
 							<td>Quantité</td>
 							<td>Prix</td>
-							<!--<td>Action</td>-->
 						</tr>
-
-
-						<?php
-						
-						
+					
 							
-							echo "<tr><td>Votre panier est vide </ td></tr>";
-						
-									echo "<tr>";
-									echo "<td>".htmlentities($_SESSION['panier']['id_produit'][$i])."</ td>";
-									echo "<td>".htmlentities($_SESSION['panier']['duree'][$i])."</td>";
-									echo "<td><input type=\"text\" size=\"4\" name=\"quantity[]\" value=\"".htmlentities($_SESSION['panier']['quantity'][$i])."\"/></td>";
+
+					
+								<!--echo "<tr>";
+									echo "<td>".$_SESSION['panier']['id_produit'][$i]."</ td>";
+									echo "<td>".$_SESSION['panier']['duree'][$i]."</td>";
+									echo "<td>".$_SESSION['panier']['quantity'][$i]."</td>"; -->
 									
-									echo "<td><a href=\"".htmlentities("panier_maj.phtml?action=suppression&id_produit=".rawurlencode($_SESSION['panier']['id_produit'][$i]))."\">X</a></td>";
-									echo "</tr>";
-								
-
-								// echo "<tr><td colspan=\"2\"> </td>";
-								// echo "<td colspan=\"2\">";
-								// // echo "Total : ".MontantGlobal();
-								// echo "</td></tr>";
-
-								// echo "<tr><td colspan=\"4\">";
-								// echo "<input type=\"submit\" value=\"Rafraichir\"/>";
-								// echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
-
-								// echo "</td></tr>";
-						
-						?>
 						
 					</table>
 				</form>
