@@ -42,26 +42,9 @@ else {
 }
 
 // $tableau = array();
-$_SESSION['tableau']= array();
+// $_SESSION['tableau']= array();
 
 
-
-// if (isset($_POST['action']) && $_POST['action']=="panier_add")
-// {
-// 	if (isset($_POST["duree"]) && isset($_POST["quantity"]) && isset($_POST["id_produit"]))
-// 	{
-// 		if (!empty($_POST["duree"]) && !empty($_POST["quantity"]) && !empty($_POST["id_produit"]))
-// 		{	
-// 			$duree= $db->quote($_POST["duree"]);
-// 			$quantity= $db->quote($_POST["quantity"]);
-// 			$id_produit = $db->quote($_POST['id_produit']);
-					
-// 			$db->exec("INSERT INTO panier SET duree=".$duree.", quantity=".$quantity.", id_produit=".$id_produit);
-// 			var_dump($_Session);
-// 		}
-
-// 	}
-// }
 	
 
-			?>
+?>
