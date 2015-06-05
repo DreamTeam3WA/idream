@@ -21,7 +21,8 @@
 	}
 
 
-	$liste = array("category_list", "user","produit_single_commentaire_add", "produit_single","login","administration","produit_add", "produit_modif", "produit_suppr", "produit_modif_affich");
+
+	$liste = array("category_list", "user","produit_single_commentaire_add", "produit_single","login","administration","produit_add", "produit_modif", "produit_suppr", "produit_modif_affich", "produit_suppr_affich");
 
 
 if (isset($_GET['ajax']))

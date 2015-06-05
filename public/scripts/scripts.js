@@ -176,7 +176,7 @@ $('document').ready(function()
 	i=1;
 	$('#image_add').click(function(){
 		newlabelimage= $('<label for="lien'+i+'">Lien image :</label>');
-		newinputimage= $('<input id="lien'+i+'" name="lien'+i+'" type="text" placegolder="./images/">');
+		newinputimage= $('<input id="lien'+i+'" name="lien'+i+'" type="text" placeholder="./images/">');
 		$('.div_image_add').append(newlabelimage, newinputimage);
 		i++;
 	});
@@ -200,10 +200,20 @@ $('document').ready(function()
 					$('#result_search').append(data);
 					$('.resultat_search p').click(function(){
 							var id = $(this).data('id');
+							var id_category = $(this).data('category');
 							$.get("index.php?ajax=produit_modif&id_produit="+id, function(data)
 							{
 								if (data != ""){
+
 								$('.actualisation_produit').html(data);
+								$('#category_modif option[value="'+id_category+'"]').prop('selected', true);
+								j=0;
+								$('#image_modif').click(function(){
+								newlabelimage= $('<label for="id_img'+j+'">Lien image :</label>');
+								newinputimage= $('<input id="id_img'+j+'" name="id_img'+j+'" type="text" placeholder="./images/">');
+								$('.div_image_modif').append(newlabelimage, newinputimage);
+								j++;
+							});
 							}
 							})
 					})
@@ -255,6 +265,35 @@ $('document').ready(function()
  	
 	
 
+	//PRODUIT - CHAMP DE RECHERCHE POUR SUPPR PRODUITS/
+
+	$('#autosearch2').keyup(function(){
+		search=$('#autosearch2').val();
+		category= $('#produit_select').find('#category').val();
+		action = $('#produit_select').find('#produit_search').val();
+		$.post($(this).parents('form').attr('action'),
+			{"action":action,
+			  "category":category,
+			  "nom":search
+			}, function(data)
+			{
+				$('#result_search').empty();
+				if (data != ""){
+					$('#result_search').append(data);
+					$('.resultat_search p').click(function(){
+							var id = $(this).data('id');
+							var id_category = $(this).data('category');
+							$.get("index.php?ajax=produit_suppr&id_produit="+id, function(data)
+							{
+								if (data != ""){
+								$('.suppr').html(data);
+								$('.suppr').css('display','block');
+								}
+							})
+					})
+				}
+			})
+	});
 
 
 
