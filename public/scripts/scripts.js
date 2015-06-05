@@ -295,8 +295,28 @@ $('document').ready(function()
 				}
 			})
 	});
-
-
-
+	$('#autosearch3').keyup(function(){
+		search=$('#autosearch3').val();
+		action = $('#produit_select').find('#produit_search').val();
+		$.post($(this).parents('form').attr('action'),
+			{"action":action,
+			  "nom":search
+			}, function(data)
+			{
+				$('#result_search_site').empty();
+				if (data != ""){
+					$('#result_search_site').append(data);
+					// $('.resultat_search_site p').click(function(){
+					// 		var id = $(this).data('id');
+					// 		document.location.href="index.php?page=produit_single&id_produit="+id;
+					// })
+				}
+			})
+	});
+	$('#produit_select').submit(function(info)
+		{
+		info.preventDefault();
+		return false;
+	});
 
 })
