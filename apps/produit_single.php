@@ -6,7 +6,8 @@ if (isset($_GET['id_produit']) && !empty($_GET['id_produit'])){
 	FROM produit
 	LEFT JOIN avis ON produit.id_produit = avis.id_produit
 	LEFT JOIN user ON avis.id_user = user.id_user
-	WHERE produit.id_produit=".$id_produit)->fetchAll(PDO::FETCH_ASSOC);
+	WHERE produit.id_produit=".$id_produit."
+	ORDER BY avis.id_avis DESC")->fetchAll(PDO::FETCH_ASSOC);
 	if (isset($tab) && !empty($tab)) {
 		$nom_produit = htmlentities($tab[0]['nom_produit']);
 		$reference = htmlentities($tab[0]['reference']);
