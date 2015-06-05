@@ -6,7 +6,9 @@ if (isset($_GET['id_produit']))
 		{
 			$db->exec("DELETE FROM produit WHERE id_produit=".$id_produit);
 
-			require('./views/produit_suppr.phtml');
+			$erreur="Le produit a été supprimé";
+			require('./views/erreur.phtml');
+			die();
 		}
 		else {
 			$erreur = "Vous n'avez pas les droits";

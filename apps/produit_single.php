@@ -1,16 +1,16 @@
 <?php
-if (isset($_GET['id_produit'])){
+if (isset($_GET['id_produit']) && !empty($_GET['id_produit'])){
 	$id_produit = $_GET['id_produit'];
 	// $id_produit=$db->quote($id_produit);
-	$tab = $db->query("SELECT produit.*, avis.*, user.prenom
+	$tab = $db->query("SELECT produit.id_produit, produit.id_category, produit.nom_produit, produit.description, produit.prix, produit.duree, produit.date, produit.reference, avis.id_produit, avis.id_avis, avis.note, avis.commentaires, avis.id_user, avis.date_avis, user.prenom
 	FROM produit
 	LEFT JOIN avis ON produit.id_produit = avis.id_produit
 	LEFT JOIN user ON avis.id_user = user.id_user
-	WHERE produit.id_produit=".$id_produit )->fetchAll(PDO::FETCH_ASSOC);
+	WHERE produit.id_produit=".$id_produit)->fetchAll(PDO::FETCH_ASSOC);
 	if (isset($tab) && !empty($tab)) {
-
 		$nom_produit = htmlentities($tab[0]['nom_produit']);
 		$reference = htmlentities($tab[0]['reference']);
+
 		$date = $tab[0]['date'];
 		$description = htmlentities($tab[0]['description']);
 		$duree = $tab[0]['duree'];
@@ -22,7 +22,7 @@ if (isset($_GET['id_produit'])){
 		while(isset($tab[$i])){
 			$note = $tab[$i]['note'];
 			$commentaires = balise($tab[$i]['commentaires']);
-			$date = $tab[$i]['date'];
+			$date_avis = $tab[$i]['date_avis'];
 			$prenom = htmlentities($tab[$i]['prenom']);
 			require('./views/produit_commentaire.phtml');
 			$i++;
@@ -37,14 +37,13 @@ if (isset($_GET['id_produit'])){
 	}
 }
 else {
-	$erreur="Vous n'avez pas le droit d'accéder directement sans passer par la page d'accueil en haut à gauche, angle 180° à droite de là bas, en haut enfin tu vois ce que je veux dire non ?";
+	$erreur="Produit non trouvé !";
 	require('./views/erreur.phtml');
 }
 
 // $tableau = array();
 $_SESSION['tableau']= array();
 
-var_dump($_SESSION['tableau'])
 
 
 // if (isset($_POST['action']) && $_POST['action']=="panier_add")

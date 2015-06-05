@@ -26,6 +26,7 @@ if (droits() == 1 || droits() == 2){
 				}
 				$erreur="Le produit ".$nom_produit." a été modifié !";
 				require('./views/erreur.phtml');
+				die();
 		}
 		else {
 			$erreur="Le formulaire est incomplet !";
