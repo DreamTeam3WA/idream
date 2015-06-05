@@ -339,6 +339,18 @@ body {
 	display: none;
 }
 
+.commentaire_single {
+	background-image:linear-gradient(180deg, rgba(243,241,226,1), rgba(184,184,183,1));
+/*	background: rgba(222,220,209,0.9);*/
+	margin: none;
+	padding: none;
+	border: 1px solid black;
+	color: #DE0E4D;
+}
+
+.commentaire_single p {
+	margin: 0;
+}
 /*FOOTER*/
 .wrap {
 	min-height: 73%;

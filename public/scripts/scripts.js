@@ -93,6 +93,7 @@ $('document').ready(function()
 			{
 				$.get('index.php?ajax=produit_single&id_produit='+id_produit,function(data)
 				{
+					alert(data);
 					$('#container-main section').html(data);
 					$('.caroussel').bxSlider({
 					mode: "fade"
