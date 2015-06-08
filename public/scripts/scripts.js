@@ -298,6 +298,13 @@ $('document').ready(function()
 								if (data != ""){
 								$('.actualisation_produit').html(data);
 								$('#category_modif option[value="'+id_category+'"]').prop('selected', true);
+								j=0;
+								$('#image_modif').click(function(){
+										newlabelimage= $('<label for="id_img'+j+'">Lien image :</label>');
+										newinputimage= $('<input id="id_img'+j+'" name="id_img'+j+'" type="text" placeholder="./images/">');
+								$('.div_image_modif').append(newlabelimage, newinputimage);
+								j++;
+							});
 							}
 							})
 					})
