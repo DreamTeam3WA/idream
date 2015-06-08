@@ -1,12 +1,11 @@
 <?php
-// var_dump($_SESSION);
+
 if (!isset($_SESSION['panier']))
    $_SESSION['panier'] = array();
 
 
 if (isset($_GET['add'], $_POST['id_produit'], $_POST['duree'], $_POST['quantity']))
 {
-   
    // var_dump($_POST);
    $added = false;
    $i = 0;
@@ -41,18 +40,17 @@ else if (isset($_GET['delete'], $_GET['id_produit'], $_GET['duree']))
 
 }
 
-else if (isset($_GET['edit'], $_POST['id_produit'], $_POST['duree'], $_POST['quantity']))
-
-{
+else if (isset($_GET['edit'], $_POST['id_produit'], $_POST['duree'], $_POST['quantity'])){
+   
    $i = 0;
    while (isset($_SESSION['panier'][$i]))
    {
-      if ($_SESSION['panier'][$i]['id_produit'] == $_POST['id_produit'] && $_SESSION['panier'][$i]['duree'] == $_POST['duree'] )
-         $_SESSION['panier'][$i]['quantite'] = $_POST['quantity'];
+      if ($_SESSION['panier'][$i]['id_produit'] == $_POST['id_produit'] && $_SESSION['panier'][$i]['duree'] == $_POST['duree'] && $_POST['quantity'] > 0){
+         $_SESSION['panier'][$i]['quantity'] = $_POST['quantity'];
+      }
       $i++;
    }
    require('apps/panier_liste.php');
-
 }
 else{
    require('views/panier.phtml');
