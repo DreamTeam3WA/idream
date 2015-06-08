@@ -97,34 +97,34 @@ function supp_item_panier(){
  
 }
 
-function modif_item_panier(){
-	$('select.duree, input.quantity').keyup(function(info)
-		{
-		var id_item_panier = $(this).data('id');
+// function modif_item_panier(){
+// 	$('select.duree, input.quantity').keyup(function(info)
+// 		{
+// 		var id_item_panier = $(this).data('id');
 		
-		$.post($(this).attr('action'),
-				{"action": action,
-				 "duree": duree,
-				 "id_produit": id_produit,
-				 "quantity" : quantity
+// 		$.post($(this).attr('action'),
+// 				{"action": action,
+// 				 "duree": duree,
+// 				 "id_produit": id_produit,
+// 				 "quantity" : quantity
 				 
-				}, function(data)
-				 {		
+// 				}, function(data)
+// 				 {		
 				 			 	
-				$('.panier_liste').html(data);
+// 				$('.panier_liste').html(data);
 				
-				$('.panier_wrapper').toggle(500);
-				$('.inscription').css('display',"none");
-				$('.connection').css('display',"none");
-				supp_item_panier();
+// 				$('.panier_wrapper').toggle(500);
+// 				$('.inscription').css('display',"none");
+// 				$('.connection').css('display',"none");
+// 				supp_item_panier();
 				
 	 	
-				 	}); 
-			});
-		});	  
-		return false;
-	});
-}
+// 				 	}); 
+// 			});
+// 		});	  
+// 		return false;
+// 	});
+// }
 
 // EXECUTION DU SCRIPT QUAND LE DOCUMENT HTML/PHP EST PRET
 
