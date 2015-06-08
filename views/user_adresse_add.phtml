@@ -1,0 +1,26 @@
+<form action="index.php?ajax=user_adresse_add&id_user=<?=$user->getId();?>" id="form_adresse_add" method="POST">
+
+	<p><span class="infos">Nom : </span>
+		<input type="text" class="add_nom_adresse" name="nom_adresse" ></p>
+	<p><span class="infos">Prénom : </span>
+		<input type="text" class="add_prenom_adresse" name="prenom_adresse"></p>
+	<p><span class="infos">Adresse : </span>
+		<input type="text" class="add_ligne1" name="ligne1">
+		<input type="text" class="add_ligne2" name="ligne2"></p>
+	
+	<p><span class="infos">Code : </span>
+		<input type="text" class="add_code" name="code"></p>
+	<p><span class="infos">Ville : </span>
+		<input type="text" class="add_ville" name="ville"></p>
+	<p><span class="infos">Pays : </span>
+		<input type="text" class="add_pays" name="pays"></p>
+		<input type="hidden" name="action" value="user_adresse_add" class="add_action">
+
+<button class="creer_compte">Modifier</button>
+				
+			
+</form>
+		
+
+
+		
