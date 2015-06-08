@@ -150,25 +150,6 @@ function supp_item_panier(){
 }
 
 function modif_item_panier(){
-	$('.modif_panier select.duree, .modif_panier input.quantity').keyup(function(){		
-	var id_item_panier = $(this).data('id');
-	quantity = $('#mp_quantity'+id_item_panier).val();
-	duree = $('#mp_duree'+id_item_panier).data('duree');
-	id_produit = $('#mp_id_produit'+id_item_panier).val();
-	action = $('#mp_action'+id_item_panier).val();
-	$.post('index.php?ajax=panier&edit',
-			{"action": action,
-			 "duree": duree,
-			 "id_produit": id_produit,
-			 "quantity" : quantity
-			 
-			}, function(data)
-			{		
-				$('.panier_liste').html(data);
-				supp_item_panier();
-				modif_item_panier();
-			});
-	});
 	$('.modif_panier select.duree, .modif_panier input.quantity').change(function(){
 	var id_item_panier = $(this).data('id');
 	quantity = $('#mp_quantity'+id_item_panier).val();
@@ -485,8 +466,12 @@ $('document').ready(function()
 		info.preventDefault();
 		return false;
 	});
-
-
+	
+	$('.modif_panier').submit(function(info)
+		{
+		info.preventDefault();
+		return false;
+	});
 
 
 })
