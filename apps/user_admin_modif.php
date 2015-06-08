@@ -1,16 +1,16 @@
 <?php
 if (droits() == 1 || droits() == 2){
 	if (isset($_POST['action']) && $_POST['action']=="user_modif_submit"){ 
-		if(isset($_POST['nom']) && !empty($_POST['nom']) && isset($_POST['reference']) && !empty($_POST['reference']) && isset($_POST['category']) && !empty($_POST['category']) && isset($_POST['prix']) && !empty($_POST['prix']) && isset($_POST['description']) && !empty($_POST['description']) && isset($_POST['id_produit']) && !empty($_POST['id_produit'])){
-					$id_produit =$db->quote($_POST['id_produit']);
-					$nom_produit = $db->quote($_POST['nom']);
-					$category = $db->quote($_POST['category']);
-					$reference = $db->quote($_POST['reference']);
-					$prix = $db->quote($_POST['prix']);
-					$description = $db->quote($_POST['description']);
-					$db-> exec("UPDATE produit SET nom_produit=".$nom_produit.", reference=".$reference.", prix=".$prix.", description=".$description.", id_category=".$category.", duree=15. WHERE id_produit=".$id_produit);
+		if(isset($_POST['nom']) && !empty($_POST['nom']) && isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['prenom']) && !empty($_POST['prenom']) && isset($_POST['telephone']) && !empty($_POST['telephone']) && isset($_POST['droits']) && !empty($_POST['droits']) && isset($_POST['id_user']) && !empty($_POST['id_user'])){
+					$id_user =$db->quote($_POST['id_user']);
+					$nom = $db->quote($_POST['nom']);
+					$prenom = $db->quote($_POST['prenom']);
+					$email = $db->quote($_POST['email']);
+					$telephone = $db->quote($_POST['telephone']);
+					$droits = $db->quote($_POST['droits']);
+					$db-> exec("UPDATE user SET nom=".$nom.", email=".$email.", telephone=".$telephone.", droits=".$droits." WHERE id_user=".$id_user);
 				
-				$erreur="L'user ".$nom_produit." a été modifié !";
+				$erreur="L'user ".$nom." a été modifié !";
 				require('./views/erreur.phtml');
 				die();
 		}
