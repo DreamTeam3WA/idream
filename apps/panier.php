@@ -22,15 +22,17 @@ if (isset($_GET['add'], $_POST['id_produit'], $_POST['duree'], $_POST['quantity'
 }
 else if (isset($_GET['delete'], $_GET['id_produit'], $_GET['duree']))
 {
+   //var_dump($_SESSION['panier']);
    $tmp = array();
    $i = 0;
    while (isset($_SESSION['panier'][$i]))
    {
-      if ($_SESSION['panier'][$i]['id_produit'] != $_GET['id_produit'] && $_SESSION['panier'][$i]['duree'] != $_GET['duree'] )
+      if ($_SESSION['panier'][$i]['id_produit'] != $_GET['id_produit'] || $_SESSION['panier'][$i]['duree'] != $_GET['duree'] )
          $tmp[] = $_SESSION['panier'][$i];
       $i++;
    }
    $_SESSION['panier'] = $tmp;
+   //var_dump($_SESSION['panier']);
    require('apps/panier_liste.php');
 
 }
@@ -49,8 +51,7 @@ else if (isset($_GET['edit'], $_POST['id_produit'], $_POST['duree'], $_POST['qua
 
 }
 else{
-   $erreur = "Erreur du panier";
-   require('.views/erreur.phtml');
+   require('views/panier.phtml');
 }
 // // VERROUILLAGE DU PANIER POUR ACTE D'ACHAT
 // function isVerrouille()

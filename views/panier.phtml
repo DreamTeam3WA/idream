@@ -1,4 +1,13 @@
-<button class="panier">Mon panier</button>
-<?php 
-require('./apps/panier_maj.php');
-?> 
+<div class="row">
+		<!-- <div class="col-sm-2">Supp.</div> -->
+		<div class="col-sm-2">reference</div>
+		<div class="col-sm-4">Produit</div>
+		<div class="col-sm-1">Durée</div>
+		<div class="col-sm-1 quant_panier">Quantité</div>
+		<div class="col-sm-2">Prix unitaire</div>
+		<div class="col-sm-2">Prix total</div>
+	
+</div>
+<div class="panier_liste" id="panier_liste">
+	<?php require('apps/panier_liste.php');?> 
+</div>
