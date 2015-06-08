@@ -67,61 +67,64 @@ function add_item_panier(){
 				}, function(data)
 				 {		
 				 			 	
-				$('.panier_wrapper').html(data);
+				$('.panier_liste').html(data);
 				
 				$('.panier_wrapper').toggle(500);
 				$('.inscription').css('display',"none");
 				$('.connection').css('display',"none");
-
+				supp_item_panier();
+				
 	 	
 				 	}); 
 		return false;
 		});
 
 }
+function supp_item_panier(){
+	// SUPPRIMER ITEM PANIER 
+	$('.panier_supp_link').click(function(info)
+		{
+		info.preventDefault();
+		var lien = $(this).attr('href');
+		$.get(lien, function(data){
+		
+			$('.panier_liste').html(data);
+			supp_item_panier();	
+		});
+		 
+		return false;
+	});
+ 
+}
 
-
-// function modif_item_panier(){
-// 	$('.modif_panier').click(function(info)
-// 		{
-// 		info.preventDefault();
-// 		var id_item_panier = $(this).data('id');
-// 		$.get('index.php?ajax=panier&edit', function(data){
-// 			 $('#modif_adresse'+id_adresse).html(data);
-
-// 			$('#form_adresse_modif'+id_adresse).submit(function(info)
-// 			{
-// 				info.preventDefault();
-// 				nom_adresse = $(this).find('.am_nom_adresse').val();
-// 				prenom_adresse = $(this).find('.am_prenom_adresse').val();
-// 				action = $(this).find('.am_action').val();
-// 				ligne1 = $(this).find('.am_ligne1').val();
-// 				ligne2 = $(this).find('.am_ligne2').val();
-// 				code = $(this).find('.am_code').val();
-// 				ville = $(this).find('.am_ville').val();
-// 				pays = $(this).find('.am_pays').val();
+function modif_item_panier(){
+	$('select.duree, input.quantity').keyup(function(info)
+		{
+		var id_item_panier = $(this).data('id');
+		
+		$.post($(this).attr('action'),
+				{"action": action,
+				 "duree": duree,
+				 "id_produit": id_produit,
+				 "quantity" : quantity
+				 
+				}, function(data)
+				 {		
+				 			 	
+				$('.panier_liste').html(data);
 				
-					
-// 				$.post($(this).attr('action'),
-// 					{"action": action,
-// 					 "nom_adresse": nom_adresse,
-// 					 "prenom_adresse": prenom_adresse,
-// 					 "ligne1" : ligne1,
-// 					 "ligne2" : ligne2,
-// 					 "code" : code,
-// 					 "ville" : ville,
-// 					 "pays" : pays,
-// 					}, function(data)
-// 					 {					 	
-// 					 	$('#modif_adresse').html(data);
-// 						modif_adresse();		 	
-// 					 	}); 
-// 			return false;
-// 			});
-// 		});	  
-// 		return false;
-// 	});
-// }
+				$('.panier_wrapper').toggle(500);
+				$('.inscription').css('display',"none");
+				$('.connection').css('display',"none");
+				supp_item_panier();
+				
+	 	
+				 	}); 
+			});
+		});	  
+		return false;
+	});
+}
 
 // EXECUTION DU SCRIPT QUAND LE DOCUMENT HTML/PHP EST PRET
 
@@ -328,7 +331,8 @@ $('document').ready(function()
 	//---------------------------------------
 
 	modif_adresse();	
- 	add_item_panier()
+ 	add_item_panier();
+ 	supp_item_panier();
 	
 
 	//PRODUIT - CHAMP DE RECHERCHE POUR SUPPR PRODUITS/
@@ -410,18 +414,6 @@ $('document').ready(function()
 	});
 
 
-	// SUPPRIMER ITEM PANIER 
-	$('.panier_supp_link').click(function(info)
-		{
-		info.preventDefault();
-		var lien = $(this).data('href');
-		$.get(lien, function(data){
-			alert(data);
-			 $('.panier_wrapper').html(data);
-
-		});	  
-		return false;
-	});
 
 
 })

@@ -35,5 +35,6 @@ $prix_total_panier=0;
       $prix_total_panier += $prix_total;
       $i++;
    }
+require('./views/panier_footer.phtml');
 
  ?>

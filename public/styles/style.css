@@ -137,18 +137,6 @@ body {
 	padding: 5px 5px;
 	text-align: center;
 }
-.panier_wrapper{
-	position: fixed;
-	display: none;
-	top: 300px;
-	right: 5%;
-	left:5%;
-	bottom: 0;
-	z-index: 11000;
-	overflow-y: scroll;
-	background: #fff;
-	padding: 10px;
-}
 .panier {
 	background: rgba(222, 14 ,77, 1);
 	border: 1px solid #DE0E4D;
@@ -159,6 +147,26 @@ body {
 }
 .panier:hover {
 	background: rgba(222, 14 ,77, 0.9);
+}
+.panier_wrapper{
+	display: none;
+	font-size: 12px;
+	text-align: left;
+	position: fixed;
+	top: 20%;
+	right: 15%;
+	left: 15%;
+	bottom: 20px;
+	z-index: 11000;
+	/*overflow-y: scroll;*/
+	background: #fff;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(128, 128, 128, 0.8);
+}
+.quant_panier input{
+	width: 40px;
+	text-align: center;
 }
 .creer_compte {
 	background: #DE0E4D;
