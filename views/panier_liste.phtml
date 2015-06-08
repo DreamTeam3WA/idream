@@ -5,19 +5,15 @@
 			<?=$reference?>
 		</div>
 		<div class="col-sm-4"><?=$nom_produit?></div>
-		<div class="col-sm-1">
-			<select name="duree" id="mp_duree<?=$i?>">
-				<option value="15" <?=$duree15?>>15 min</option>
-				<option value="30" <?=$duree30?>>30 min</option>
-				<option value="45" <?=$duree45?>>45 min</option>
-				<option value="60" <?=$duree60?>>60 min</option>
-			</select>
+		<div class="col-sm-1" data-duree="<?=$duree?>" id="mp_duree<?=$i?>"><?=$duree?> min</div>
+		<div class="col-sm-1 quant_panier">
+			<input type="number" name="quantity" class="quantity" id="mp_quantity<?=$i?>" data-id="<?=$i?>" min="1" value="<?=$quantity?>">
 		</div>
-		<div class="col-sm-1 quant_panier"><input type="number" name="quantity" id="mp_quantity<?=$i?>" value="<?=$quantity?>"></div>
 		<div class="col-sm-2"><?=$prix?> €</div>
 		<div class="col-sm-2"><?=$prix_total?> €</div>
 		<input type="hidden" name="panier_item_id" value="<?=$i?>">
-		<input type="hidden" name="id_produit" value="<?=$id_produit?>">
+		<input type="hidden" name="mp_id_produit" id="mp_id_produit<?=$i?>" value="<?=$id_produit?>">
+		<input type="hidden" name="mp_action" id="mp_action<?=$i?>" value="update_panier">
 	</form>
 </div>
 

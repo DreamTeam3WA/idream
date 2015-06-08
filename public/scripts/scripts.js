@@ -73,6 +73,7 @@ function add_item_panier(){
 				$('.inscription').css('display',"none");
 				$('.connection').css('display',"none");
 				supp_item_panier();
+				modif_item_panier();
 				
 	 	
 				 	}); 
@@ -89,7 +90,8 @@ function supp_item_panier(){
 		$.get(lien, function(data){
 		
 			$('.panier_liste').html(data);
-			supp_item_panier();	
+			supp_item_panier();
+			modif_item_panier();
 		});
 		 
 		return false;
@@ -97,34 +99,47 @@ function supp_item_panier(){
  
 }
 
-// function modif_item_panier(){
-// 	$('select.duree, input.quantity').keyup(function(info)
-// 		{
-// 		var id_item_panier = $(this).data('id');
+function modif_item_panier(){
+	$('.modif_panier select.duree, .modif_panier input.quantity').keyup(function(){		
+	var id_item_panier = $(this).data('id');
+	quantity = $('#mp_quantity'+id_item_panier).val();
+	duree = $('#mp_duree'+id_item_panier).data('duree');
+	id_produit = $('#mp_id_produit'+id_item_panier).val();
+	action = $('#mp_action'+id_item_panier).val();
+	$.post('index.php?ajax=panier&edit',
+			{"action": action,
+			 "duree": duree,
+			 "id_produit": id_produit,
+			 "quantity" : quantity
+			 
+			}, function(data)
+			{		
+				$('.panier_liste').html(data);
+				supp_item_panier();
+				modif_item_panier();
+			});
+	});
+	$('.modif_panier select.duree, .modif_panier input.quantity').change(function(){
+	var id_item_panier = $(this).data('id');
+	quantity = $('#mp_quantity'+id_item_panier).val();
+	duree = $('#mp_duree'+id_item_panier).data('duree');
+	id_produit = $('#mp_id_produit'+id_item_panier).val();
+	action = $('#mp_action'+id_item_panier).val();
+	$.post('index.php?ajax=panier&edit',
+			{"action": action,
+			 "duree": duree,
+			 "id_produit": id_produit,
+			 "quantity" : quantity
+			 
+			}, function(data)
+			{		
+				$('.panier_liste').html(data);
+				supp_item_panier();
+				modif_item_panier();
+			});
+	});
+};	  
 		
-// 		$.post($(this).attr('action'),
-// 				{"action": action,
-// 				 "duree": duree,
-// 				 "id_produit": id_produit,
-// 				 "quantity" : quantity
-				 
-// 				}, function(data)
-// 				 {		
-				 			 	
-// 				$('.panier_liste').html(data);
-				
-// 				$('.panier_wrapper').toggle(500);
-// 				$('.inscription').css('display',"none");
-// 				$('.connection').css('display',"none");
-// 				supp_item_panier();
-				
-	 	
-// 				 	}); 
-// 			});
-// 		});	  
-// 		return false;
-// 	});
-// }
 
 // EXECUTION DU SCRIPT QUAND LE DOCUMENT HTML/PHP EST PRET
 
@@ -327,12 +342,13 @@ $('document').ready(function()
 	});
 
 	//---------------------------------------
-	//AJAX MODIFICATION ADRESSES RAPPEL DE LA FONCTION DECLAREE EN DEBUT DE SCRIPT
+	//RAPPEL DES FONCTIONS DECLAREES EN DEBUT DE SCRIPT
 	//---------------------------------------
 
 	modif_adresse();	
  	add_item_panier();
  	supp_item_panier();
+ 	modif_item_panier();
 	
 
 	//PRODUIT - CHAMP DE RECHERCHE POUR SUPPR PRODUITS/

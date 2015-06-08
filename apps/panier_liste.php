@@ -7,23 +7,7 @@ $prix_total_panier=0;
       $duree = $_SESSION['panier'][$i]['duree'];
       $quantity = $_SESSION['panier'][$i]['quantity'];
 
-      if($duree == 15){
-      	$duree15="selected";
-      	$duree30="";$duree45="";$duree60="";
-      }
-      if($duree == 30){
-      	$duree30="selected";
-      	$duree45="";$duree15="";$duree60="";
-      }
- 		if($duree == 45){
-      	$duree45="selected";
-      	$duree30="";$duree15="";$duree60="";
-      }
-      if($duree == 60){
-      	$duree60="selected";
-      	$duree30="";$duree45="";$duree15="";
-      }
-
+     
       $tab = $db->query("SELECT prix, nom_produit, reference FROM produit
          WHERE id_produit =".$id_produit)->fetch(PDO::FETCH_ASSOC);
 
