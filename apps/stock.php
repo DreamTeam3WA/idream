@@ -1,26 +1,44 @@
 <?php 
-session_start();
-$db = new PDO("mysql:dbname=dreamcommerce;host=10.32.195.200", 'idream', 'troiswa');
-$db->exec("SET CHARACTER SET utf8");
-
 $stock = $db->query("SELECT id_stock, id_produit, duree, quantity, virtual_quantity from stock")->fetchAll(PDO::FETCH_ASSOC);
 
 var_dump($stock);
 
+
+$virtual_quantity = $db->query("SELECT virtual_quantity from stock")->fetchall(PDO::FETCH_ASSOC);
+$id_test = $db->query("SELECT id_produit from stock")->fetchall(PDO::FETCH_ASSOC);
+$duree_test = $db->query("SELECT duree from stock")->fetchall(PDO::FETCH_ASSOC);
+var_dump($virtual_quantity);
+
+
+
+
 if (isset($_SESSION['panier']) && !empty($_SESSION['panier']))
 {
-	if(isset($_POST['panier_add'], $_POST['id_produit'], $_POST['duree']) && !empty($_POST['panier_add'], $_POST['id_produit'], $_POST['duree']) && $_POST['quantity'] > 0)
+	if(isset($_POST['panier_add'], $_POST['id_produit'], $_POST['duree']) && !empty($_POST['panier_add']) && !empty($_POST['id_produit']) && !empty($_POST['duree']) && $_POST['quantity'] > 0)
 	{
-
 		$quantity_tmp= $db->quote($_POST['quantity']);
 		$id_produit_tmp= $db->quote($_POST['id_produit']);
 		$duree_tmp= $db->quote($_POST['duree']);
 
-
-		$db->exec("UPDATE stock SET  virtual_quantity=virtual_quantity-".$quantity_tmp." WHERE id_produit=".$id_produit_tmp." AND duree=".$duree_tmp);
+		if ($id_produit_tmp == $id_test && $duree_tmp == $duree_test)
+		{
+			if ($virtual_quantity > $quantity_tmp)
+			{
+				$db->exec("UPDATE stock SET  virtual_quantity=".$virtual_quantity."-".$quantity_tmp." WHERE id_produit=".$id_produit_tmp." AND duree=".$duree_tmp);
+			}
+			else
+			{
+				alert("Desolé nous n'avons pas assez de produits en stock");
+			}
+		}
 	}
 }
+var_dump($_POST);
+var_dump($stock);
 
 
+
+// $i=0;
+// while($i<)
 
  ?>

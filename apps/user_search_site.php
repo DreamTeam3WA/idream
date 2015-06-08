@@ -9,6 +9,7 @@ if (droits() == 1 || droits() == 2){
 							$id_user = $tab[$i]['id_user'];
 							$nom = $tab[$i]['nom'];
 							$prenom=$tab[$i]['prenom'];
+							$droits=$tab[$i]['droits'];
 							require('views/user_search.phtml');
 							$i++;
 						}
