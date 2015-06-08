@@ -38,6 +38,7 @@ var_dump($stock);
 
 
 
+
 // $i=0;
 // while($i<)
 
