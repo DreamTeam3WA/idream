@@ -72,14 +72,30 @@ function add_item_panier(){
 				$('.panier_wrapper').toggle(500);
 				$('.inscription').css('display',"none");
 				$('.connection').css('display',"none");
-
+				supp_item_panier();
+				
 	 	
 				 	}); 
 		return false;
 		});
 
 }
-
+function supp_item_panier(){
+	// SUPPRIMER ITEM PANIER 
+	$('.panier_supp_link').click(function(info)
+		{
+		info.preventDefault();
+		var lien = $(this).attr('href');
+		$.get(lien, function(data){
+		
+			$('.panier_wrapper').html(data);
+			supp_item_panier();	
+		});
+		 
+		return false;
+	});
+ 
+}
 
 // function modif_item_panier(){
 // 	$('.modif_panier').click(function(info)
@@ -326,7 +342,8 @@ $('document').ready(function()
 	//---------------------------------------
 
 	modif_adresse();	
- 	add_item_panier()
+ 	add_item_panier();
+ 	supp_item_panier();
 	
 
 	//PRODUIT - CHAMP DE RECHERCHE POUR SUPPR PRODUITS/
@@ -406,18 +423,6 @@ $('document').ready(function()
 	});
 
 
-	// SUPPRIMER ITEM PANIER 
-	$('.panier_supp_link').click(function(info)
-		{
-		info.preventDefault();
-		var lien = $(this).data('href');
-		$.get(lien, function(data){
-			alert(data);
-			 $('.panier_wrapper').html(data);
-
-		});	  
-		return false;
-	});
 
 
 })
