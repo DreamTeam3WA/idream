@@ -1,5 +1,5 @@
 <?php
-if (isset($_GET['id_produit']) && !empty($_GET['id_produit'])){
+if (isset($_GET['id_produit']) && !empty($_GET['id_produit']) && intval($_GET['id_produit'])){
 	$id_produit = $_GET['id_produit'];
 	// $id_produit=$db->quote($id_produit);
 	$tab = $db->query("SELECT produit.id_produit, produit.id_category, produit.nom_produit, produit.description, produit.prix, produit.duree, produit.date, produit.reference, avis.id_produit, avis.id_avis, avis.note, avis.commentaires, avis.id_user, avis.date_avis, user.prenom
