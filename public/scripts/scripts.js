@@ -79,6 +79,8 @@ function add_item_panier(){
 		});
 
 }
+
+
 // function modif_item_panier(){
 // 	$('.modif_panier').click(function(info)
 // 		{
@@ -402,5 +404,20 @@ $('document').ready(function()
 		info.preventDefault();
 		return false;
 	});
+
+
+	// SUPPRIMER ITEM PANIER 
+	$('.panier_supp_link').click(function(info)
+		{
+		info.preventDefault();
+		var lien = $(this).data('href');
+		$.get(lien, function(data){
+			alert(data);
+			 $('.panier_wrapper').html(data);
+
+		});	  
+		return false;
+	});
+
 
 })
