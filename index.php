@@ -2,15 +2,7 @@
 	session_start();
 	// $_SESSION['id']=1; // a supprimer
 	
-<<<<<<< HEAD
 	require('config.php');
-=======
-
-	$db = new PDO("mysql:dbname=dreamcommerce;host=10.32.195.200", 'idream', 'troiswa');
-	/*$db = new PDO("mysql:dbname=dreamcommerce;host=127.0.0.1", 'root', 'troiswa');*/
-
-	$db->exec("SET CHARACTER SET utf8");
->>>>>>> master
 
 	require('./apps/function.php');
 	require('./models/User.class.php');
@@ -55,4 +47,6 @@ else
 	// }
 
 	require('./views/skel.phtml');}
+
+print_r($_SESSION);
 ?>
