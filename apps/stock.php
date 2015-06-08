@@ -1,13 +1,13 @@
 <?php 
 $stock = $db->query("SELECT id_stock, id_produit, duree, quantity, virtual_quantity from stock")->fetchAll(PDO::FETCH_ASSOC);
 
-var_dump($stock);
+// var_dump($stock);
 
 
 $virtual_quantity = $db->query("SELECT virtual_quantity from stock")->fetchall(PDO::FETCH_ASSOC);
 $id_test = $db->query("SELECT id_produit from stock")->fetchall(PDO::FETCH_ASSOC);
 $duree_test = $db->query("SELECT duree from stock")->fetchall(PDO::FETCH_ASSOC);
-var_dump($virtual_quantity);
+// var_dump($virtual_quantity);
 
 
 
@@ -33,8 +33,8 @@ if (isset($_SESSION['panier']) && !empty($_SESSION['panier']))
 		}
 	}
 }
-var_dump($_POST);
-var_dump($stock);
+// var_dump($_POST);
+// var_dump($stock);
 
 
 
