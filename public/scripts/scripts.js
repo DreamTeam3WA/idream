@@ -79,6 +79,8 @@ function add_item_panier(){
 		});
 
 }
+
+
 // function modif_item_panier(){
 // 	$('.modif_panier').click(function(info)
 // 		{
@@ -272,10 +274,12 @@ $('document').ready(function()
 					$('#result_search').append(data);
 					$('.resultat_search p').click(function(){
 							var id = $(this).data('id');
+							var id_category = $(this).data('category');
 							$.get("index.php?ajax=produit_modif&id_produit="+id, function(data)
 							{
 								if (data != ""){
 								$('.actualisation_produit').html(data);
+								$('#category_modif option[value="'+id_category+'"]').prop('selected', true);
 							}
 							})
 					})
@@ -387,10 +391,12 @@ $('document').ready(function()
 					$('#result_user_search').append(data);
 					$('.resultat_search p').click(function(){
 							var id = $(this).data('id');
+							var droits = $(this).data('droits');
 							$.get("index.php?ajax=admin_user_modif_affich&id_user="+id, function(data)
 							{
 								if (data != ""){
 								$('.actualisation_user').html(data);
+								$('#droits option[value="'+droits+'"]').prop('selected', true);
 							}
 							})
 					})
@@ -402,5 +408,20 @@ $('document').ready(function()
 		info.preventDefault();
 		return false;
 	});
+
+
+	// SUPPRIMER ITEM PANIER 
+	$('.panier_supp_link').click(function(info)
+		{
+		info.preventDefault();
+		var lien = $(this).data('href');
+		$.get(lien, function(data){
+			alert(data);
+			 $('.panier_wrapper').html(data);
+
+		});	  
+		return false;
+	});
+
 
 })

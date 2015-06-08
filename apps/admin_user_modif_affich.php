@@ -11,7 +11,7 @@ if (isset($_GET['id_user'])) {
 		$email = $tab['email'];
 		$telephone = $tab['telephone'];
 		$droits = $tab['droits'];
-		require('./views/admin_user_modif_affich.phtml');
+		require('./apps/user_admin_modif.php');
 	}
 	else {
 		$erreur = "Erreur lecture base de données";
@@ -29,6 +29,6 @@ else {
 	$telephone = "L'utilisateur n'est pas renseigné";
 	$droits = "L'utilisateur n'est pas renseigné";
 	$id_produit=0;
-	require('./views/admin_user_modif_affich.phtml');
+	require('./apps/user_admin_modif.php');
 }
 ?>
