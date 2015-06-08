@@ -165,7 +165,8 @@ body {
 	box-shadow: 4px 4px 1px rgba(128, 128, 128, 0.8);
 }
 .quant_panier input{
-	width: 20px;
+	width: 40px;
+	text-align: center;
 }
 .creer_compte {
 	background: #DE0E4D;

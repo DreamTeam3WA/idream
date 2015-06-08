@@ -14,10 +14,10 @@
 			</select>
 		</div>
 		<div class="col-sm-1 quant_panier"><input type="number" name="quantity" id="mp_quantity<?=$i?>" value="<?=$quantity?>"></div>
-		<div class="col-sm-2">Prix unitaire : <br><?=$prix?> €</div>
-		<div class="col-sm-2">Total : <br><?=$prix_total?> €
-		</div>
+		<div class="col-sm-2"><?=$prix?> €</div>
+		<div class="col-sm-2"><?=$prix_total?> €</div>
 		<input type="hidden" name="panier_item_id" value="<?=$i?>">
+		<input type="hidden" name="id_produit" value="<?=$id_produit?>">
 	</form>
 </div>
 

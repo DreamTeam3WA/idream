@@ -55,8 +55,7 @@ else if (isset($_GET['edit'], $_POST['id_produit'], $_POST['duree'], $_POST['qua
 
 }
 else{
-   $erreur = "Erreur du panier";
-   require('.views/erreur.phtml');
+   require('views/panier.phtml');
 }
 // // VERROUILLAGE DU PANIER POUR ACTE D'ACHAT
 // function isVerrouille()
