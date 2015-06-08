@@ -1,0 +1,39 @@
+<div class="actualisation_user">
+	<form method="POST" action="" id="usera">
+	<div class="entete_user_add">
+		<p>Modifier l'utilisateur</p>
+	</div>
+	<div class="label_input col-md-3">
+		<label for="nom">Nom :</label>
+		<input id="nom" name="nom" type="text" placeholder="Entrez le nom" value="<?=$nom?>">
+	</div>
+	<div class="label_input col-md-3">
+		<label for="category_modif">Prénom</label>
+		<input type="text" id="prenom" name="prenom"value="<?=$prenom?>">
+	</div>
+	<div class="label_input col-md-3 ">
+		<label for="email">Email :</label>
+		<input id="email" value="<?=$email?>"name="email" type="text" placeholder="Entrez l'email utilisateur'">
+	</div>
+	<div class="label_input col-md-3">
+		<label for="telephone">Télephone :</label>
+		<input id="telephone" value="<?=$telephone?>"name="telephone" type="text" placeholder="Entrez le telephone utilisateur">
+	</div>
+	<div class="label_input_ligne col-md-6">
+		<label for="droits">Droits : </label>
+		<select name="droits" id="droits" >
+				<option value="1">SuperAdmin</option>
+				<option value="2">Admin</option>
+				<option value="3">User</option>
+			</select>
+	</div>
+	<input type="hidden" value="<?=$id_user?>" name="id_user">
+	<input type="hidden" value="user_modif_submit" name="action">
+	<button id="submit_modif_user"class="panier col-md-12" type="submit">MODIFIER</button>
+</form>
+<form action="">
+	<div class="entete_user_add">
+		<p>Supprimer l'utilisateur</p>
+	</div>
+</form>
+</div>
