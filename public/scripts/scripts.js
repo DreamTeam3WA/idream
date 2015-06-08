@@ -35,10 +35,60 @@ function modif_adresse(){
 					 "ligne2" : ligne2,
 					 "code" : code,
 					 "ville" : ville,
-					 "pays" : pays,
+					 "pays" : pays
 					}, function(data)
 					 {					 	
 					 	$('#modif_adresse').html(data);
+						modif_adresse();
+						add_adresse();		 	
+					 	}); 
+			return false;
+			});
+		});	  
+		return false;
+	});
+}
+
+function add_adresse(){
+	//---------------------------------------
+	//AJAX AJOUT ADRESSES
+	//---------------------------------------
+
+	$('#add_adresse').click(function(info)
+		{
+		info.preventDefault();
+		var id_user = $(this).data('user');
+		$.get('index.php?ajax=user_adresse_add&id_user='+id_user, function(data){
+
+			$('#modif_adresse').html(data);
+
+			$('#form_adresse_add').submit(function(info)
+			{
+				info.preventDefault();
+				nom_adresse = $(this).find('.add_nom_adresse').val();
+				prenom_adresse = $(this).find('.add_prenom_adresse').val();
+				action = $(this).find('.add_action').val();
+				ligne1 = $(this).find('.add_ligne1').val();
+				ligne2 = $(this).find('.add_ligne2').val();
+				code = $(this).find('.add_code').val();
+				ville = $(this).find('.add_ville').val();
+				pays = $(this).find('.add_pays').val();
+				
+					
+				$.post($(this).attr('action'),
+					{"action": action,
+					 "nom_adresse": nom_adresse,
+					 "prenom_adresse": prenom_adresse,
+					 "ligne1" : ligne1,
+					 "ligne2" : ligne2,
+					 "code" : code,
+					 "ville" : ville,
+					 "pays" : pays,
+					 "id_user" : id_user
+					}, function(data)
+					 {					 	
+					 	$('#modif_adresse').html(data);
+						add_adresse();		 	
 						modif_adresse();		 	
 					 	}); 
 			return false;
@@ -351,7 +401,7 @@ $('document').ready(function()
 	//---------------------------------------
 	//RAPPEL DES FONCTIONS DECLAREES EN DEBUT DE SCRIPT
 	//---------------------------------------
-
+	add_adresse();
 	modif_adresse();	
  	add_item_panier();
  	supp_item_panier();
