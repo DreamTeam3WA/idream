@@ -26,6 +26,7 @@ if (isset($_GET['add'], $_POST['id_produit'], $_POST['duree'], $_POST['quantity'
 }
 else if (isset($_GET['delete'], $_GET['id_produit'], $_GET['duree']))
 {
+   var_dump($_SESSION['panier']);
    $tmp = array();
    $i = 0;
    while (isset($_SESSION['panier'][$i]))
@@ -35,6 +36,7 @@ else if (isset($_GET['delete'], $_GET['id_produit'], $_GET['duree']))
       $i++;
    }
    $_SESSION['panier'] = $tmp;
+   var_dump($_SESSION['panier']);
    require('apps/panier_liste.php');
 
 }
