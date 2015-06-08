@@ -16,5 +16,6 @@
 						require('./views/erreur.phtml');
 					}
 				}
+?>
 
 

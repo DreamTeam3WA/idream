@@ -40,7 +40,9 @@ else if (isset($_GET['delete'], $_GET['id_produit'], $_GET['duree']))
    require('apps/panier_liste.php');
 
 }
+
 else if (isset($_GET['edit'], $_POST['id_produit'], $_POST['duree'], $_POST['quantity']))
+
 {
    $i = 0;
    while (isset($_SESSION['panier'][$i]))

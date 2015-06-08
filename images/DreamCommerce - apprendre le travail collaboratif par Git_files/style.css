@@ -1,9 +1,6 @@
 html {
 	height: 100%;
 }
-a {
-	outline: none;
-}
 body {
 	background: url(../../images/fond.jpg);
 	position: relative;
@@ -44,26 +41,6 @@ body {
 		padding: 0;
 }
 
-.search_site {
-	margin-top: 0!important;
-	/*width: 1170px;*/
-}
-
-.search_site .label-input {
-	/*text-align: center;*/
-	/*margin: 0 10%;*/
-}
-.input_search_site {
-	border: none;
-	border-bottom: 1px dashed rgba(128, 128, 128, 0.5);
-	padding: 5px 5px;
-	background: #D3D2C6;
-}
-/*ADMIN */
-.admin {
-	background: rgba(181,181,181,0.2);
-}
-
 /*LOGIN--PROFIL*/
 
 .login {
@@ -96,21 +73,6 @@ body {
 	padding: 5px 5px;
 	text-align: center;
 }
-.panier_wrapper{
-	position: fixed;
-	display: none;
-	top: 300px;
-	right: 5%;
-	left:5%;
-	bottom: 0;
-	z-index: 11000;
-	overflow-y: scroll;
-	background: #fff;
-	padding: 10px;
-}
-
-
-
 .panier {
 	background: #DE0E4D;
 	border: 1px solid #DE0E4D;
@@ -246,25 +208,21 @@ body {
 #result_search {
  	padding: 20px;
  }
- .resultat_search, .resultat_search_site {
+ .resultat_search {
  	background: #D5D3C8;
  	margin: 0;
  	padding: 10px;
  	border-bottom: 1px solid black;
  }
 
- .resultat_search p, .resultat_search_site p {
+ .resultat_search p {
  	margin: 0;
  	cursor: pointer;
  }
-  .resultat_search p:hover, .resultat_search_site p:hover {
+  .resultat_search p:hover {
   	color: #DE0E4D;
   }
-.resultat_search_site a {
-	text-decoration: none;
-	color: #333333;
-	outline: none;
-}
+
 /*CATEGORY LISTE*/
 .category_liste {
 	background: rgba(181,181,181,0.2);
@@ -302,6 +260,11 @@ body {
 
 .category_liste h3 span {
 	font-size: 15px;
+}
+
+/*ADMIN */
+.admin {
+	background: rgba(181,181,181,0.2);
 }
 /*PRODUIT SINGLE */
 .produit {
@@ -372,54 +335,6 @@ body {
 	padding-right: 20px; 
 }
 
-.suppr {
-	display: none;
-}
-.commentaire {
-	background: #B9B9B7;
-	margin: 0 20px;
-	padding: 0 0 10px;
-	border-radius: 5px;
-	box-shadow: 3px 3px 0px rgba(128, 128, 128, 1);
-}
-.commentaire_single {
-	margin: none;
-	padding: 0 10px 40px;
-	border-bottom: 1px dashed rgba(128, 128, 128, 1);
-}
-.commentaire .add_commentaire {
-	color: white;
-	text-align: center;
-	text-transform: uppercase;
-	letter-spacing: 0.2em;
-	background: rgba(128, 128, 128, 1);
-	border: none;
-	border-radius: 5px 5px 0 0;
-	width: 100%;
-	margin-bottom: 10px;
-
-}
-.commentaire .add_commentaire:hover {
-	background: rgba(128, 128, 128, 0.5);
-}
-.commentaire_single h2 {
-	font-size: 11px;
-	font-style: italic;
-	}
-.user_commentaire {
-	font-style: normal;
-	font-size: 14px;
-	background: #F1EFE0;
-	padding: 1px 3px;
-	border-radius: 2px;
-}
-.note {
-	font-weight: bold;
-	font-size: 13px;
-}
-.commentaire_single p {
-	margin: 0;
-}
 /*FOOTER*/
 .wrap {
 	min-height: 73%;
@@ -465,7 +380,7 @@ body {
 }
 
 .flaticon a:hover i::before {
-	color: #DE0E4D;
+	color: #EF4036;
 	text-align: center;
 }
 

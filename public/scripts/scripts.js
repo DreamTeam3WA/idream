@@ -376,6 +376,29 @@ $('document').ready(function()
 				}
 			})
 	});
+	$('#autosearch4').keyup(function(){
+		search=$('#autosearch4').val();
+		action = $('#user_select').find('#produit_search').val();
+		$.post($(this).parents('form').attr('action'),
+			{"action":action,
+			  "nom":search
+			}, function(data)
+			{
+				$('#result_user_search').empty();
+				if (data != ""){
+					$('#result_user_search').append(data);
+					$('.resultat_search p').click(function(){
+							var id = $(this).data('id');
+							$.get("index.php?ajax=admin_user_modif_affich&id_user="+id, function(data)
+							{
+								if (data != ""){
+								$('.actualisation_user').html(data);
+							}
+							})
+					})
+				}
+			})
+	});
 	$('#produit_select').submit(function(info)
 		{
 		info.preventDefault();
