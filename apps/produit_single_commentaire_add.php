@@ -1,4 +1,5 @@
 <?php
+if (droits() == 1 || droits() == 2 || droits() == 3){
 if (isset($_POST['action']) && $_POST['action']=="commentaire_add"){ 
 	if(isset($_SESSION['id_user']) && !empty($_SESSION['id_user']) && isset($_POST['note']) && !empty($_POST['note'])){
 			$id_user = $db->quote($_SESSION['id_user']);
@@ -15,6 +16,11 @@ if (isset($_POST['action']) && $_POST['action']=="commentaire_add"){
 }
 else {
 	$erreur="Le formulaire n'a pas était trouvé";
+	require('./views/erreur.phtml');
+}
+}
+else {
+	$erreur="Il faut être inscrit";
 	require('./views/erreur.phtml');
 }
 // else if (droits() == 1 || droits() == 2 || droits() == 3){
