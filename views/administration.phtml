@@ -1,14 +1,12 @@
 <div class="admin">
 	<form action="index.php?ajax=user_search_site" method="POST" class="search_site" id="user_select">
 		<div class="label-input col-md-12">
-			<input class="input_search_site col-md-12"placeholder="Chercher un produit"type="text" name="nom" id="autosearch4" autocomplete="off">
+			<input class="input_search_site col-md-12"placeholder="Chercher un utilisateur"type="text" name="nom" id="autosearch4" autocomplete="off">
 		</div>
 		<input type="hidden" id="produit_search">
 		<div class="col-md-12" id="result_user_search"></div>
 	</form>	
-	<form action="">
-		<h2>Modification utilisateur</h2>
-
+	<?php require('./apps/admin_user_modif_affich.php') ;?>
 	</form>
 	<form action="">
 		<h2>Suppresion utilisateur</h2>
