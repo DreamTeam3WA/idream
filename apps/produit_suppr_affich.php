@@ -2,9 +2,10 @@
 if (isset($_GET['id_produit']))
 {
 	$id_produit=$_GET['id_produit'];
+	$id_category=8;
 		if (droits() == 1 || droits() == 2)
 		{
-			$db->exec("DELETE FROM produit WHERE id_produit=".$id_produit);
+			$db->exec("UPDATE produit SET id_category=".$db->quote($id_category)." WHERE id_produit=".$id_produit);
 
 			$erreur="Le produit a été supprimé";
 			require('./views/erreur.phtml');

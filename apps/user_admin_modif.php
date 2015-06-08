@@ -13,11 +13,17 @@ if (droits() == 1 || droits() == 2){
 				$erreur="L'user ".$nom." a été modifié !";
 				require('./views/erreur.phtml');
 		}
-		else {
-			$erreur="Le formulaire est incomplet !";
-			require('./views/erreur.phtml');
-			}
 	}
+	// 	if (isset($_POST['action']) && $_POST['action']=="user_suppr_submit"){ 
+	// 	if(isset($_POST['id_user']) && !empty($_POST['id_user'])){
+	// 				$id_user =$_POST['id_user'];
+	// 				$droits=4;
+	// 				$db-> exec("UPDATE user SET droits=".$db->quote($droits)." WHERE id_user=".$db->quote($id_user));
+				
+	// 			$erreur="Le profil a été archivé !";
+	// 			require('./views/erreur.phtml');
+	// 	}
+	// }
 	require('./views/admin_user_modif_affich.phtml');
 }
 else {
