@@ -26,7 +26,7 @@ if (isset($_SESSION['panier']) && !empty($_SESSION['panier']))
 			else
 			{
 				$erreur="Desolé nous n'avons pas assez de produits en stock";
-				require('./views/erreur.phtml')
+				require('./views/erreur.phtml');
 			}
 		}
 	}
