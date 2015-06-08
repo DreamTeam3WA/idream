@@ -25,15 +25,20 @@
 				<option value="1">SuperAdmin</option>
 				<option value="2">Admin</option>
 				<option value="3">User</option>
+				<option value="4">Archivé</option>
+				<option value="5">Bannit</option>
 			</select>
 	</div>
 	<input type="hidden" value="<?=$id_user?>" name="id_user">
 	<input type="hidden" value="user_modif_submit" name="action">
 	<button id="submit_modif_user"class="panier col-md-12" type="submit">MODIFIER</button>
 </form>
-<form action="">
+<!-- <form method="POST" action="">
 	<div class="entete_user_add">
-		<p>Supprimer l'utilisateur</p>
+		<p>Supprimer l'utilisateur <?=$nom?> ?</p>
 	</div>
-</form>
+	<input type="hidden" value="<?=$id_user?>" name="id_user">
+	<input type="hidden" value="user_suppr_submit" name="action"> 
+	<button class="panier col-md-12">SUPPRIMER UTILISATEUR</button>
+</form> -->
 </div>
