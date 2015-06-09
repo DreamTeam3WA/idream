@@ -13,12 +13,13 @@ if (isset($USER)){
          if ($tab[$i]['id_produit'] == $_POST['id_produit'] && $tab[$i]['duree_panier'] == $_POST['duree'] ){
             $tab[$i]['quantity'] += $_POST['quantity'];
             $id_produit= $_POST['id_produit'];
+            $duree= $db->quote($_POST['duree']);
             $quantity = $db->quote($tab[$i]['quantity']);
             $id_panier = $db->quote($tab[$i]['id_panier']);
             $added = true;
             $db-> exec("UPDATE panier SET quantity=".$quantity." WHERE id_panier=".$id_panier );
             $quantity_actualiser = $tab[$i]['virtual_quantity']-$_POST['quantity'];
-            $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit);
+            $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
          }
          $i++;
       }
@@ -27,8 +28,8 @@ if (isset($USER)){
          $id_produit = $db->quote($_POST['id_produit']);
          $duree = $db->quote($_POST['duree']);
          $db-> exec("INSERT INTO panier SET id_user=".$id_user.", id_produit=".$id_produit.", duree_panier=".$duree.", quantity=".$quantity );
-         $quantity_actualiser = $tab[$i]['virtual_quantity']-$_POST['quantity'];
-            $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit);
+         // $quantity_actualiser = $tab[$i]['virtual_quantity']-$_POST['quantity'];
+         //    $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit);
       }
       require('apps/panier_liste.php');
    }
