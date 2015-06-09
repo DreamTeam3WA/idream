@@ -24,4 +24,18 @@ function droits()
         return $text;
     
 	}
+function verifstock($id_produit, $duree)
+{
+	$db = new PDO("mysql:dbname=dreamcommerce;host=10.32.195.200", 'idream', 'troiswa');
+	$db->exec("SET CHARACTER SET utf8");
+	$verif = $db->query("SELECT * FROM stock WHERE id_produit=".$id_produit." AND duree=".$duree)->fetch(PDO::FETCH_ASSOC);
+	$stock= $verif['virtual_quantity'];
+	if ($stock>0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
 ?>

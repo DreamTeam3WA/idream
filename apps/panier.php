@@ -22,8 +22,14 @@ if (isset($USER)){
             $db-> exec("UPDATE panier SET quantity=".$quantity." WHERE id_panier=".$id_panier );
 
             $quantity_actualiser = $tab[$i]['virtual_quantity']-$_POST['quantity'];
-
+            if(verifstock($id_produit, $duree)== true)
+            {
             $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
+            }
+            else {
+               $erreur="Il n'y a plus de stock disponible";
+               require('./views/erreur.phtml');
+            }
          }
          $i++;
       }
@@ -36,8 +42,14 @@ if (isset($USER)){
          $tab2 = $db->query("SELECT virtual_quantity FROM stock 
          WHERE id_produit =".$id_produit." AND duree=".$duree)->fetch(PDO::FETCH_ASSOC);
          $quantity_actualiser = $tab2['virtual_quantity']-$_POST['quantity'];
-
+          if(verifstock($id_produit, $duree)== true)
+            {
             $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
+            }
+            else {
+               $erreur="Il n'y a plus de stock disponible";
+               require('./views/erreur.phtml');
+            }
       }
       require('apps/panier_liste.php');
    }
@@ -53,8 +65,14 @@ if (isset($USER)){
       $tab2 = $db->query("SELECT virtual_quantity FROM stock 
          WHERE id_produit =".$id_produit." AND duree=".$duree)->fetch(PDO::FETCH_ASSOC);
       $quantity_actualiser = $tab2['virtual_quantity']+$_GET['quantity'];
-
-      $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree." AND id_user=".$id_user);
+      if(verifstock($id_produit, $duree)== true)
+            {
+      $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
+      }
+            else {
+               $erreur="Il n'y a plus de stock disponible";
+               require('./views/erreur.phtml');
+            }
 
       require('apps/panier_liste.php');
 
@@ -79,8 +97,14 @@ if (isset($USER)){
             $tab2 = $db->query("SELECT virtual_quantity FROM stock WHERE id_produit =".$id_produit." AND duree=".$duree)->fetch(PDO::FETCH_ASSOC);
             $quantity_result = $quantity_old - $quantity;
             $quantity_actualiser = $tab2['virtual_quantity']+ $quantity_result;
-            var_dump($quantity_actualiser);
+            if(verifstock($id_produit, $duree)== true)
+            {
             $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
+            }
+            else {
+               $erreur="Il n'y a plus de stock disponible";
+               require('./views/erreur.phtml');
+            }
 
 
 
@@ -118,8 +142,14 @@ else{ // SI UTILISATEUR NON ENREGISTRE
             $db-> exec("UPDATE panier SET quantity=".$quantity." WHERE id_panier=".$id_panier );
 
             $quantity_actualiser = $tab[$i]['virtual_quantity']-$_POST['quantity'];
-
+            if(verifstock($id_produit, $duree)== true)
+            {
             $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
+            }
+            else {
+               $erreur="Il n'y a plus de stock disponible";
+               require('./views/erreur.phtml');
+            }
          }
          $i++;
       }
