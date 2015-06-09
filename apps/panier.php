@@ -101,6 +101,9 @@ else{ // SI UTILISATEUR NON ENREGISTRE
    if (!isset($_SESSION['panier']))
       $_SESSION['panier'] = array();
 
+   $tab = $db->query("SELECT * FROM stock")->fetchAll(PDO::FETCH_ASSOC);
+
+
    if (isset($_GET['add'], $_POST['id_produit'], $_POST['duree'], $_POST['quantity']))
    {
       // var_dump($_POST);
@@ -112,6 +115,12 @@ else{ // SI UTILISATEUR NON ENREGISTRE
          if ($_SESSION['panier'][$i]['id_produit'] == $_POST['id_produit'] && $_SESSION['panier'][$i]['duree'] == $_POST['duree'] ){
             $_SESSION['panier'][$i]['quantity'] += $_POST['quantity'];
             $added = true;
+
+            $db-> exec("UPDATE panier SET quantity=".$quantity." WHERE id_panier=".$id_panier );
+
+            $quantity_actualiser = $tab[$i]['virtual_quantity']-$_POST['quantity'];
+
+            $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
          }
          $i++;
       }
