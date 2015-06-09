@@ -196,7 +196,7 @@ $('document').ready(function()
 		$('.inscription').css('display',"none");
 		$('.panier_wrapper').css('display',"none");
 	})
-	$('.panier, .fermer_panier').click(function(){
+	$('.panier, .fermer_panier, #close_panier').click(function(){
 		$('.panier_wrapper').toggle(500);
 		$('.inscription').css('display',"none");
 		$('.connection').css('display',"none");
@@ -473,7 +473,16 @@ $('document').ready(function()
 		info.preventDefault();
 		return false;
 	});
-	
+	$('#produit_select_site').submit(function(info)
+		{
+		info.preventDefault();
+		return false;
+	});
+	$('#user_select').submit(function(info)
+		{
+		info.preventDefault();
+		return false;
+	});
 	$('.modif_panier').submit(function(info)
 		{
 		info.preventDefault();
