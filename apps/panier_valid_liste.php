@@ -1,7 +1,7 @@
 <?php 
 
 if (isset($USER)){
-
+   $prix_total_panier=0;
    $id_user = $db->quote($USER->getId());
    $tab = $db->query("SELECT * FROM panier
       JOIN produit ON produit.id_produit = panier.id_produit
