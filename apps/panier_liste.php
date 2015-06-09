@@ -49,10 +49,10 @@ require('./apps/panier_footer.php');
 
 // STOCK //
 $virtual_tmp=0;
-$stock = $db->query("SELECT id_stock, id_produit, duree, quantity, virtual_quantity from stock")->fetchAll(PDO::FETCH_ASSOC);
-$init_quantity = $stock[0]['quantity'];
+$stock = $db->query("SELECT id_stock, id_produit, duree, quantity_stock, virtual_quantity FROM stock")->fetchAll(PDO::FETCH_ASSOC);
+$init_quantity = $stock[0]['quantity_stock'];
 
-$virtual_quantity = $db->query("SELECT quantity from stock")->fetchall(PDO::FETCH_ASSOC);
+$virtual_quantity = $db->query("SELECT quantity_stock from stock")->fetchall(PDO::FETCH_ASSOC);
 $id_test = $db->query("SELECT id_produit from stock")->fetchall(PDO::FETCH_ASSOC);
 $duree_test = $db->query("SELECT duree from stock")->fetchall(PDO::FETCH_ASSOC);
 
@@ -66,16 +66,20 @@ if (isset($_SESSION['panier']) && !empty($_SESSION['panier']))
          $virtual_tmp = $init_quantity - $quantity;
 
 
-         $virtual_tmp= $db->quote($virtual_tmp);
-         $db->exec("UPDATE stock SET virtual_quantity=".$virtual_tmp." WHERE id_produit=".$id_produit." AND duree=".$duree);
-         var_dump($init_quantity, $virtual_tmp, $quantity);
+         $virtual= $db->quote($virtual_tmp);
+         $db->exec("UPDATE stock SET virtual_quantity=".$virtual." WHERE id_produit=".$id_produit." AND duree=".$duree);
+         var_dump($init_quantity, $virtual, $quantity);
+         if ($quantity==0)
+         {
+            $virtual_tmp = $virtual_tmp;
+         }
+
       }
       else
       {
          $erreur="Desolé nous n'avons pas assez de produits en stock";
          require('./views/erreur.phtml');
       }
-
    }
 }
       // $quantity_tmp= $db->quote($quantity]);

@@ -1,6 +1,6 @@
 <?php 
 
-$stock = $db->query("SELECT id_stock, id_produit, duree, quantity, virtual_quantity from stock")->fetchAll(PDO::FETCH_ASSOC);
+$stock = $db->query("SELECT id_stock, id_produit, duree, quantity_stock, virtual_quantity from stock")->fetchAll(PDO::FETCH_ASSOC);
 
 
 $virtual_quantity = $db->query("SELECT virtual_quantity from stock")->fetchall(PDO::FETCH_ASSOC);

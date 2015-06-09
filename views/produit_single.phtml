@@ -9,7 +9,7 @@
 			<div class="produit_descr col-md-7">
 				<h2><?=$nom_produit?></h2>
 				<p>Référence produit : <?=$reference?></p><p>Date mise en ligne produit : <?=$date?></p>
-				<p>Produits actuellement en stock : <?php require "./apps/stock.php" ?></p>
+				<p>Produits actuellement en stock : <?=htmlentities($virtual_tmp)?></p> 
 				<label for="dur_produit">Durée du produit :</label> 
 				<select name="duree" id="dur_produit">
 					<option value="<?=$duree?>"><?=$duree?> min</option>
