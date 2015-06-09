@@ -49,5 +49,5 @@ else
 
 	require('./views/skel.phtml');}
 
-print_r($_SESSION);
+
 ?>
