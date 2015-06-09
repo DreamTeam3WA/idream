@@ -196,7 +196,7 @@ $('document').ready(function()
 		$('.inscription').css('display',"none");
 		$('.panier_wrapper').css('display',"none");
 	})
-	$('.panier, .fermer_panier').click(function(){
+	$('.panier, .fermer_panier, #close_panier').click(function(){
 		$('.panier_wrapper').toggle(500);
 		$('.inscription').css('display',"none");
 		$('.connection').css('display',"none");
