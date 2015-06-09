@@ -33,7 +33,7 @@ if (isset($USER) && isset($_POST['id_adresse']) && !empty($_POST['id_adresse']))
    require('./views/erreur.phtml');
 }
 else {
-   $erreur = "Erreur dans la commande !!";
+   $erreur = "Erreur dans la commande !! Vous devez enregistrer une adresse dans votre compte";
    require('./views/erreur.phtml');
 }
 
