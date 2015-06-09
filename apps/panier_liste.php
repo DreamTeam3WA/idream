@@ -45,6 +45,6 @@ else{
       $i++;
    }
 }
-require('./views/panier_footer.phtml');
+require('./apps/panier_footer.php');
 
  ?>
