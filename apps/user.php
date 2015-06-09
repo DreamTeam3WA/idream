@@ -7,7 +7,7 @@ if (isset($_GET['id_user']) && !empty($_GET['id_user']) && intval($_GET['id_user
 	$user = $db->query("SELECT * FROM user
 	WHERE id_user =".$id_user)->fetchObject('User');
 
-	if ($user && ($USER->isAdmin() || $USER->isSuperAdmin() || $USER->getId() == $user->getId()) ){
+	if ($user && isset($USER) && ($USER->isAdmin() || $USER->isSuperAdmin() || $USER->getId() == $user->getId()) ){
 		
 	
 
@@ -21,7 +21,7 @@ if (isset($_GET['id_user']) && !empty($_GET['id_user']) && intval($_GET['id_user
 	}
 }
 else {
-		$erreur = "Vous n'avez pas les droits pour afficher cette page !";
+		$erreur = "Ce profil existe pas !";
 		require('./views/erreur.phtml');
 	}
 ?>
