@@ -23,7 +23,7 @@
 </div>
 <div class="col-md-12">
 	<div class="user_adresse row">
-		<h3>Vos adresses</h3>
+		<h3>Vos adresses</h3><a data-user="<?=$user->getId();?>" id="add_adresse" href="index.php?ajax=user_adresse_add">Ajouter une adresse</a>
 		<div id="modif_adresse">
 			<?php require('apps/user_adresse.php') ?>
 		</div>

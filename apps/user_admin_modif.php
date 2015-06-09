@@ -1,5 +1,5 @@
 <?php
-if (droits() == 1 || droits() == 2){
+if (droits() == 1){
 	if (isset($_POST['action']) && $_POST['action']=="user_modif_submit"){ 
 		if(isset($_POST['nom']) && !empty($_POST['nom']) && isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['prenom']) && !empty($_POST['prenom']) && isset($_POST['telephone']) && !empty($_POST['telephone']) && isset($_POST['droits']) && !empty($_POST['droits']) && isset($_POST['id_user']) && !empty($_POST['id_user'])){
 					$id_user =$_POST['id_user'];

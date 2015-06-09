@@ -1,10 +1,11 @@
 <?php 
 $stock = $db->query("SELECT id_stock, id_produit, duree, quantity, virtual_quantity from stock")->fetchAll(PDO::FETCH_ASSOC);
 
-
 $virtual_quantity = $db->query("SELECT virtual_quantity from stock")->fetchall(PDO::FETCH_ASSOC);
 $id_test = $db->query("SELECT id_produit from stock")->fetchall(PDO::FETCH_ASSOC);
 $duree_test = $db->query("SELECT duree from stock")->fetchall(PDO::FETCH_ASSOC);
+
+
 
 
 
@@ -31,9 +32,6 @@ if (isset($_SESSION['panier']) && !empty($_SESSION['panier']))
 		}
 	}
 }
-
-
-
 
 
 // $i=0;
