@@ -17,10 +17,7 @@ if (isset($USER)){
             $id_panier = $db->quote($tab[$i]['id_panier']);
             $added = true;
             $db-> exec("UPDATE panier SET quantity=".$quantity." WHERE id_panier=".$id_panier );
-            var_dump($tab[$i]['quantity']);
-            var_dump($_POST['quantity']);
             $quantity_actualiser = $tab[$i]['virtual_quantity']-$_POST['quantity'];
-            var_dump($quantity_actualiser);
             $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit);
          }
          $i++;
@@ -30,6 +27,8 @@ if (isset($USER)){
          $id_produit = $db->quote($_POST['id_produit']);
          $duree = $db->quote($_POST['duree']);
          $db-> exec("INSERT INTO panier SET id_user=".$id_user.", id_produit=".$id_produit.", duree_panier=".$duree.", quantity=".$quantity );
+         $quantity_actualiser = $tab[$i]['virtual_quantity']-$_POST['quantity'];
+            $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit);
       }
       require('apps/panier_liste.php');
    }
