@@ -164,8 +164,6 @@ body {
 .entete_user_add p {
 	margin: 0;
 }
-
-
 .mdp_oubli {
 	font-size: 12px;
 	font-style: italic;
@@ -222,7 +220,29 @@ body {
 	width: 144px;
 	font-size: 12px;
 }
-
+.design_adresse p, .user_single p {
+	line-height: 1.1em;
+    background: #D3D2C6;
+    border: 1px solid #B7B7B5;
+    border-radius: 5px;
+    padding: 3px;
+}
+.design_adresse label, .infos, .modif_user label {
+	font-size: 12px;
+	letter-spacing: 0.1em;
+	line-height: 0.1em;
+	font-weight: normal;
+	text-transform: uppercase;
+	width: 150px;
+}
+.design_adresse input, .modif_user input {
+	font-size: 12px;
+	display: block;
+	background: #B7B7B5;
+	border: none;
+	width: 100%;
+	padding: 1 4px;
+}
 .produit_add input, .produit_add select {
 	width: 100%;
 }
