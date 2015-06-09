@@ -220,7 +220,7 @@ body {
 	width: 144px;
 	font-size: 12px;
 }
-.design_adresse p, .user_single p {
+.design_adresse_validation, .design_adresse p, .user_single p {
 	line-height: 1.1em;
     background: #D3D2C6;
     border: 1px solid #B7B7B5;
@@ -394,7 +394,9 @@ body {
 	font-size: 10px;
 	text-align: justify;
 }
-.footer_panier .col-sm-4 button {
+.footer_panier .col-sm-4 a {
+	display: block;
+	text-align: center;
 	background: rgba(222, 14 ,77, 1);
 	border: 1px solid #DE0E4D;
 	color: white;
@@ -553,7 +555,7 @@ body {
 
 .produit_prix, .montant_panier {
 	text-align: right;
-	font-size: 50px;
+	font-size: 45px;
 	color: #DE0E4D;
 	padding-right: 20px; 
 }
