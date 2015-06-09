@@ -473,7 +473,16 @@ $('document').ready(function()
 		info.preventDefault();
 		return false;
 	});
-	
+	$('#produit_select_site').submit(function(info)
+		{
+		info.preventDefault();
+		return false;
+	});
+	$('#user_select').submit(function(info)
+		{
+		info.preventDefault();
+		return false;
+	});
 	$('.modif_panier').submit(function(info)
 		{
 		info.preventDefault();

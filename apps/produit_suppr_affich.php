@@ -21,7 +21,4 @@ else {
 			$erreur = "Vous n'avez pas les droits";
 			require('./views/erreur.phtml');
 		}
-else {
-	require('./views/home.phtml');
-}
 ?>
