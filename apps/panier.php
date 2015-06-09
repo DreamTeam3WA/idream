@@ -1,24 +1,28 @@
 <?php
 if (isset($USER)){
    $id_user = $db->quote($USER->getId());
+   
    $tab = $db->query("SELECT panier.*, stock.* FROM panier 
-   JOIN stock ON panier.id_produit = stock.id_produit
+   RIGHT JOIN stock ON panier.id_produit = stock.id_produit AND panier.duree_panier = stock.duree
    WHERE id_user =".$id_user)->fetchAll(PDO::FETCH_ASSOC);
    if (isset($_GET['add'], $_POST['id_produit'], $_POST['duree'], $_POST['quantity']))
    {
       $added = false;
       $i = 0;
       while (isset($tab[$i])){
-         
+         // var_dump($tab[$i]);
          if ($tab[$i]['id_produit'] == $_POST['id_produit'] && $tab[$i]['duree_panier'] == $_POST['duree'] ){
             $tab[$i]['quantity'] += $_POST['quantity'];
-            $id_produit= $_POST['id_produit'];
+            $id_produit= $db->quote($_POST['id_produit']);
             $duree= $db->quote($_POST['duree']);
             $quantity = $db->quote($tab[$i]['quantity']);
             $id_panier = $db->quote($tab[$i]['id_panier']);
             $added = true;
+
             $db-> exec("UPDATE panier SET quantity=".$quantity." WHERE id_panier=".$id_panier );
+
             $quantity_actualiser = $tab[$i]['virtual_quantity']-$_POST['quantity'];
+
             $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
          }
          $i++;
@@ -28,8 +32,12 @@ if (isset($USER)){
          $id_produit = $db->quote($_POST['id_produit']);
          $duree = $db->quote($_POST['duree']);
          $db-> exec("INSERT INTO panier SET id_user=".$id_user.", id_produit=".$id_produit.", duree_panier=".$duree.", quantity=".$quantity );
-         // $quantity_actualiser = $tab[$i]['virtual_quantity']-$_POST['quantity'];
-         //    $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit);
+
+         $tab2 = $db->query("SELECT virtual_quantity FROM stock 
+         WHERE id_produit =".$id_produit." AND duree=".$duree)->fetch(PDO::FETCH_ASSOC);
+         $quantity_actualiser = $tab2['virtual_quantity']-$_POST['quantity'];
+
+            $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
       }
       require('apps/panier_liste.php');
    }
@@ -37,8 +45,17 @@ if (isset($USER)){
    {
       $id_produit = $db->quote($_GET['id_produit']);
       $duree = $db->quote($_GET['duree']);
+      $quantity = $db->quote($_GET['quantity']);
 
       $db-> exec("DELETE FROM panier WHERE duree_panier=".$duree." AND id_produit=".$id_produit." AND id_user=".$id_user );
+
+
+      $tab2 = $db->query("SELECT virtual_quantity FROM stock 
+         WHERE id_produit =".$id_produit." AND duree=".$duree)->fetch(PDO::FETCH_ASSOC);
+      $quantity_actualiser = $tab2['virtual_quantity']+$_GET['quantity'];
+
+      $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
+
       require('apps/panier_liste.php');
 
    }
@@ -48,9 +65,25 @@ if (isset($USER)){
       while (isset($tab[$i]))
       {
          if ($tab[$i]['id_produit'] == $_POST['id_produit'] && $tab[$i]['duree_panier'] == $_POST['duree'] && $_POST['quantity'] > 0){
-            $quantity = $db->quote($_POST['quantity']);
+            $duree = $db->quote($_POST['duree']);
+            $id_produit = $db->quote($_POST['id_produit']);
+            $panier = $db->query("SELECT * FROM panier
+            WHERE id_produit =".$id_produit." AND duree_panier=".$duree)->fetch(PDO::FETCH_ASSOC);
+            $quantity_old = $panier['quantity'];
+
+
+            $quantity = $_POST['quantity'];
             $id_panier = $db->quote($tab[$i]['id_panier']);
-            $db-> exec("UPDATE panier SET quantity=".$quantity." WHERE id_panier=".$id_panier );
+            $db-> exec("UPDATE panier SET quantity=".($db->quote($quantity))." WHERE id_panier=".$id_panier );
+
+
+            $tab2 = $db->query("SELECT virtual_quantity FROM stock WHERE id_produit =".$id_produit." AND duree=".$duree)->fetch(PDO::FETCH_ASSOC);
+            $quantity_result =  $quantity - $quantity_old;
+            $quantity_actualiser = $tab2['virtual_quantity']- $quantity_result;
+
+            $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
+
+
 
          }
          $i++;
