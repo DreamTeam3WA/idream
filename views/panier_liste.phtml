@@ -1,10 +1,10 @@
-<div class="row">
+<div class="item_panier row">
 	<form action="index.php?ajax=panier&edit" class="modif_panier" data-id="<?=$i?>">
 		<div class="col-sm-2">
 			<a href="index.php?ajax=panier&delete&id_produit=<?=$id_produit?>&duree=<?=$duree?>" class="panier_supp_link">X</a>
 			<?=$reference?>
 		</div>
-		<div class="col-sm-4"><?=$nom_produit?></div>
+		<div class="nom_prod_panier col-sm-4"><?=$nom_produit?></div>
 		<div class="col-sm-1" data-duree="<?=$duree?>" id="mp_duree<?=$i?>"><?=$duree?> min</div>
 		<div class="col-sm-1 quant_panier">
 			<input type="number" name="quantity" class="quantity" id="mp_quantity<?=$i?>" data-id="<?=$i?>" min="1" value="<?=$quantity?>">
@@ -16,6 +16,3 @@
 		<input type="hidden" name="mp_action" id="mp_action<?=$i?>" value="update_panier">
 	</form>
 </div>
-
-
-		
