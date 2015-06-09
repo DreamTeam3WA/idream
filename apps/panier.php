@@ -1,9 +1,9 @@
 <?php
 if (isset($USER)){
    $id_user = $db->quote($USER->getId());
-   $tab = $db->query("SELECT * FROM panier
+   $tab = $db->query("SELECT panier.*, stock.* FROM panier 
+   JOIN stock ON panier.id_produit = stock.id_produit
    WHERE id_user =".$id_user)->fetchAll(PDO::FETCH_ASSOC);
-   
    if (isset($_GET['add'], $_POST['id_produit'], $_POST['duree'], $_POST['quantity']))
    {
       $added = false;
@@ -12,10 +12,16 @@ if (isset($USER)){
          
          if ($tab[$i]['id_produit'] == $_POST['id_produit'] && $tab[$i]['duree_panier'] == $_POST['duree'] ){
             $tab[$i]['quantity'] += $_POST['quantity'];
+            $id_produit= $_POST['id_produit'];
             $quantity = $db->quote($tab[$i]['quantity']);
             $id_panier = $db->quote($tab[$i]['id_panier']);
             $added = true;
             $db-> exec("UPDATE panier SET quantity=".$quantity." WHERE id_panier=".$id_panier );
+            var_dump($tab[$i]['quantity']);
+            var_dump($_POST['quantity']);
+            $quantity_actualiser = $tab[$i]['virtual_quantity']-$_POST['quantity'];
+            var_dump($quantity_actualiser);
+            $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit);
          }
          $i++;
       }

@@ -12,12 +12,27 @@
 	
 </div>
 <div class="panier_liste" id="panier_liste">
-	<?php require('apps/panier_liste.php');?> 
+	<?php require('apps/panier_valid_liste.php');?> 
+</div>
+<div class="row">
+	<div class="col-sm-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium obcaecati eligendi aliquam nostrum, ullam laudantium voluptates facere eaque voluptatibus. Adipisci ratione, eaque odit quisquam velit, quidem consequatur accusantium odio error.</div>
+	<div class="col-sm-5"></div>
+	<div class="col-sm-2">Montant du panier : <?=$prix_total_panier?> €</div>
 </div>
 
 <div class="choix_adresse">
 	<h3>Choix de l'adresse de livraison</h3>
-	<?=require('apps/panier_adresse.php');?>
+	<div class="row">
+		<form action="index.php?page=commande_valid" method="POST">
+			<?php require('apps/panier_valid_adresse.php');?>
+	</div>
+</div>
+<div class="choix_adresse">
+	<h3>Votre compte Paypal</h3>
+	<label for="compte">Login</label><input type="text" name="compte" id="compte">
+	<label for="pp_pass">Mot de passe :</label><input type="password" name="pp_pass" id="pp_pass">
+	<button>Valider ma commande</button>
+</form>
 </div>
 
 
