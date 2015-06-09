@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_GET['id_category']) && !empty($_GET['id_category'])){
+if (isset($_GET['id_category']) && !empty($_GET['id_category']) && intval($_GET['id_category'])) {
 
 	$id_category = $_GET['id_category'];
 	

@@ -21,10 +21,11 @@
 
 	$liste = array("category_list", "user","produit_single_commentaire_add", "produit_single","login","administration","produit_add", "produit_modif", "produit_suppr", "produit_modif_affich", "produit_suppr_affich");
 
+	$liste_ajax = array("user_adresse_modif", "produit_single","produit_modif", "user_modif","produit_suppr","admin_user_modif_affich","produit_search_site", "login", "user_add", "produit_search", "panier", "user_search_site", "user_adresse_add");
 
 
-if (isset($_GET['ajax']))
-{
+
+if (isset($_GET['ajax']) && !empty($_GET['ajax']) && in_array($_GET['ajax'], $liste_ajax)){
 	$page = $_GET['ajax'];
 	require('apps/'.$page.'.php');
 }

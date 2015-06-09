@@ -1,5 +1,5 @@
 <?php
-if (!empty($_GET['id_user'])){
+if (isset($_GET['id_user']) && !empty($_GET['id_user']) && intval($_GET['id_user'])){
  	$id_user = $_GET['id_user'];
 	
 	$id_user = $db->quote($id_user);
