@@ -1,8 +1,8 @@
 <?php
 if (isset($USER) && isset($_POST['id_adresse']) && !empty($_POST['id_adresse'])){
    $id_user = $db->quote($USER->getId());
-   echo('id_user');
-   var_dump($id_user);
+   //echo('id_user');
+   //var_dump($id_user);
    $id_adresse = $db->quote($_POST['id_adresse']);
    $db-> exec("INSERT INTO facture SET id_user=".$id_user);
 
@@ -29,7 +29,8 @@ if (isset($USER) && isset($_POST['id_adresse']) && !empty($_POST['id_adresse']))
    $i++;
    }
    $db-> exec("DELETE FROM panier WHERE id_user=".$id_user);
-   require ('views/commande_valid.phtml');
+   $erreur = "Votre commande a été validée !!";
+   require('./views/erreur.phtml');
 }
 else {
    $erreur = "Erreur dans la commande !!";

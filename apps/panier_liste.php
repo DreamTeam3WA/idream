@@ -47,7 +47,7 @@ else{
 }
 require('./apps/panier_footer.php');
 
-// STOCK //
+// // STOCK //
 
 $virtual_tmp=0;
 $stock = $db->query("SELECT id_stock, id_produit, duree, quantity_stock, virtual_quantity FROM stock")->fetchAll(PDO::FETCH_ASSOC);
@@ -68,7 +68,7 @@ if (isset($_SESSION['panier']) && !empty($_SESSION['panier']))
          
          $virtual= $db->quote($virtual_tmp);
          $db->exec("UPDATE stock SET virtual_quantity=".$virtual." WHERE id_produit=".$id_produit." AND duree=".$duree);
-         var_dump($init_quantity, $virtual, $quantity);
+         //var_dump($init_quantity, $virtual, $quantity);
          if ($quantity==0)
          {
             $virtual_tmp = $virtual_tmp;

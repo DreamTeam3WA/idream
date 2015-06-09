@@ -21,9 +21,9 @@ if (isset($USER)){
 
             $db-> exec("UPDATE panier SET quantity=".$quantity." WHERE id_panier=".$id_panier );
 
-            $quantity_actualiser = $tab[$i]['virtual_quantity']-$_POST['quantity'];
+            // $quantity_actualiser = $tab[$i]['virtual_quantity']-$_POST['quantity'];
 
-            $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
+            // $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
          }
          $i++;
       }
@@ -33,11 +33,11 @@ if (isset($USER)){
          $duree = $db->quote($_POST['duree']);
          $db-> exec("INSERT INTO panier SET id_user=".$id_user.", id_produit=".$id_produit.", duree_panier=".$duree.", quantity=".$quantity );
 
-         $tab2 = $db->query("SELECT virtual_quantity FROM stock 
-         WHERE id_produit =".$id_produit." AND duree=".$duree)->fetch(PDO::FETCH_ASSOC);
-         $quantity_actualiser = $tab2['virtual_quantity']-$_POST['quantity'];
+         // $tab2 = $db->query("SELECT virtual_quantity FROM stock 
+         // WHERE id_produit =".$id_produit." AND duree=".$duree)->fetch(PDO::FETCH_ASSOC);
+         // $quantity_actualiser = $tab2['virtual_quantity']-$_POST['quantity'];
 
-            $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
+         //    $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
       }
       require('apps/panier_liste.php');
    }
@@ -50,11 +50,11 @@ if (isset($USER)){
       $db-> exec("DELETE FROM panier WHERE duree_panier=".$duree." AND id_produit=".$id_produit." AND id_user=".$id_user );
 
 
-      $tab2 = $db->query("SELECT virtual_quantity FROM stock 
-         WHERE id_produit =".$id_produit." AND duree=".$duree)->fetch(PDO::FETCH_ASSOC);
-      $quantity_actualiser = $tab2['virtual_quantity']+$_GET['quantity'];
+      // $tab2 = $db->query("SELECT virtual_quantity FROM stock 
+      //    WHERE id_produit =".$id_produit." AND duree=".$duree)->fetch(PDO::FETCH_ASSOC);
+      // $quantity_actualiser = $tab2['virtual_quantity']+$_GET['quantity'];
 
-      $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
+      // $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
 
       require('apps/panier_liste.php');
 
@@ -77,11 +77,11 @@ if (isset($USER)){
             $db-> exec("UPDATE panier SET quantity=".($db->quote($quantity))." WHERE id_panier=".$id_panier );
 
 
-            $tab2 = $db->query("SELECT virtual_quantity FROM stock WHERE id_produit =".$id_produit." AND duree=".$duree)->fetch(PDO::FETCH_ASSOC);
-            $quantity_result =  $quantity - $quantity_old;
-            $quantity_actualiser = $tab2['virtual_quantity']- $quantity_result;
+            // $tab2 = $db->query("SELECT virtual_quantity FROM stock WHERE id_produit =".$id_produit." AND duree=".$duree)->fetch(PDO::FETCH_ASSOC);
+            // $quantity_result =  $quantity - $quantity_old;
+            // $quantity_actualiser = $tab2['virtual_quantity']- $quantity_result;
 
-            $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
+            // $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
 
 
 
@@ -101,7 +101,7 @@ else{ // SI UTILISATEUR NON ENREGISTRE
    if (!isset($_SESSION['panier']))
       $_SESSION['panier'] = array();
 
-   $tab = $db->query("SELECT * FROM stock")->fetchAll(PDO::FETCH_ASSOC);
+   //$tab = $db->query("SELECT * FROM stock")->fetchAll(PDO::FETCH_ASSOC);
 
 
    if (isset($_GET['add'], $_POST['id_produit'], $_POST['duree'], $_POST['quantity']))
@@ -118,9 +118,9 @@ else{ // SI UTILISATEUR NON ENREGISTRE
 
             $db-> exec("UPDATE panier SET quantity=".$quantity." WHERE id_panier=".$id_panier );
 
-            $quantity_actualiser = $tab[$i]['virtual_quantity']-$_POST['quantity'];
+            // $quantity_actualiser = $tab[$i]['virtual_quantity']-$_POST['quantity'];
 
-            $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
+            // $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
          }
          $i++;
       }
