@@ -164,8 +164,6 @@ body {
 .entete_user_add p {
 	margin: 0;
 }
-
-
 .mdp_oubli {
 	font-size: 12px;
 	font-style: italic;
@@ -222,7 +220,29 @@ body {
 	width: 144px;
 	font-size: 12px;
 }
-
+.design_adresse p, .user_single p {
+	line-height: 1.1em;
+    background: #D3D2C6;
+    border: 1px solid #B7B7B5;
+    border-radius: 5px;
+    padding: 3px;
+}
+.design_adresse label, .infos, .modif_user label {
+	font-size: 12px;
+	letter-spacing: 0.1em;
+	line-height: 0.1em;
+	font-weight: normal;
+	text-transform: uppercase;
+	width: 150px;
+}
+.design_adresse input, .modif_user input {
+	font-size: 12px;
+	display: block;
+	background: #B7B7B5;
+	border: none;
+	width: 100%;
+	padding: 1 4px;
+}
 .produit_add input, .produit_add select {
 	width: 100%;
 }
@@ -290,13 +310,13 @@ body {
 	padding: 5px 5px;
 	margin: 0;
 }
-.panier:hover {
+.panier:hover, #close_panier:hover {
 	background: rgba(222, 14 ,77, 0.9);
 }
 .panier_wrapper{
 	display: none;
 	font-size: 12px;
-	text-align: left;
+	text-align: right;
 	position: fixed;
 	top: 20%;
 	right: 15%;
@@ -309,18 +329,28 @@ body {
 	border-radius: 5px;
 	box-shadow: 4px 4px 1px rgba(128, 128, 128, 0.8);
 }
+#close_panier {
+	background: rgba(222, 14 ,77, 1);
+	border: none;
+	color: white;
+	font-weight: bold;
+	padding: 0 5px;
+}
 .header_panier {
 	text-transform: uppercase;
 	font-weight: bold;
 	letter-spacing: 0.1em;
 	border-bottom: 1px dashed rgba(128, 128, 128, 1);
 	margin-bottom: 10px;
-	padding-top: 5px;
+	padding-bottom: 5px;
 }
 .panier_liste {
 	padding-bottom: 15px;
 	position: relative;
 	height: 95%;
+}
+.ref_panier {
+	text-align: left;
 }
 .item_panier {
 	margin-bottom: 10px;
@@ -337,7 +367,8 @@ body {
 	vertical-align: top;
 }
 .nom_prod_panier {
-	font-size: 16px;
+	font-size: 15px;
+	text-align: left;
 	border-bottom: 1px dashed rgba(128, 128, 128, 0.2);
 	padding-left: 0px;
 }
@@ -351,6 +382,7 @@ body {
 .footer_panier {
 	position: absolute;
 	bottom: 0px;
+	width: 102%;
 }
 .separator_panier {
 	text-align: right;
@@ -373,6 +405,9 @@ body {
 	width: 100%;
 	padding: 10px 10px;
 	margin: 0;
+}
+.connect_panier {
+	text-align: center;
 }
 .footer_panier .col-sm-3 {
 	margin-top: -12px;
