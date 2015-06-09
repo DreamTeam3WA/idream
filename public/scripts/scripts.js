@@ -150,6 +150,11 @@ function supp_item_panier(){
 }
 
 function modif_item_panier(){
+	$('.modif_panier').submit(function(info)
+		{
+		info.preventDefault();
+		return false;
+	});
 	$('.modif_panier select.duree, .modif_panier input.quantity').change(function(){
 	var id_item_panier = $(this).data('id');
 	quantity = $('#mp_quantity'+id_item_panier).val();
@@ -182,12 +187,14 @@ $('document').ready(function()
 	$('.signup, .fermer_add_user').click(function(){
 		$('.inscription').toggle(500);
 		$('.connection').css('display',"none");
+		$('.panier_wrapper').css('display',"none");
 		$('.panier_maj').css('display',"none");
 	})
 	$('.signin, .fermer_connect').click(function(){
 		$('.connection').toggle(500);
 		$('.panier_maj').css('display',"none");
 		$('.inscription').css('display',"none");
+		$('.panier_wrapper').css('display',"none");
 	})
 	$('.panier, .fermer_panier').click(function(){
 		$('.panier_wrapper').toggle(500);
