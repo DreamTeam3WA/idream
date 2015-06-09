@@ -17,6 +17,11 @@ if (isset($USER)){
       $nom_produit = $tab[$i]['nom_produit'];
       $reference = $tab[$i]['reference'];
 
+      if(verifstock($id_produit, $duree)== false)
+            {
+               $erreur="Il n'y a plus de stock disponible";
+               require('./views/erreur.phtml');
+            }
       require('./views/panier_liste.phtml');
 
       $prix_total_panier += $prix_total;

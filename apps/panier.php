@@ -18,18 +18,16 @@ if (isset($USER)){
             $quantity = $db->quote($tab[$i]['quantity']);
             $id_panier = $db->quote($tab[$i]['id_panier']);
             $added = true;
-
+            // if ($tab[$i]['virtual_quantity']>$tab[$i]['quantity']) {
+                           
             $db-> exec("UPDATE panier SET quantity=".$quantity." WHERE id_panier=".$id_panier );
 
             $quantity_actualiser = $tab[$i]['virtual_quantity']-$_POST['quantity'];
             if(verifstock($id_produit, $duree)== true)
             {
             $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
-            }
-            else {
-               $erreur="Il n'y a plus de stock disponible";
-               require('./views/erreur.phtml');
-            }
+               }
+            // }
          }
          $i++;
       }
@@ -45,10 +43,6 @@ if (isset($USER)){
           if(verifstock($id_produit, $duree)== true)
             {
             $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
-            }
-            else {
-               $erreur="Il n'y a plus de stock disponible";
-               require('./views/erreur.phtml');
             }
       }
       require('apps/panier_liste.php');
@@ -69,10 +63,6 @@ if (isset($USER)){
             {
       $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
       }
-            else {
-               $erreur="Il n'y a plus de stock disponible";
-               require('./views/erreur.phtml');
-            }
 
       require('apps/panier_liste.php');
 
@@ -101,11 +91,6 @@ if (isset($USER)){
             {
             $db-> exec("UPDATE stock SET virtual_quantity=".($db->quote($quantity_actualiser))." WHERE id_produit=".$id_produit." AND duree=".$duree);
             }
-            else {
-               $erreur="Il n'y a plus de stock disponible";
-               require('./views/erreur.phtml');
-            }
-
 
 
          }
