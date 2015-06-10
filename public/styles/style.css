@@ -379,6 +379,23 @@ body {
 	width: 40px;
 	text-align: center;
 }
+.art {
+	color: #DE0E4D;
+	line-height: 0.1;
+	margin-bottom: 15px;
+}
+.art h3 {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 12px;
+	letter-spacing: 0.1em;
+	background: #DE0E4D;
+	color: #fff;
+	padding: 4px 2px 2px;
+}
+.art h3:before, .art h3:after {
+	content: " ▼ ";
+}
 .footer_panier {
 	position: absolute;
 	bottom: 0px;
